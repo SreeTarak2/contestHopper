@@ -12,7 +12,8 @@
 <body>
     <header class="site-header">
         <div class="header-logo">
-            <a href="index.html">Contest Hopper</a>
+            <a href="index.html">
+                Contest Hopper</a>
         </div>
 
         <nav class="main-nav" id="mainNav">
@@ -27,6 +28,7 @@
         </nav>
 
         <div class="searchbar-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search" class="searchbar">
         </div>
 
@@ -58,106 +60,111 @@
                 challenges that match your passion and skill level.</p>
             <div class="video-container">
                 <div class="image-container">
-                    <img src="../icecre\am3.jpg" alt="Hero Image" class="img1">
-                    <img src="assets/images/icecream3.jpg" alt="Hero Image" class="img2">
+                    <!-- <img src="../icecream3.jpg" alt="Image not found" class="img1"> -->
+                    <!-- <img src="../icecream3.jpg" alt="Image not found" class="img2"> -->
                 </div>
                 <div class="video">
                     <video autoplay>
-                        <source src="./" type="video/mp4">
+                        <source src="landingpa.,gevideo.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
         </section>
 
         <!--popular contests section  -->
-        <section class="popular-contest-section">
-            <div class="title-wrapper">
-                <h2 class="section-title">Popular Events Right Now</h2>
-                <p class="section-subtitle">Check out these trending events that are capturing the community's
-                    attention.
-                </p>
+        <section class="popular-contests-section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Competitions</h2>
+                <p class="section-subtitle">A dynamic showcase of the most exciting events in the developer world.</p>
             </div>
-            <div class="card-container">
-                <div class="expand-card" tabindex="0">
+
+            <div class="contest-card-container">
+                <!-- Card 1: Google Code Jam -->
+                <div class="contest-card">
                     <img class="card-background"
-                        src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=600&fit=crop"
-                        alt="Ice Cream Cone">
-                    <div class="card-preview">
-                        <h3>Sweet Delights</h3>
-                    </div>
-                    <div class="card-details">
-                        <h2>The Art of Ice Cream</h2>
-                        <div class="details-content">
-                            <div class="details-text">
-                                <p>Discover the rich history and delightful flavors of handcrafted ice cream. From
-                                    classic
-                                    vanilla to exotic fruit sorbets, every scoop tells a story of passion and quality
-                                    ingredients.</p>
-                                <p>Our process begins with fresh, locally-sourced milk and cream, ensuring a smooth and
-                                    decadent base for every creation.</p>
-                            </div>
-                            <div class="details-image">
-                                <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=600&q=80"
-                                    alt="Scoops of Ice Cream">
-                            </div>
+                        src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=800&fit=crop"
+                        alt="Coding on a laptop">
+                    <h3 class="card-title-overlay">Google Code Jam</h3>
+                    <div class="card-content-expanded">
+                        <div class="content-left">
+                            <h3>Google Code Jam</h3>
+                            <p>Google's longest-running global coding competition, challenging programmers of all levels
+                                to solve complex algorithmic puzzles against the clock. A true test of skill and
+                                ingenuity.</p>
+                            <a href="#" class="card-button">
+                                View Contest <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="content-right-image">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=800&fit=crop"
+                                alt="Coding on a laptop">
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="expand-card" tabindex="0">
+                <!-- Card 2: Meta Hacker Cup -->
+                <div class="contest-card">
                     <img class="card-background"
-                        src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=600&fit=crop"
-                        alt="Person Swimming">
-                    <div class="card-preview">
-                        <h3>Aqua Adventures</h3>
-                    </div>
-                    <div class="card-details">
-                        <h2>Dive Into a New World</h2>
-                        <div class="details-content">
-                            <div class="details-text">
-                                <p>Dive into the refreshing world of swimming and aquatic sports. Our facilities offer
-                                    the
-                                    perfect environment for both beginners and professional swimmers to hone their
-                                    skills.
-                                </p>
-                                <p>Experience state-of-the-art pools with crystal clear water, maintained at optimal
-                                    temperatures for year-round swimming. Join our community of water enthusiasts today!
-                                </p>
-                            </div>
-                            <div class="details-image">
-                                <img src="https://images.unsplash.com/photo-1557211186-53d82b415a7f?w=600&q=80"
-                                    alt="Underwater view of pool lanes">
-                            </div>
+                        src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=600&h=800&fit=crop"
+                        alt="Abstract code background">
+                    <h3 class="card-title-overlay">Meta Hacker Cup</h3>
+                    <div class="card-content-expanded">
+                        <div class="content-left">
+                            <h3>Meta Hacker Cup</h3>
+                            <p>An annual open programming competition hosted by Meta. Participants from around the world
+                                compete in a series of algorithmic challenges to win prizes and global recognition.</p>
+                            <a href="#" class="card-button">
+                                View Contest <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="content-right-image">
+                            <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=600&h=800&fit=crop"
+                                alt="Abstract code background">
                         </div>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="expand-card" tabindex="0">
+                <!-- Card 3: Hack The Box -->
+                <div class="contest-card">
                     <img class="card-background"
-                        src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=600&fit=crop"
-                        alt="Person Swimming">
-                    <div class="card-preview">
-                        <h3>Aqua Adventures</h3>
+                        src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=800&fit=crop"
+                        alt="Cybersecurity theme">
+                    <h3 class="card-title-overlay">Hack The Box</h3>
+                    <div class="card-content-expanded">
+                        <div class="content-left">
+                            <h3>Hack The Box</h3>
+                            <p>A massive online cybersecurity training platform allowing individuals and companies to
+                                level up their pen-testing skills through a series of engaging, gamified hacking
+                                challenges.</p>
+                            <a href="#" class="card-button">
+                                Start Hacking <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="content-right-image">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=800&fit=crop"
+                                alt="Cybersecurity theme">
+                        </div>
                     </div>
-                    <div class="card-details">
-                        <h2>Dive Into a New World</h2>
-                        <div class="details-content">
-                            <div class="details-text">
-                                <p>Dive into the refreshing world of swimming and aquatic sports. Our facilities offer
-                                    the
-                                    perfect environment for both beginners and professional swimmers to hone their
-                                    skills.
-                                </p>
-                                <p>Experience state-of-the-art pools with crystal clear water, maintained at optimal
-                                    temperatures for year-round swimming. Join our community of water enthusiasts today!
-                                </p>
-                            </div>
-                            <div class="details-image">
-                                <img src="https://images.unsplash.com/photo-1557211186-53d82b415a7f?w=600&q=80"
-                                    alt="Underwater view of pool lanes">
-                            </div>
+                </div>
+
+                <!-- Card 4: LeetCode Weekly -->
+                <div class="contest-card">
+                    <img class="card-background"
+                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=800&fit=crop"
+                        alt="Code on a screen">
+                    <h3 class="card-title-overlay">LeetCode Weekly</h3>
+                    <div class="card-content-expanded">
+                        <div class="content-left">
+                            <h3>LeetCode Weekly</h3>
+                            <p>Hone your skills and climb the global leaderboard. Every week brings a fresh set of
+                                challenging problems, perfect for consistent practice and interview preparation.</p>
+                            <a href="#" class="card-button">
+                                Join Now <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="content-right-image">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=800&fit=crop"
+                                alt="Code on a screen">
                         </div>
                     </div>
                 </div>
