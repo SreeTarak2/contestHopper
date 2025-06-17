@@ -10,6 +10,9 @@
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --title-color: var(--accent-glow);
+  --card-height: 450px;
+  --card-border-radius: 16px;
+  --transition-speed: 0.8s;
 }
 
 * {
@@ -86,30 +89,62 @@ body {
   transform-origin: left;
 }
 
-/* Search bar */
 .searchbar-container {
   display: flex;
   align-items: center;
   position: relative;
-  flex: 1;
   max-width: 300px;
   margin: 0 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.searchbar-container:hover {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.searchbar-container i {
+  color: white;
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.searchbar:focus + i {
+  transform: scale(1.1);
 }
 
 .searchbar {
   width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  outline: none;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1rem 0.6rem 2.5rem;
+  border: none;
+  border-radius: 16px;
+  background: transparent;
   font-size: 1rem;
   color: white;
+  transition: background 0.3s ease;
+}
+
+.searchbar:focus {
+  background: rgba(2, 2, 2, 0.15);
+  outline: none;
 }
 
 .searchbar::placeholder {
-  color: #ccc;
+  color: #ddd;
+  transition: color 0.3s;
 }
+
+.searchbar:focus::placeholder {
+  color: #aaa;
+}
+
 
 /* Sign in button */
 .signin-btn {
@@ -333,6 +368,11 @@ main {
   animation: autoExpand both;
   animation-timeline: view(50% 50%);
 }
+
+.video-container:hover{
+  cursor: pointer;
+}
+
 .video video {
   width: 100%;
   height: 100%;
@@ -353,141 +393,190 @@ main {
 }
 
 /* popular contests section  */
-.popular-contest-section{
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  overflow: hidden;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
-  justify-content: center;
-  gap: 20px;
+.popular-contests-section {
+  padding: 6rem 2rem;
   width: 100%;
 }
 
-.expand-card {
-  max-width: 650px;
-  width: 200px;
-  height: 420px;
-  border-radius: 15px;
-  overflow: hidden;
+.popular-contests-section .section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* Container for the accordion cards */
+.contest-card-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 12px;
+}
+
+/* Individual contest card */
+.contest-card {
+  flex: 1; /* Each card starts with an equal share of the space */
+  height: 480px;
+  border-radius: 16px;
   position: relative;
+  overflow: hidden;
   cursor: pointer;
-  border: 1px solid var(--card-border);
-  background-color: var(--card-bg);
-  transition: width 0.6s cubic-bezier(0.6, 0, 0.2, 1), box-shadow 0.3s ease,
-    transform 0.3s ease;
+  background-color: #031120; /* Themed background */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: flex 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.8s ease;
 }
 
-/* Hover & Focus state for desktop and mobile */
-.expand-card:hover,
-.expand-card:focus-within {
-  width: 650px;
-  /* transform: translateY(-5px); */
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.3), 0 0 0 1px rgba(0, 240, 255, 0.5);
+/* --- Core Hover Logic --- */
+/* On container hover, shrink all cards... */
+.contest-card-container:hover .contest-card {
+  flex: 0.5;
 }
 
-.card-background {
+/* ...but expand the one being hovered */
+.contest-card-container:hover .contest-card:hover {
+  flex: 5;
+  border-color: rgba(0, 240, 255, 0.5); /* Use site's accent color */
+}
+
+/* Background image of the card */
+.contest-card .card-background {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
-  transition: filter 0.5s ease;
-  filter: grayscale(20%) brightness(0.9);
+  border-radius: 16px;
+  transition: opacity 0.8s ease;
 }
 
-.expand-card:hover .card-background {
-  filter: grayscale(0%) brightness(1);
+/* On hover, the image fades out to reveal the card's background color */
+.contest-card:hover .card-background {
+  opacity: 0;
 }
 
-/* Content visible BEFORE hover */
-.card-preview {
+/* The title visible on the collapsed card */
+.contest-card .card-title-overlay {
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  align-items: flex-end;
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 50%);
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.card-preview h3 {
-  font-size: 1.1rem;
+  bottom: 20px;
+  left: 20px;
+  color: white;
   font-family: "Syncopate", sans-serif;
-  color: var(--text-primary);
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  font-weight: 700;
+  z-index: 2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  transition:  all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.expand-card:hover .card-preview {
+.contest-card:hover .card-title-overlay {
   opacity: 0;
 }
 
-/* Content visible AFTER hover */
-.card-details {
+.contest-card-container:hover .contest-card:not(:hover) .card-title-overlay{
+  transform: rotate(-90deg);
+  transform-origin: bottom left;
+  white-space: nowrap;
+  left: 50px;
+  font-size: 1.2rem;
+}
+
+/* The main container for expanded content */
+.contest-card .card-content-expanded {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  display: flex;
+  flex-direction: row;
   opacity: 0;
-  transition: opacity 0.5s ease 0.2s; /* Added delay */
-  background: var(--details-bg-gradient);
+  pointer-events: none;
+  transition: opacity 0.6s ease 0.2s; /* Delay opacity transition */
+  z-index: 3;
+}
+
+.contest-card:hover .card-content-expanded {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Left side (text content) of the expanded view */
+.contest-card .content-left {
+  flex: 2;
+  padding: 2.5rem 2rem;
   color: var(--text-secondary);
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; Vertically center the text block */
   overflow-y: auto;
 }
 
-.expand-card:hover .card-details {
-  opacity: 1;
-}
-
-.card-details h2 {
-  font-size: 2rem;
-  color: var(--title-color);
-  margin-bottom: 1rem;
+.contest-card .content-left h3 {
   font-family: "Syncopate", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-glow); /* Themed title color */
 }
 
-.details-content {
+.contest-card .content-left p {
+  line-height: 1.7;
+  font-size: 1rem;
+  max-width: 90%;
+  margin-bottom: 2rem;
+}
+
+/* Right side (image) of the expanded view */
+.contest-card .content-right-image {
+  flex: 1.5;
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.details-text p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-.details-image img {
+.contest-card .content-right-image img {
   width: 250px;
-  height: auto;
-  border-radius: 8px;
-  aspect-ratio: 16/9;
+  height: 250px;
   object-fit: cover;
-  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  border: 2px solid var(--accent-glow);
+  box-shadow: 0 5px 30px rgba(0, 240, 255, 0.2);
 }
 
-/* Custom Scrollbar */
-.card-details::-webkit-scrollbar {
+/* Scrollbar styling for the text area */
+.contest-card .content-left::-webkit-scrollbar {
   width: 6px;
 }
-.card-details::-webkit-scrollbar-track {
-  background: transparent;
+.contest-card .content-left::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
 }
-.card-details::-webkit-scrollbar-thumb {
+.contest-card .content-left::-webkit-scrollbar-thumb {
   background: var(--accent-glow);
   border-radius: 3px;
+}
+
+/* The "View Contest" button (reusing your existing button style) */
+.contest-card .card-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--accent-glow), #0099cc);
+  color: #0a0a0a;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  align-self: flex-start; /* Align button to the start of the flex container */
+}
+.contest-card .card-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4);
+}
+.contest-card .card-button i {
+  transition: transform 0.3s ease;
+}
+.contest-card .card-button:hover i {
+  transform: translateX(5px);
 }
 
 /* Stats Section */
