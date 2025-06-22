@@ -10,28 +10,68 @@
 </head>
 
 <body>
-<header class="site-header">
-        <div class="header-logo"><a href="index.html">Contest Hopper</a></div>
-        <nav class="main-nav" id="mainNav">
+    <header class="site-header">
+        <!-- Logo (Visible on all screen sizes) -->
+        <div class="header-logo">
+            <a href="index.html">Contest Hopper</a>
+        </div>
+
+        <!-- Main Navigation (Desktop only) -->
+        <nav class="main-nav">
             <ul>
-                <li class="nav-item"><a href="contests.html">Contests</a></li>
-                <li class="nav-item"><a href="competitions.html">Competitions</a></li>
-                <li class="nav-item"><a href="hackathons.html">Hackathons</a></li>
-                <li class="nav-item"><a href="about.html">About</a></li>
-                <li class="nav-item"><a href="contact.html">Contact us</a></li>
-                <li class="nav-item"><a href="contact.html">Donate</a></li>
+                <li><a href="contests.html">Contests</a></li>
+                <li><a href="competitions.html">Competitions</a></li>
+                <li><a href="hackathons.html">Hackathons</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="contact.html">Donate</a></li>
             </ul>
         </nav>
-        <div class="searchbar-container"><i class="fa-solid fa-magnifying-glass"></i><input type="text"
-                placeholder="Search" class="searchbar"></div>
-        <!-- <button class="mobile-search-trigger" id="mobileSearchTrigger"></button> -->
-        <div class="signin-btn"><a href="signin.html">Sign In</a></div>
-        <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+        <!-- Search Bar & Sign In (Desktop only) -->
+        <div class="header-actions-desktop">
+            <div class="searchbar-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search" class="searchbar">
+            </div>
+            <div class="signin-btn">
+                <a href="signin.html">Sign In</a>
+            </div>
+        </div>
+        <!-- Hamburger Menu Trigger (Mobile only) -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </header>
 
-    <div class="mobile-search-overlay" id="mobileSearchOverlay">
-    </div>
+    <!-- Mobile Navigation Overlay (Hidden by default) -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="mobile-nav-header">
+            <div class="mobile-logo">Contest Hopper</div>
+            <button class="close-nav" id="closeNav" aria-label="Close menu">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
 
+        <div class="mobile-search-section">
+            <input type="text" placeholder="Search contests..." class="mobile-search-input">
+        </div>
+
+        <nav class="mobile-nav-links">
+            <a href="contests.html">Contests</a>
+            <a href="competitions.html">Competitions</a>
+            <a href="hackathons.html">Hackathons</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact us</a>
+            <a href="contact.html">Donate</a>
+        </nav>
+
+        <div class="mobile-signin">
+            <div class="signin-btn">
+                <a href="signin.html">Sign In</a>
+            </div>
+        </div>
+    </div>
 
     <main>
         <section class="hero-section">
@@ -237,153 +277,153 @@
                 </div>
             </div>
         </section>
-        <!-- END: Enhanced Stats Section -->
+       
+            <!-- contests overview section -->
+            <section class="contests-overview-section">
+                <div class="container">
+                    <h2 class="section-title">Find the Right Challenge for You</h2>
+                    <p class="section-subtitle">Discover hackathons, competitions, and contests that match your skills and
+                        passion</p>
 
-        <section class="contests-overview-section">
-            <div class="container">
-                <h2 class="section-title">Find the Right Challenge for You</h2>
-                <p class="section-subtitle">Discover hackathons, competitions, and contests that match your skills and
-                    passion</p>
+                    <div class="overview-content">
+                        <div class="left-container">
+                            <div class="features">
+                                <button onclick="filterCards('hackathon')">Hackathons</button>
+                                <button onclick="filterCards('competition')">Competitions</button>
+                                <button onclick="filterCards('contest')">Contests</button>
+                                <button onclick="filterCards('upcoming')">Upcoming</button>
+                                <button onclick="filterCards('past')">Past Events</button>
+                            </div>
+                        </div>
 
-                <div class="overview-content">
-                    <div class="left-container">
-                        <div class="features">
-                            <button onclick="filterCards('hackathon')">Hackathons</button>
-                            <button onclick="filterCards('competition')">Competitions</button>
-                            <button onclick="filterCards('contest')">Contests</button>
-                            <button onclick="filterCards('upcoming')">Upcoming</button>
-                            <button onclick="filterCards('past')">Past Events</button>
+                        <div class="right-container">
+                            <section class="card-section hackathon-section" id="hackathons-section">
+                                <div class="cards-container">
+                                    <div class="card hackathon">
+                                        <div class="card-badge">Hackathon</div>
+                                        <img src="icecream3.jpg" alt="Thematic Hackathon">
+                                        <div class="card-content">
+                                            <h3>Thematic Hackathons</h3>
+                                            <p>Focused on a specific domain like HealthTech, EdTech, FinTech, or
+                                                Sustainability.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card hackathon">
+                                        <div class="card-badge">Hackathon</div>
+                                        <img src="icecream3.jpg" alt="Company Hackathon">
+                                        <div class="card-content">
+                                            <h3>Company-Sponsored Hackathons</h3>
+                                            <p>Organized by companies like Google, Microsoft, or startups for innovation and
+                                                hiring.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card hackathon">
+                                        <div class="card-badge">Hackathon</div>
+                                        <img src="icecream3.jpg" alt="Student Hackathon">
+                                        <div class="card-content">
+                                            <h3>Student Hackathons</h3>
+                                            <p>University-hosted events with student participation. Great for networking and
+                                                learning.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card hackathon">
+                                        <div class="card-badge">Hackathon</div>
+                                        <img src="assets/images/hackathon3.jpg" alt="Student Hackathon">
+                                        <div class="card-content">
+                                            <h3>Student Hackathons</h3>
+                                            <p>University-hosted events with student participation. Great for networking and
+                                                learning.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card hackathon">
+                                        <div class="card-badge">Hackathon</div>
+                                        <img src="assets/images/hackathon3.jpg" alt="Student Hackathon">
+                                        <div class="card-content">
+                                            <h3>Student Hackathons</h3>
+                                            <p>University-hosted events with student participation. Great for networking and
+                                                learning.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card hackathon">
+                                        <div class="card-badge">Hackathon</div>
+                                        <img src="assets/images/hackathon3.jpg" alt="Student Hackathon">
+                                        <div class="card-content">
+                                            <h3>Student Hackathons</h3>
+                                            <p>University-hosted events with student participation. Great for networking and
+                                                learning.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="card-section competition-section" id="competitions-section">
+                                <!-- <h2>Coding Competition Subtypes</h2> -->
+                                <div class="cards-container">
+                                    <div class="card competition">
+                                        <div class="card-badge">Competition</div>
+                                        <img src="assets/images/competition1.jpg" alt="DSA Competition">
+                                        <div class="card-content">
+                                            <h3>DSA/Competitive Programming</h3>
+                                            <p>Timed contests based on algorithms and data structures (e.g., Codeforces,
+                                                CodeChef).</p>
+                                        </div>
+                                    </div>
+                                    <div class="card competition">
+                                        <div class="card-badge">Competition</div>
+                                        <img src="assets/images/competition2.jpg" alt="Hiring Challenge">
+                                        <div class="card-content">
+                                            <h3>Company Hiring Challenges</h3>
+                                            <p>Code to get hired! Companies like Amazon, TCS, and Infosys conduct these for
+                                                recruitment.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card competition">
+                                        <div class="card-badge">Competition</div>
+                                        <img src="assets/images/competition3.jpg" alt="Olympiad Contest">
+                                        <div class="card-content">
+                                            <h3>Olympiad-Style Contests</h3>
+                                            <p>Academic-level competitions (e.g., INOI, IOI) for school/college students.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="card-section contest-section" id="contests-section">
+                                <!-- <h2>Contest Subtypes</h2> -->
+                                <div class="cards-container">
+                                    <div class="card contest">
+                                        <div class="card-badge">Contest</div>
+                                        <img src="assets/images/contest1.jpg" alt="Business Pitch">
+                                        <div class="card-content">
+                                            <h3>Business Pitch Contests</h3>
+                                            <p>Pitch your startup idea to investors. Popular examples: Y Combinator, Shark
+                                                Tank, MIT 100K.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card contest">
+                                        <div class="card-badge">Contest</div>
+                                        <img src="assets/images/contest2.jpg" alt="Writing Contest">
+                                        <div class="card-content">
+                                            <h3>Writing & Blogging Contests</h3>
+                                            <p>Showcase your storytelling, journalism, or technical writing skills.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card contest">
+                                        <div class="card-badge">Contest</div>
+                                        <img src="assets/images/contest3.jpg" alt="Design Contest">
+                                        <div class="card-content">
+                                            <h3>Design Contests</h3>
+                                            <p>UI/UX, logos, and creative arts. Great for designers looking to build a
+                                                portfolio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
-
-                    <div class="right-container">
-                        <section class="card-section hackathon-section" id="hackathons-section">
-                            <div class="cards-container">
-                                <div class="card hackathon">
-                                    <div class="card-badge">Hackathon</div>
-                                    <img src="icecream3.jpg" alt="Thematic Hackathon">
-                                    <div class="card-content">
-                                        <h3>Thematic Hackathons</h3>
-                                        <p>Focused on a specific domain like HealthTech, EdTech, FinTech, or
-                                            Sustainability.</p>
-                                    </div>
-                                </div>
-                                <div class="card hackathon">
-                                    <div class="card-badge">Hackathon</div>
-                                    <img src="icecream3.jpg" alt="Company Hackathon">
-                                    <div class="card-content">
-                                        <h3>Company-Sponsored Hackathons</h3>
-                                        <p>Organized by companies like Google, Microsoft, or startups for innovation and
-                                            hiring.</p>
-                                    </div>
-                                </div>
-                                <div class="card hackathon">
-                                    <div class="card-badge">Hackathon</div>
-                                    <img src="icecream3.jpg" alt="Student Hackathon">
-                                    <div class="card-content">
-                                        <h3>Student Hackathons</h3>
-                                        <p>University-hosted events with student participation. Great for networking and
-                                            learning.</p>
-                                    </div>
-                                </div>
-                                <div class="card hackathon">
-                                    <div class="card-badge">Hackathon</div>
-                                    <img src="assets/images/hackathon3.jpg" alt="Student Hackathon">
-                                    <div class="card-content">
-                                        <h3>Student Hackathons</h3>
-                                        <p>University-hosted events with student participation. Great for networking and
-                                            learning.</p>
-                                    </div>
-                                </div>
-                                <div class="card hackathon">
-                                    <div class="card-badge">Hackathon</div>
-                                    <img src="assets/images/hackathon3.jpg" alt="Student Hackathon">
-                                    <div class="card-content">
-                                        <h3>Student Hackathons</h3>
-                                        <p>University-hosted events with student participation. Great for networking and
-                                            learning.</p>
-                                    </div>
-                                </div>
-                                <div class="card hackathon">
-                                    <div class="card-badge">Hackathon</div>
-                                    <img src="assets/images/hackathon3.jpg" alt="Student Hackathon">
-                                    <div class="card-content">
-                                        <h3>Student Hackathons</h3>
-                                        <p>University-hosted events with student participation. Great for networking and
-                                            learning.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section class="card-section competition-section" id="competitions-section">
-                            <!-- <h2>Coding Competition Subtypes</h2> -->
-                            <div class="cards-container">
-                                <div class="card competition">
-                                    <div class="card-badge">Competition</div>
-                                    <img src="assets/images/competition1.jpg" alt="DSA Competition">
-                                    <div class="card-content">
-                                        <h3>DSA/Competitive Programming</h3>
-                                        <p>Timed contests based on algorithms and data structures (e.g., Codeforces,
-                                            CodeChef).</p>
-                                    </div>
-                                </div>
-                                <div class="card competition">
-                                    <div class="card-badge">Competition</div>
-                                    <img src="assets/images/competition2.jpg" alt="Hiring Challenge">
-                                    <div class="card-content">
-                                        <h3>Company Hiring Challenges</h3>
-                                        <p>Code to get hired! Companies like Amazon, TCS, and Infosys conduct these for
-                                            recruitment.</p>
-                                    </div>
-                                </div>
-                                <div class="card competition">
-                                    <div class="card-badge">Competition</div>
-                                    <img src="assets/images/competition3.jpg" alt="Olympiad Contest">
-                                    <div class="card-content">
-                                        <h3>Olympiad-Style Contests</h3>
-                                        <p>Academic-level competitions (e.g., INOI, IOI) for school/college students.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section class="card-section contest-section" id="contests-section">
-                            <!-- <h2>Contest Subtypes</h2> -->
-                            <div class="cards-container">
-                                <div class="card contest">
-                                    <div class="card-badge">Contest</div>
-                                    <img src="assets/images/contest1.jpg" alt="Business Pitch">
-                                    <div class="card-content">
-                                        <h3>Business Pitch Contests</h3>
-                                        <p>Pitch your startup idea to investors. Popular examples: Y Combinator, Shark
-                                            Tank, MIT 100K.</p>
-                                    </div>
-                                </div>
-                                <div class="card contest">
-                                    <div class="card-badge">Contest</div>
-                                    <img src="assets/images/contest2.jpg" alt="Writing Contest">
-                                    <div class="card-content">
-                                        <h3>Writing & Blogging Contests</h3>
-                                        <p>Showcase your storytelling, journalism, or technical writing skills.</p>
-                                    </div>
-                                </div>
-                                <div class="card contest">
-                                    <div class="card-badge">Contest</div>
-                                    <img src="assets/images/contest3.jpg" alt="Design Contest">
-                                    <div class="card-content">
-                                        <h3>Design Contests</h3>
-                                        <p>UI/UX, logos, and creative arts. Great for designers looking to build a
-                                            portfolio.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
     </main>
 
     <footer class="site-footer">
