@@ -17,7 +17,7 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   overflow-x: hidden;
 }
 
@@ -40,6 +40,7 @@ body {
   height: 70px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 2rem;
   background: rgba(10, 10, 10, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -53,16 +54,33 @@ body {
 }
 
 .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 1.5rem;
   font-weight: bold;
   font-family: "Russo One", sans-serif;
-  flex-shrink: 0;
-  margin-right: auto;
+  color: #fff;
+  position: relative;
 }
 
 .header-logo a {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.hopper-text {
+  color: #00f0ff;
+}
+
+#logo {
+  position: relative;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  bottom: 4px;
 }
 
 .main-nav ul {
@@ -166,15 +184,12 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(10, 10, 10, 0.9);
+  /* background: rgba(10, 10, 10, 0.9); */
   backdrop-filter: blur(15px);
   z-index: 9999;
-
   display: flex;
   flex-direction: column;
   padding: 1rem;
-
-  /* Initial hidden state for transition */
   opacity: 0;
   transform: translateX(-100%);
   visibility: hidden;
@@ -189,7 +204,8 @@ body {
 
 .mobile-nav-header {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
   align-items: center;
   padding: 0.5rem 0.5rem 1.5rem 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -294,6 +310,7 @@ body {
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    /* flex-grow: 0; */
   }
 
   .mobile-nav-links a {
@@ -312,26 +329,39 @@ body {
 }
 
 /* On smaller mobile phones */
-@media (min-width: 400px) and (max-width: 480px) {
+@media (max-width: 480px) {
   .site-header {
     padding: 0 0.8rem;
     height: 60px;
     justify-content: space-between;
   }
-  .header-logo {
-    font-size: 1.3rem;
-  }
-}
 
-@media (max-width: 399px) {
+  .header-logo {
+    font-size: 1rem;
+    gap: 0px;
+  }
+  #logo{
+    height: 30px;
+  }
+
+  .hopper-text{
+    font-size: 1.2rem;
+  }
+  .mobile-nav-links {
+    flex-grow: 0;
+  }
+
+  .mobile-signin{
+    margin-top: 50px;
+  }
+
 }
 
 /* main section */
 main {
   width: 100%;
   height: 100%;
-  /* padding-top:var(--header-height); */
-  /* margin-top: 70px; */
+
 }
 
 /* Hero Section */
@@ -339,6 +369,7 @@ main {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  /* min-height: 85vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -380,11 +411,38 @@ main {
 /* Hero Text */
 .hero-text {
   position: absolute;
-  top: 50px;
+  top: 35px;
   left: 20px;
   flex: 1;
   max-width: 500px;
+  padding: 0.9rem 0.5rem;
+  background: url("mask.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.pagination-dots {
+  display: none;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background: white;
 }
 
 .contest-title {
@@ -402,8 +460,39 @@ main {
   opacity: 0.9;
 }
 
+.hero-text .hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(0, 240, 255, 0.1);
+  color: var(--accent-glow);
+  border: 1px solid var(--accent-glow);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  align-self: flex-start;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.hero-text .hero-button:hover {
+  background-color: var(--accent-glow);
+  color: #0d0d0d;
+  /* box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2); */
+  transform: translateY(-2px);
+}
+
+.hero-text .hero-button:hover i {
+  transform: translateX(4px);
+}
+
+.hero-text .hero-button i {
+  transition: transform 0.3s ease;
+}
+
 /* ============================================= */
-/* HERO SLIDER (REWORKED) */
+/* HERO SLIDER */
 /* ============================================= */
 .hero-slider-container {
   flex: 1;
@@ -438,6 +527,13 @@ main {
   transform: scale(1.1);
 }
 
+.hero-pagination {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* Slider Window */
 .slider-viewport {
   overflow: hidden;
@@ -448,6 +544,7 @@ main {
 
 /* Slider Wrapper */
 .slider-wrapper {
+  touch-action: pan-y;
   display: flex;
   gap: 15px;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -460,7 +557,7 @@ main {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  border: 3px solid transparent; /* Prepare for active state */
+  border: 3px solid transparent;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -504,7 +601,7 @@ main {
   .hero-text {
     top: 10px;
     left: 10px;
-    max-width: 90%;
+    max-width: 80%;
   }
 
   .contest-title {
@@ -518,7 +615,7 @@ main {
   .hero-slider-container {
     position: relative;
     bottom: 0;
-    top: 150px;
+    top: 200px;
     right: 0;
     /* left: 100px; */
     max-width: 510px;
@@ -539,10 +636,17 @@ main {
   }
 }
 
+/* @media (max-width: 768px) {
+  .hero-pagination {
+    bottom: 20px;
+  }
+} */
+
 /* On mobile devices (max-width: 480px) */
 @media (max-width: 480px) {
   .hero-section {
     padding: var(--header-height) 1rem 1rem;
+    min-height: 88vh;
   }
 
   .hero-text {
@@ -558,6 +662,17 @@ main {
     font-size: clamp(1rem, 3vw, 1.1rem);
   }
 
+  .pagination-dots {
+    display: flex;
+    position: absolute;
+    top: 110px;
+    right: 140px;
+  }
+
+  .slider-controls .slider-btn {
+    display: none;
+  }
+
   .hero-slider-container {
     max-width: 100%;
     padding: 0.5rem;
@@ -565,29 +680,30 @@ main {
     bottom: -180px;
   }
 
-  .slider-controls {
-    position: absolute;
-    top: 100px;
-    right: 60px;
-    gap: 20px;
-    /* transform: translateX(-50%); */
+  /* Make the slider-wrapper scrollable horizontally */
+  .slider-wrapper {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 0.7rem 0.2rem;
+    visibility: hidden;
   }
 
-  .slider-viewport {
-    display: none;
-  }
-
+  /* Set each mini-card to not be visible, but maintain their positions */
   .mini-card {
     flex: 0 0 120px;
     height: 160px;
+    opacity: 0;
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  .slider-wrapper {
-    gap: 10px;
-    overflow-x: scroll;
-    padding: 0.7rem 0.2rem;
+  .mini-card img {
+    visibility: hidden;
   }
 
+  /* Hide scrollbar */
   ::-webkit-scrollbar {
     display: none;
   }
@@ -625,7 +741,8 @@ main {
 }
 
 .card {
-  aspect-ratio: 1 / 1; /* Ensures square shape */
+  position: relative;
+  aspect-ratio: 1 / 1;
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -642,6 +759,31 @@ main {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
+}
+.mask-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("mask.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.card-title-mask {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  font-family: "syncopate", sans-serif;
+  font-weight: 500;
+  z-index: 2;
+  padding: 0 10px;
 }
 
 /* Content Container */
@@ -697,7 +839,7 @@ main {
 /* On tablets or smaller screens */
 @media (max-width: 900px) {
   .top-trending-contests-container {
-    grid-template-columns: 1fr; /* Stack the content in a single column */
+    grid-template-columns: 1fr;
     padding: 1rem;
   }
 
@@ -731,21 +873,27 @@ main {
 /* On mobile devices */
 @media (max-width: 480px) {
   .subcontests-section {
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 2rem 1rem;
   }
 
   .top-trending-contests-container {
     padding: 0.5rem;
+    /* background: rgba(191, 124, 124, 0.686); */
   }
 
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
-    padding: 10px 22px;
+    padding: 10px 15px;
   }
 
   .card {
     width: 150px;
     height: 150px;
+  }
+
+  .card-title-mask {
+    bottom: 50px;
+    font-size: 1rem;
   }
 
   .content-container .contest-title {
@@ -764,7 +912,7 @@ main {
 
 /* === RECOMMENDATIONS SECTION ENHANCEMENT === */
 .recommendations-section {
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .recommendation-scroller {
@@ -842,19 +990,19 @@ main {
 /* On tablets or smaller screens */
 @media (max-width: 900px) {
   .recommendation-scroller {
-    gap: 1rem; /* Reduce gap between cards */
+    gap: 1rem; 
   }
 
   .rec-card {
-    width: 180px; /* Cards will take 180px width */
-    height: 150px; /* Adjust the height for smaller screens */
+    min-width: 180px; 
+    min-height: 150px; 
   }
 }
 
 /* On mobile devices */
 @media (max-width: 480px) {
   .recommendations-section {
-    padding: 3rem 1rem;
+    padding: 0rem 1rem;
   }
 
   .recommendation-scroller {
@@ -915,7 +1063,10 @@ main {
 .primary-filters {
   display: flex;
   gap: 1rem;
+  /* overflow-x: scroll; */
+  padding: 8px 0px;
   flex-wrap: wrap;
+  /* justify-content: center; */
 }
 
 .filter-button {
@@ -945,7 +1096,6 @@ main {
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
 }
 
-/* --- Category Filter Sidebar --- */
 .container-layout {
   display: flex;
   gap: 2.5rem;
@@ -961,7 +1111,7 @@ main {
   border-radius: 12px;
   padding: 1.5rem;
   position: sticky;
-  top: 2rem;
+  top: calc(var(--header-height) + 2rem);
 }
 
 .category-filter-title {
@@ -1000,32 +1150,35 @@ main {
   font-weight: 700;
 }
 
-/* --- Contest Cards --- */
+/* --- Contest Cards (Old and New Designs) --- */
 .contest-list-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  border-top: 1px solid #333;
 }
 
 .contest-item {
   display: flex;
+  gap: 2.5rem;
   background-color: transparent;
-  border-bottom: 1px solid #333;
-  padding: 2rem 1rem;
-  height: 320px;
-  transition: background-color 0.4s ease;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  height: 280px;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+  overflow: hidden;
 }
 
 .contest-item:hover {
   background-color: rgba(30, 30, 30, 0.5);
+  border-color: #555;
 }
 
 .contest-item__image-wrapper {
-  flex-basis: 35%;
+  flex-basis: 28%;
   flex-shrink: 0;
-  margin-right: 2.5rem;
+  /* height: 250px; */
   position: relative;
 }
 
@@ -1043,12 +1196,67 @@ main {
   padding: 0.5rem 1rem;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
+  font-size: 0.8rem;
   color: #fff;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 5px;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+}
+
+.status-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 0.5rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 9px;
+  backdrop-filter: blur(5px);
+}
+
+/* Base style for the dots */
+.contest-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #26f406;
+  transition: background-color 0.3s ease;
+  animation: pulse 5s infinite ease-in-out;
+}
+
+.upcoming .contest-dot {
+  background-color: orange;
+  animation: none;
+}
+
+.closed .contest-dot {
+  background-color: gray;
+  animation: none;
+}
+
+/* .dot.active {
+  background-color: #007bff;
+  animation: none;
+} */
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .contest-item__content {
@@ -1057,7 +1265,7 @@ main {
   flex-direction: column;
 }
 
-.item-title {
+.contest-item .item-title {
   font-family: "Lato", sans-serif;
   font-size: 1.75rem;
   font-weight: 700;
@@ -1066,7 +1274,7 @@ main {
   margin-bottom: 0.75rem;
 }
 
-.item-meta {
+.contest-item .item-meta {
   font-family: "Quicksand", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
@@ -1076,19 +1284,49 @@ main {
   letter-spacing: 0.5px;
 }
 
-.meta__location {
+.contest-item .meta__location {
   color: var(--accent-glow);
   font-weight: 700;
 }
 
-.item-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #ccc;
-  margin-bottom: 1.5rem;
+.contest-item {
+  position: relative;
+  overflow: hidden;
+  color: white;
 }
 
-.apply-button {
+/* Platinum shine text effect */
+.platinum-shine {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #8a8a8a 0%,
+    #b8b8b8 20%,
+    #ffffff 40%,
+    #ffffff 60%,
+    #b8b8b8 80%,
+    #8a8a8a 100%
+  );
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: platinumShine 4s linear infinite;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Keyframes for the platinum shine animation */
+@keyframes platinumShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+.contest-item .apply-button {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -1104,33 +1342,67 @@ main {
   transition: all 0.3s ease;
 }
 
-.apply-button:hover {
+.contest-item .apply-button:hover {
   background-color: var(--accent-glow);
   color: #0d0d0d;
   box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2);
   transform: translateY(-2px);
 }
 
-.apply-button:hover i {
-  transform: translateX(4px);
+.contest-item--detailed {
+  min-height: 320px;
 }
 
-.apply-button i {
-  transition: transform 0.3s ease;
+.contest-item--detailed .item-title {
+  font-size: 1.3rem;
 }
 
-/* Responsive adjustments */
+.contest-item--detailed .item-description {
+  font-size: 0.95rem; /* Slightly smaller description */
+  margin-bottom: 1rem;
+}
+
+.contest-item--detailed .item-meta {
+  text-transform: none; /* IMPORTANT: Remove uppercase styling from old design */
+  letter-spacing: normal;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ccc;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-wrap: wrap; /* Allow tags to wrap on small screens */
+  gap: 0.25rem 0.75rem;
+}
+
+.contest-item--detailed .item-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.contest-item--detailed .item-meta strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.contest-item--detailed .apply-button {
+  margin-top: 1rem;
+}
+
+/* == RESPONSIVE ADJUSTMENTS FOR ALL CONTESTS == */
 @media (max-width: 992px) {
   .container-layout {
     flex-direction: column;
   }
 
   .category-filter-container {
-    position: relative;
+    position: static;
     width: 100%;
-    flex: 0 0 100px;
     background-color: transparent;
     margin-bottom: 1.5rem;
+    flex: 0 0 50px;
+    border: none;
+    padding: 0;
   }
 
   .category-filters {
@@ -1151,72 +1423,64 @@ main {
   .filter-item {
     white-space: nowrap;
     flex-shrink: 0;
+    border: 1px solid #444;
   }
 
   .contest-item {
-    gap: 10px;
+    flex-direction: column;
+    height: auto;
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
 
   .contest-item__image-wrapper {
     width: 100%;
-    height: 200px; /* Fixed height for consistent visuals */
-    margin: 0 0 1rem 0;
+    height: 200px;
+    flex-basis: auto;
   }
 
-  .contest-item__image-wrapper img {
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .contest-item__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .item-title {
+  .contest-item .item-title {
     font-size: 1.3rem;
-    margin-bottom: 0.5rem;
   }
 
-  .item-description {
+  .contest-item .item-description {
     font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
   }
 
-  .apply-button {
-    font-size: 0.85rem;
+  .contest-item .apply-button {
     padding: 0.6rem 1.2rem;
-    gap: 0.5rem;
   }
 }
-
+/* Mobiles */
 @media (max-width: 480px) {
+  .section-header{
+    margin-bottom: 0 auto 2rem;
+  }
+
+  .primary-filters {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    justify-content: none;
+  }
+
   .contests-section {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
   }
 
-  .item-title {
-    font-size: 1rem;
+  .contest-item {
+    padding: 1rem;
   }
 
-  .image-tag {
-    padding: 0.3rem 0.4rem;
-    font-size: 0.9rem;
+  .contest-item .item-title {
+    font-size: 1.1rem;
   }
 
-  .item-meta {
-    font-size: 0.65rem;
-  }
-
-  .item-description {
+  .contest-item .image-tag {
     font-size: 0.75rem;
   }
 
-  .apply-button {
+  .contest-item--detailed .item-meta {
     font-size: 0.8rem;
-    padding: 0.5rem 1rem;
   }
 }
 
@@ -1241,7 +1505,6 @@ main {
   margin: 0 auto;
 }
 
-/* Footer Titles */
 .footer-title,
 .footer-subtitle {
   font-family: "Quicksand", sans-serif;
@@ -1259,7 +1522,6 @@ main {
   margin-bottom: 1rem;
 }
 
-/* Footer Section Paragraph */
 .footer-section p {
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -1404,4 +1666,16 @@ main {
   color: #999;
   font-family: "syncopate", sans-serif;
   font-size: 1rem;
+}
+
+/* Responsive design */
+
+@media (max-width: 480px) {
+  .newsletter-form button {
+    padding: 0.7rem 1rem;
+  }
+  .back-to-top-with-text {
+    padding: 8px 12px;
+    border-radius: 15px;
+  }
 }

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest Hopper - Your Gateway to Global Contests</title>
+    <link rel="shortcut icon" href="../assets/Final Logo/logoico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- HEADER REMAINS THE SAME -->
+    <header class="site-header">
+        <div class="header-logo">
+            <a href="index.html">Contest <span class="hopper-text">Hopper</span></a>
+            <img id="logo" src="../assets/Final Logo/logocopy.png" alt="logo">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="contests.html">Contests</a></li>
+                <li><a href="competitions.html">Competitions</a></li>
+                <li><a href="hackathons.html">Hackathons</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+                <li><a href="contact.html">Donate</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions-desktop">
+            <div class="searchbar-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search" class="searchbar">
+            </div>
+            <div class="signin-btn">
+                <a href="signin.html">Sign In</a>
+            </div>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- MOBILE NAV OVERLAY REMAINS THE SAME -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="mobile-nav-header">
+            <div class="mobile-logo">Contest Hopper</div>
+            <button class="close-nav" id="closeNav" aria-label="Close menu"><i class="fa-solid fa-times"></i></button>
+        </div>
+        <div class="mobile-search-section">
+            <input type="text" placeholder="Search contests..." class="mobile-search-input">
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="contests.html">Contests</a>
+            <a href="competitions.html">Competitions</a>
+            <a href="hackathons.html">Hackathons</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact us</a>
+            <a href="contact.html">Donate</a>
+        </nav>
+        <div class="mobile-signin">
+            <div class="signin-btn"><a href="signin.html">Sign In</a></div>
+        </div>
+    </div>
+
+    <main>
+        <!-- ============================================= -->
+        <!-- == NEW IMMERSIVE HERO SECTION              == -->
+        <!-- ============================================= -->
+        <section class="hero-section">
+            <video autoplay muted loop playsinline class="hero-background-video">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title-main">Welcome to Contest Hopper</h1>
+                <p id="hero-subheading">Your Gateway to Global Coding Contests, Competitions, and Hackathons.</p>
+                <div class="hero-cta">
+                    <button class="glow-button" onclick="window.location.href='contests.html'">
+                        <div class="gradient"></div>
+                        <span>Explore Contests <i class="fa-solid fa-circle-arrow-right"></i></span>
+                    </button>
+                </div>
+                <p id="hero-description">Find coding challenges that match your passion and skill level.</p>
+            </div>
+            <a href="#featured" class="scroll-down-indicator" aria-label="Scroll down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- == FEATURED COMPETITIONS (ACCORDION)       == -->
+        <!-- ============================================= -->
+        <section class="popular-contests-section reveal" id="featured">
+            <div class="section-header">
+                <h2 class="section-title">Featured Competitions</h2>
+                <p class="section-subtitle">A dynamic showcase of the most exciting events in the developer world.</p>
+            </div>
+            <div class="contest-card-container">
+                <!-- Card 1: Google Code Jam -->
+                <div class="contest-card">
+                    <img class="card-background" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=800&fit=crop" alt="Coding on a laptop">
+                    <h3 class="card-title-overlay">Google Code Jam</h3>
+                    <div class="card-content-expanded">
+                        <div class="content-left">
+                            <h3>Google Code Jam</h3>
+                            <p>Google's longest-running global coding competition, challenging programmers of all levels to solve complex algorithmic puzzles against the clock.</p>
+                            <a href="#" class="card-button">View Contest <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="content-right-image">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=800&fit=crop" alt="Coding on a laptop">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2: Meta Hacker Cup -->
+                <div class="contest-card">
+                    <img class="card-background" src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=600&h=800&fit=crop" alt="Abstract code background">
+                    <h3 class="card-title-overlay">Meta Hacker Cup</h3>
+                    <div class="card-content-expanded">
+                        <div class="content-left">
+                            <h3>Meta Hacker Cup</h3>
+                            <p>An annual open programming competition hosted by Meta. Participants from around the world compete in a series of algorithmic challenges.</p>
+                            <a href="#" class="card-button">View Contest <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="content-right-image">
+                            <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=600&h=800&fit=crop" alt="Abstract code background">
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3: Hack The Box -->
+                <div class="contest-card">
+                    <img class="card-background" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=800&fit=crop" alt="Cybersecurity theme">
+                    <h3 class="card-title-overlay">Hack The Box</h3>
+                    <div class="card-content-expanded">
+                        <div class="content-left">
+                            <h3>Hack The Box</h3>
+                            <p>A massive online cybersecurity training platform allowing individuals and companies to level up their pen-testing skills through gamified hacking challenges.</p>
+                            <a href="#" class="card-button">Start Hacking <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="content-right-image">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=800&fit=crop" alt="Cybersecurity theme">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- == MODERNIZED STATS SECTION                == -->
+        <!-- ============================================= -->
+        <section class="stats-section reveal">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon-container"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-content">
+                        <h2>1,000+</h2>
+                        <p class="stat-label">Active Contests</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-container"><i class="fas fa-users"></i></div>
+                    <div class="stat-content">
+                        <h2>5,000+</h2>
+                        <p class="stat-label">Registered Users</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-container"><i class="fas fa-building"></i></div>
+                    <div class="stat-content">
+                        <h2>50+</h2>
+                        <p class="stat-label">Partner Companies</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-container"><i class="fas fa-rocket"></i></div>
+                    <div class="stat-content">
+                        <h2>150+</h2>
+                        <p class="stat-label">Projects Launched</p>
+                    </div>
+                </div>
+            </div>
+            <div class="company-logos">
+                <p class="trusted-title">Trusted by leading tech communities</p>
+                <div class="logo-marquee">
+                    <div class="logo-track">
+                        <!-- Duplicated for smooth infinite scroll -->
+                        <img src="../assets/logos/Picture10.png" alt="Google"><img src="../assets/logos/Picture11.jpg" alt="Amazon"><img src="../assets/logos/Picture12.png" alt="GitHub"><img src="../assets/logos/Picture13.png" alt="Microsoft"><img src="../assets/logos/Picture14.png" alt="Netlify"><img src="../assets/logos/Picture15.png" alt="Vercel">
+                        <img src="../assets/logos/Picture10.png" alt="Google"><img src="../assets/logos/Picture11.jpg" alt="Amazon"><img src="../assets/logos/Picture12.png" alt="GitHub"><img src="../assets/logos/Picture13.png" alt="Microsoft"><img src="../assets/logos/Picture14.png" alt="Netlify"><img src="../assets/logos/Picture15.png" alt="Vercel">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- == NEW 3D CONTESTS OVERVIEW SECTION        == -->
+        <!-- ============================================= -->
+        <section class="contests-overview-section reveal">
+            <div class="section-header">
+                <h2 class="section-title">Find Your Next Challenge</h2>
+                <p class="section-subtitle">Discover opportunities that match your skills and passion, from intense hackathons to creative design contests.</p>
+            </div>
+            <div class="overview-grid">
+                <!-- Card 1: Hackathons -->
+                <div class="overview-card" style="--bg-image: url('https://images.unsplash.com/photo-1587825140708-df8769a5b8df?w=800&q=80');">
+                    <div class="card-inner">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <h3 class="overview-title">Hackathons</h3>
+                            <p class="overview-description">Collaborate, build, and innovate. Turn your ideas into reality in a high-energy, time-bound event.</p>
+                            <a href="hackathons.html" class="overview-link">View Hackathons <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Competitions -->
+                <div class="overview-card" style="--bg-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80');">
+                    <div class="card-inner">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <h3 class="overview-title">Competitions</h3>
+                            <p class="overview-description">Test your problem-solving skills against the best in algorithmic and data structure challenges.</p>
+                             <a href="competitions.html" class="overview-link">View Competitions <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Contests -->
+                <div class="overview-card" style="--bg-image: url('https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?w=800&q=80');">
+                    <div class="card-inner">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <h3 class="overview-title">And More...</h3>
+                            <p class="overview-description">Explore a variety of other challenges, including business pitches, design showcases, and writing contests.</p>
+                             <a href="contests.html" class="overview-link">Explore All <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER REMAINS THE SAME -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="header-logo">
+                    <a href="index.html">Contest <span class="hopper-text">Hopper</span></a>
+                    <img id="logo" src="../assets/Final Logo/logocopy.png" alt="logo">
+                </div>
+                <p>Your ultimate platform to discover and participate in global coding contests, competitions, and hackathons.</p>
+                <p class="footer-copy">© 2025 Contest Hopper. All rights reserved.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="contests.html">Contests</a></li>
+                    <li><a href="competitions.html">Competitions</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="contact.html">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Stay Connected</h4>
+                <p>Subscribe to our newsletter for the latest contests and updates.</p>
+                <form action="#" method="post" class="newsletter-form">
+                    <div class="border-wrapper">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Subscribe</button>
+                        <span class="back-to-top-with-text" onclick="scrollToTop()">
+                            <i class="fa-solid fa-arrow-up"></i> top
+                        </span>
+                    </div>
+                </form>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/hamburger.js"></script>
+
+</body>
+</html>

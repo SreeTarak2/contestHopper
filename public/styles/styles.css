@@ -33,6 +33,18 @@ body {
   overflow-x: hidden;
 }
 
+/* Scroll-triggered reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ============================================= */
 /* == HEADER COMPONENT STYLES                 == */
 /* ============================================= */
@@ -42,6 +54,7 @@ body {
   height: 70px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 2rem;
   background: rgba(10, 10, 10, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -55,16 +68,33 @@ body {
 }
 
 .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 1.5rem;
   font-weight: bold;
   font-family: "Russo One", sans-serif;
-  flex-shrink: 0;
-  margin-right: auto;
+  color: #fff;
+  position: relative;
 }
 
 .header-logo a {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.hopper-text {
+  color: #00f0ff;
+}
+
+#logo {
+  position: relative;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  bottom: 4px;
 }
 
 .main-nav ul {
@@ -190,7 +220,8 @@ body {
 
 .mobile-nav-header {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
   align-items: center;
   padding: 0.5rem 0.5rem 1.5rem 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -297,6 +328,7 @@ body {
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    /* flex-grow: 0; */
   }
 
   .mobile-nav-links a {
@@ -306,6 +338,12 @@ body {
 
   .header-logo {
     margin-right: 0;
+    font-size: 1.2rem;
+    gap: 3px;
+  }
+
+  #logo {
+    height: 30px;
   }
 
   .mobile-signin {
@@ -324,6 +362,9 @@ body {
   .header-logo {
     font-size: 1.3rem;
   }
+  .mobile-signin {
+    margin-top: 50px;
+  }
 }
 
 /* Main content */
@@ -332,7 +373,7 @@ main {
 }
 
 /* Hero section */
-.hero-section {
+/* .hero-section {
   min-height: calc(100vh - 70px);
   width: 100%;
   background-color: black;
@@ -344,19 +385,56 @@ main {
   padding: 2rem 1rem;
   gap: 2rem;
   font-family: "Inter", sans-serif;
+} */
+
+.hero-section {
+  position: relative;
+  height: calc(100vh - var(--header-height));
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 1rem;
 }
 
-.hero-heading h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.65);
+  z-index: -1;
+}
+
+.hero-content {
+  z-index: 1;
+  animation: fadeIn 1s 0.2s ease-in-out forwards;
+  opacity: 0;
+}
+
+.hero-title-main {
+  font-family: "Syncopate", sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 600;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
 }
 
 #hero-subheading {
-  font-family: "Quicksand", sans-serif;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 1rem;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
 }
 
 /* Glow Button */
@@ -1244,12 +1322,12 @@ main {
     width: max-content;
   }
 
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
 
   .features button {
-    flex: 0 0 auto; 
+    flex: 0 0 auto;
     min-width: 120px;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -1318,7 +1396,7 @@ main {
   rgba(14, 165, 199, 0.893) 65%,
   #0b0b22 100%
 ); */
-  background: url("Swimming.jpg");
+  background: url("footerimg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1332,12 +1410,27 @@ main {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .footer-title {
+  display: block;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 20px;
+}
+
+.hopper-text {
+  font-weight: bold;
+}
+
+/* .footer-title {
   font-size: 1.5rem;
   color: #00f0ff;
   margin-bottom: 1rem;
   font-family: "Quicksand", sans-serif;
-}
+} */
 
 .footer-subtitle {
   font-size: 1.2rem;

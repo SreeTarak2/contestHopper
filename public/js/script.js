@@ -1,10 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
 
   function filterCards(type) {
     const sections = document.querySelectorAll(".card-section");
