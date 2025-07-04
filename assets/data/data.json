@@ -1,0 +1,106 @@
+[
+  {
+    "id": "contest001",
+    "category": "water",
+    "status": "open",
+    "image": {
+      "url": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&w=800&q=80",
+      "alt": "Water Challenge"
+    },
+    "imageTag": "Water",
+    "statusText": "Open",
+    "title": "Green Cape FNF Green Pitch Challenge 2025",
+    "description": "XPRIZE Water Scarcity is made possible by the generous support of our title sponsor, the Mohamed bin Zayed Water Initiative.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "International",
+      "mode": "Online",
+      "tags": ["Beginner Friendly", "No Code", "Ideathon"],
+      "prize": {
+        "amount": 2000,
+        "currency": "USD"
+      },
+      "startDate": "2025-06-01",
+      "endDate": "2025-06-30"
+    },
+    "link": "/green-cape-challenge-details"
+  },
+  {
+    "id": "contest002",
+    "category": "technology",
+    "status": "upcoming",
+    "image": {
+      "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "alt": "Future of AI Hackathon"
+    },
+    "imageTag": "AI",
+    "statusText": "Upcoming",
+    "title": "Future of AI Hackathon 2025",
+    "description": "Join minds around the globe to shape the ethical future of artificial intelligence. Hosted by the Global AI Initiative.",
+    "meta": {
+      "eligibility": "Students Only",
+      "location": "Global",
+      "mode": "Hybrid",
+      "tags": ["Hackathon", "AI", "Coding"],
+      "prize": {
+        "amount": 5000,
+        "currency": "USD"
+      },
+      "startDate": "2025-07-01",
+      "endDate": "2025-07-10"
+    },
+    "link": "/ai-hackathon-2025"
+  },
+  {
+    "id": "contest003",
+    "category": "sustainability",
+    "status": "closed",
+    "image": {
+      "url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+      "alt": "Sustainable Cities"
+    },
+    "imageTag": "Eco",
+    "statusText": "Closed",
+    "title": "Sustainable Cities Challenge 2024",
+    "description": "A challenge for architects and engineers to reimagine the urban future. Sponsored by Green Earth Foundation.",
+    "meta": {
+      "eligibility": "Professionals",
+      "location": "Europe",
+      "mode": "Offline",
+      "tags": ["Architecture", "Sustainability"],
+      "prize": {
+        "amount": 10000,
+        "currency": "EUR"
+      },
+      "startDate": "2024-01-01",
+      "endDate": "2024-03-30"
+    },
+    "link": "/sustainable-cities-2024"
+  },
+  {
+    "id": "contest004",
+    "category": "design",
+    "status": "open",
+    "image": {
+      "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+      "alt": "UX/UI Innovation"
+    },
+    "imageTag": "UX/UI",
+    "statusText": "Open",
+    "title": "UX/UI Innovation Jam 2025",
+    "description": "Design for impact in this global design sprint focused on accessibility and inclusion.",
+    "meta": {
+      "eligibility": "Designers & Students",
+      "location": "International",
+      "mode": "Online",
+      "tags": ["Design Sprint", "Accessibility"],
+      "prize": {
+        "amount": 3000,
+        "currency": "USD"
+      },
+      "startDate": "2025-08-05",
+      "endDate": "2025-08-15"
+    },
+    "link": "/ux-ui-jam-2025"
+  }
+]

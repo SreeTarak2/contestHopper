@@ -33,6 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMobileNav();
     }
   });
+
+  const scrollTopBtn = document.querySelector(".scroll-top-btn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add("visible");
+    } else {
+      scrollTopBtn.classList.remove("visible");
+    }
+  });
 });
 
 function scrollToTop() {

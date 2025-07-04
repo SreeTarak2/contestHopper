@@ -340,28 +340,26 @@ body {
     font-size: 1rem;
     gap: 0px;
   }
-  #logo{
+  #logo {
     height: 30px;
   }
 
-  .hopper-text{
+  .hopper-text {
     font-size: 1.2rem;
   }
   .mobile-nav-links {
     flex-grow: 0;
   }
 
-  .mobile-signin{
+  .mobile-signin {
     margin-top: 50px;
   }
-
 }
 
 /* main section */
 main {
   width: 100%;
   height: 100%;
-
 }
 
 /* Hero Section */
@@ -411,8 +409,8 @@ main {
 /* Hero Text */
 .hero-text {
   position: absolute;
-  top: 35px;
-  left: 20px;
+  top: 60px;
+  left: -30px;
   flex: 1;
   max-width: 500px;
   padding: 0.9rem 0.5rem;
@@ -499,31 +497,41 @@ main {
   max-width: 560px;
   padding: 10px 15px;
   position: absolute;
-  bottom: -300px;
+  /* bottom: -300px; */
+  top: 60px;
   right: 20px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .slider-controls {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
+  justify-content: flex-start;
+  gap: 1.5rem;
   margin-bottom: 1rem;
+  margin-left: 20px;
 }
 
 .slider-btn {
-  background: rgba(255, 255, 255, 0.8);
-  color: black;
-  border: none;
-  width: 40px;
-  height: 40px;
+  /* background: rgba(255, 255, 255, 0.8);
+  color: black; */
+  background: transparent;
+  color: white;
+  border: 0.5px solid white;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
+.slider-btn i {
+  font-size: 0.8rem;
+}
+
 .slider-btn:hover {
-  background: white;
+  /* background: white; */
   transform: scale(1.1);
 }
 
@@ -617,10 +625,10 @@ main {
     bottom: 0;
     top: 200px;
     right: 0;
-    /* left: 100px; */
     max-width: 510px;
     padding: 1rem;
     margin-left: auto;
+    /* left: 100px; */
     /* margin-right: auto; */
   }
 
@@ -929,13 +937,13 @@ main {
 }
 
 .rec-card {
-  width: 240px; /* Default size for desktop */
-  height: 200px; /* Maintain a fixed height */
+  width: 240px;
+  height: 200px;
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
-  border: 1px solid #00f0ff;
+  border: 3px solid #00f0ff;
   margin-bottom: 1rem;
 }
 
@@ -990,12 +998,12 @@ main {
 /* On tablets or smaller screens */
 @media (max-width: 900px) {
   .recommendation-scroller {
-    gap: 1rem; 
+    gap: 1rem;
   }
 
   .rec-card {
-    min-width: 180px; 
-    min-height: 150px; 
+    min-width: 180px;
+    min-height: 150px;
   }
 }
 
@@ -1051,7 +1059,8 @@ main {
 }
 
 .contests-section {
-  padding: 6rem 2rem;
+  /* padding: 6rem 2rem; */
+  padding: 1rem 2rem;
 }
 
 .filters-container {
@@ -1084,12 +1093,13 @@ main {
 
 .filter-button:hover {
   color: var(--accent-glow);
-  border-color: var(--accent-glow);
+  border: 1px solid var(--accent-glow);
   transform: translateY(-2px);
 }
 
 .filter-button.active {
-  background-color: var(--accent-glow);
+  /* background-color: var(--accent-glow); */
+  background: linear-gradient(135deg, var(--accent-glow), #0099cc);
   border-color: var(--accent-glow);
   color: var(--color-background);
   transform: translateY(-2px);
@@ -1146,7 +1156,8 @@ main {
 
 .filter-item.active {
   color: #0d0d0d;
-  background-color: var(--accent-glow);
+  /* background-color: var(--accent-glow); */
+  background: linear-gradient(135deg, var(--accent-glow), #0099cc);
   font-weight: 700;
 }
 
@@ -1222,13 +1233,17 @@ main {
 /* Base style for the dots */
 .contest-dot {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   margin: 0 5px;
   border-radius: 50%;
   background-color: #26f406;
   transition: background-color 0.3s ease;
-  animation: pulse 5s infinite ease-in-out;
+}
+
+.open .contest-dot {
+  animation: pulseGlow 3s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  background-color: #26f406;
 }
 
 .upcoming .contest-dot {
@@ -1241,21 +1256,18 @@ main {
   animation: none;
 }
 
-/* .dot.active {
-  background-color: #007bff;
-  animation: none;
-} */
-
-/* Pulse animation */
-@keyframes pulse {
+@keyframes pulseGlow {
   0% {
     transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(38, 244, 6, 0.6);
   }
   50% {
     transform: scale(1.2);
+    box-shadow: 0 0 10px 10px rgba(38, 244, 6, 0);
   }
   100% {
     transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(38, 244, 6, 0);
   }
 }
 
@@ -1343,7 +1355,8 @@ main {
 }
 
 .contest-item .apply-button:hover {
-  background-color: var(--accent-glow);
+  /* background-color: var(--accent-glow); */
+  background: linear-gradient(135deg, var(--accent-glow), #0099cc);
   color: #0d0d0d;
   box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2);
   transform: translateY(-2px);
@@ -1453,7 +1466,7 @@ main {
 }
 /* Mobiles */
 @media (max-width: 480px) {
-  .section-header{
+  .section-header {
     margin-bottom: 0 auto 2rem;
   }
 
@@ -1678,4 +1691,38 @@ main {
     padding: 8px 12px;
     border-radius: 15px;
   }
+}
+
+/* scroll to top button */
+.scroll-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
+  /* background-color: var(--primary-color); */
+  color: white;
+  /* border: none; */
+  border: 0.8px solid;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07),
+    0 4px 6px -4px rgb(0 0 0 / 0.07);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+.scroll-top-btn.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+.scroll-top-btn:hover {
+  transform: scale(1.1) !important;
 }

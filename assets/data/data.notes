@@ -1,0 +1,22 @@
+//data structure
+
+
+const contestData = {
+    category: "water",
+    status: "open",
+    image: "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&w=800&q=80",
+    imageTag: "Water",
+    statusText: "open",
+    title: "Green Cape FNF Green Pitch Challenge 2025",
+    description: "XPRIZE Water Scarcity is made possible by the generous support of our title sponsor, the Mohamed bin Zayed Water Initiative.",
+    meta: {
+        eligibility: "Open to All",
+        location: "International",
+        mode: "Online",
+        tags: "Beginner Friendly, No Code, Ideathon",
+        prize: "2000 USD",
+        start: "Started",
+        end: "30 June 2025"
+    },
+    link: "/green-cape-challenge-details"
+};
