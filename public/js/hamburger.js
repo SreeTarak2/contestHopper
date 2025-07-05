@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeNav = document.getElementById("closeNav");
 
   function openMobileNav() {
-    document.body.style.overflow = "hidden"; // Prevents background scrolling
+    document.body.style.overflow = "hidden";
     mobileNavOverlay.classList.add("active");
     mobileNavOverlay.setAttribute("aria-hidden", "false");
     hamburger.setAttribute("aria-expanded", "true");
   }
 
   function closeMobileNav() {
-    document.body.style.overflow = ""; // Restore scrolling
+    document.body.style.overflow = "";
     mobileNavOverlay.classList.remove("active");
     mobileNavOverlay.setAttribute("aria-hidden", "true");
     hamburger.setAttribute("aria-expanded", "false");
@@ -36,18 +36,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const scrollTopBtn = document.querySelector(".scroll-top-btn");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      scrollTopBtn.classList.add("visible");
-    } else {
-      scrollTopBtn.classList.remove("visible");
-    }
-  });
-});
+  if (scrollTopBtn) {
+    const scrollTargets = [
+      "#all-contests",
+      ".recommendations-section",
+      ".hero-section",
+    ];
 
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
+    const bubbles = Array.from(scrollTopBtn.querySelectorAll(".bubble"));
+
+    let currentTargetIndex = 0;
+
+    const updateBubbles = () => {
+      const bubbleToHighlightIndex = bubbles.length - 1 - currentTargetIndex;
+
+      bubbles.forEach((bubble, index) => {
+        bubble.classList.toggle("active", index === bubbleToHighlightIndex);
+      });
+    };
+
+    const handleButtonClick = (e) => {
+      e.preventDefault();
+
+      const targetSelector = scrollTargets[currentTargetIndex];
+      const targetElement = document.querySelector(targetSelector);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        currentTargetIndex = (currentTargetIndex + 1) % scrollTargets.length;
+        updateBubbles();
+      }
+    };
+
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add("visible");
+      } else {
+        scrollTopBtn.classList.remove("visible");
+
+        if (currentTargetIndex !== 0) {
+          currentTargetIndex = 0;
+          updateBubbles();
+        }
+      }
+    };
+
+    scrollTopBtn.addEventListener("click", handleButtonClick);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    updateBubbles();
+  }
+});

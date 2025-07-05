@@ -12,7 +12,6 @@ function filterContests() {
     const itemCategory = (item.dataset.category || "").toLowerCase();
     const itemStatus = (item.dataset.status || "").toLowerCase();
 
-    // Debugging: Log values being compared
     console.log(
       "Item Category:",
       itemCategory,
@@ -26,7 +25,6 @@ function filterContests() {
     const matchesStatus =
       currentStatus === "all" || itemStatus === currentStatus;
 
-    // Debugging: Check if item is being shown or hidden
     console.log("Should display:", matchesCategory && matchesStatus);
 
     item.style.display = matchesCategory && matchesStatus ? "flex" : "none";
@@ -41,7 +39,6 @@ categoryFilters.forEach((item) => {
     e.currentTarget.classList.add("active");
 
     currentCategory = e.currentTarget.dataset.category.toLowerCase();
-    // Debugging: Log selected category
     console.log("Selected Category:", currentCategory);
     filterContests();
   });
@@ -55,14 +52,31 @@ statusFilters.forEach((button) => {
     e.currentTarget.classList.add("active");
 
     currentStatus = e.currentTarget.dataset.status.toLowerCase();
-    // Debugging: Log selected status
     console.log("Selected Status:", currentStatus);
     filterContests();
   });
 });
 
-
 filterContests();
+
+function calculateDaysLeft(endDateString){
+  const endDate = new Date(endDateString);
+  const presentDate = new Date();
+  if(isNaN(endDate.getTime())){
+    return "--"
+  }
+  endDate.setHours(0,0,0,0);
+  presentDate.setHours(0,0,0,0);
+  const diffTime = endDate.getTime() - presentDate.getTime()
+  if(diffTime < 0){
+    return "Ended"
+  }
+  const diffDays = Math.ceil(diffTime/(1000*60*60*24))
+  if(diffDays == 0){
+    return "Today";
+  }
+  return diffDays;
+}
 
 const cardsContainer = document.querySelector(".contest-list-container");
 
@@ -87,13 +101,13 @@ function createContestCard(data) {
 
   const statusTag = document.createElement("span");
   statusTag.classList.add("status-tag");
-// condition checking
-  if(data.status.toLowerCase() === "open"){
-    statusTag.classList.add('open');
-  } else if(data.status.toLowerCase() === "upcoming"){
-    statusTag.classList.add('upcoming');
-  } else{
-    statusTag.classList.add('closed');
+  // condition checking
+  if (data.status.toLowerCase() === "open") {
+    statusTag.classList.add("open");
+  } else if (data.status.toLowerCase() === "upcoming") {
+    statusTag.classList.add("upcoming");
+  } else {
+    statusTag.classList.add("closed");
   }
 
   const dot = document.createElement("span");
@@ -158,8 +172,26 @@ function createContestCard(data) {
   itemContent.appendChild(meta4);
   itemContent.appendChild(applyBtn);
 
+  // === Create Days Left Box ===
+  const daysLeftBox = document.createElement("div");
+  daysLeftBox.classList.add("days-left-box");
+
+  const label = document.createElement("div");
+  label.classList.add("days-left-label");
+  label.textContent = "Days Left";
+
+  const count = document.createElement("div");
+  count.classList.add("days-left-count");
+  // count.dataset.end = data.meta.endISO; // Add ISO format end date (e.g., "2025-06-30")
+  count.textContent = calculateDaysLeft(data.meta.endISO)
+  count.dataset.end = data.meta.endISO;
+
+  daysLeftBox.appendChild(label);
+  daysLeftBox.appendChild(count);
+
   cardArticle.appendChild(imageWrapper);
   cardArticle.appendChild(itemContent);
+  cardArticle.appendChild(daysLeftBox); 
 
   return cardArticle;
 }
@@ -183,6 +215,7 @@ const data = [
       prize: "2000 USD",
       start: "Started",
       end: "30 June 2025",
+      endISO: "2025-06-30"
     },
     link: "/green-cape-challenge-details",
   },
@@ -204,6 +237,7 @@ const data = [
       prize: "5000 USD",
       start: "1 July 2025",
       end: "10 July 2025",
+      endISO:"2025-07-10"
     },
     link: "/ai-hackathon-2025",
   },
@@ -225,6 +259,7 @@ const data = [
       prize: "10000 EUR",
       start: "1 Jan 2024",
       end: "30 March 2024",
+      endISO:"2024-03-30"
     },
     link: "/sustainable-cities-2024",
   },
@@ -246,6 +281,7 @@ const data = [
       prize: "3000 USD",
       start: "5 August 2025",
       end: "15 August 2025",
+      endISO:"2025-08-15"
     },
     link: "/ux-ui-jam-2025",
   },
