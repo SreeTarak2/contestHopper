@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Matangi:wght@300..900&family=Quicksand:wght@300..700&family=Syncopate:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Russo+One&family=Syncopate:wght@400;700&display=swap");
 :root {
   --header-height: 70px;
   --accent-glow: #00f0ff;
-  --color-primary-hover: #00a8cc; /* A complementary darker cyan for hovers */
+  --color-primary-hover: #00a8cc;
   --color-background: #0d0d0d;
   --color-card-bg: #1e1e1e;
   --color-text: #ffffff;
   --color-border: #444444;
   --border-radius: 12px;
   --transition-speed: 0.3s;
+  --sustainability-highlight: #2ecc71;
+  --sustainability-shadow: rgba(46, 204, 113, 0.3);
 }
 
 * {
@@ -32,10 +34,50 @@ body {
 }
 
 /* ============================================= */
-/* == HEADER COMPONENT STYLES                 == */
+/* == Preloader style                 == */
+/* ============================================= */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--accent-glow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================= */
+/* ==        HEADER COMPONENT STYLES          == */
 /* ============================================= */
 
-/* ----- 1. DESKTOP HEADER DESIGN (Default) ----- */
 .site-header {
   height: 70px;
   display: flex;
@@ -58,7 +100,7 @@ body {
   align-items: center;
   gap: 0.6rem;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: normal;
   font-family: "Russo One", sans-serif;
   color: #fff;
   position: relative;
@@ -76,15 +118,22 @@ body {
 
 #logo {
   position: relative;
-  height: 40px;
+  height: 45px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
   bottom: 4px;
+  filter: contrast(100) brightness(100);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
 }
 
 .main-nav ul {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 2rem;
   margin: 0;
@@ -101,6 +150,44 @@ body {
 .main-nav a:hover {
   color: #00f0ff;
 }
+.nav-btn {
+  position: relative;
+  padding: 0.5rem 1rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+.sustainability-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0.5rem 1.1rem;
+  /* background: linear-gradient(135deg, var(--sustainability-highlight), #1abc9c); */
+  /* padding-right: 1.5rem; */
+  background: white;
+  gap: 0.5rem;
+  color: black !important;
+  font-weight: 900 !important;
+  font-size: larger;
+  overflow: hidden;
+}
+
+.leaf-icon {
+  position: absolute;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
 
 .header-actions-desktop {
   display: flex;
@@ -112,7 +199,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
-  width: 220px;
+  min-width: 240px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -172,7 +259,6 @@ body {
   color: #00f0ff;
 }
 
-/* Hide mobile-only elements on desktop */
 .hamburger {
   display: none;
 }
@@ -421,6 +507,15 @@ main {
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.4s ease-in-out;
+}
+
+.is-fading {
+  opacity: 0 !important;
+}
+.hero-background img,
+.hero-text {
+  transition: opacity 0.4s ease-in-out;
 }
 
 .pagination-dots {
@@ -517,7 +612,7 @@ main {
   color: black; */
   background: transparent;
   color: white;
-  border: 0.5px solid white;
+  border: 1px solid white;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -654,7 +749,7 @@ main {
 @media (max-width: 480px) {
   .hero-section {
     padding: var(--header-height) 1rem 1rem;
-    min-height: 88vh;
+    min-height: 90vh;
   }
 
   .hero-text {
@@ -688,7 +783,6 @@ main {
     bottom: -180px;
   }
 
-  /* Make the slider-wrapper scrollable horizontally */
   .slider-wrapper {
     display: flex;
     gap: 10px;
@@ -698,7 +792,6 @@ main {
     visibility: hidden;
   }
 
-  /* Set each mini-card to not be visible, but maintain their positions */
   .mini-card {
     flex: 0 0 120px;
     height: 160px;
@@ -711,7 +804,6 @@ main {
     visibility: hidden;
   }
 
-  /* Hide scrollbar */
   ::-webkit-scrollbar {
     display: none;
   }
@@ -1225,7 +1317,8 @@ main {
 .image-tag {
   position: absolute;
   bottom: 1rem;
-  left: 1rem;
+  /* left: 1rem; */
+  left: 0.5rem;
   padding: 0.5rem 1rem;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -1424,6 +1517,8 @@ main {
 }
 
 .days-left-box {
+  display: flex;
+  flex-direction: column-reverse;
   position: absolute;
   bottom: 6rem;
   right: 1rem;
@@ -1450,6 +1545,13 @@ main {
 
 .days-left-box .days-left-count {
   font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--accent-glow);
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.days-left-box .days-left-text {
+  font-weight: 700;
   font-size: 1.1rem;
   color: var(--accent-glow);
 }
@@ -1464,6 +1566,7 @@ main {
 .days-left-box:hover .days-left-label,
 .days-left-box:hover .days-left-count {
   color: #1a1a1a;
+  transform: scale(1.1);
 }
 
 /* == RESPONSIVE ADJUSTMENTS FOR ALL CONTESTS == */
@@ -1799,7 +1902,7 @@ main {
 .scroll-top-btn {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 30px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -1832,7 +1935,8 @@ main {
 
 .bubbles-container {
   position: absolute;
-  bottom: 60px;
+  /* bottom: 60px; */
+  bottom: -11px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

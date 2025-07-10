@@ -8,11 +8,22 @@
     <link rel="shortcut icon" href="../assets/Final Logo/logoico.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/contests.css">
+    <style>
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            aspect-ratio: 16/9;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
     <header class="site-header">
-        <!-- Logo (Visible on all screen sizes) -->
         <div class="header-logo">
             <a href="index.html">
                 Contest <span class="hopper-text">Hopper</span>
@@ -26,9 +37,9 @@
                 <li><a href="contests.html">Contests</a></li>
                 <li><a href="competitions.html">Competitions</a></li>
                 <li><a href="hackathons.html">Hackathons</a></li>
-                <li><a href="about.html">About</a></li>
+                <!-- <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact us</a></li>
-                <li><a href="contact.html">Donate</a></li>
+                <li><a href="contact.html">Donate</a></li> -->
             </ul>
         </nav>
         <!-- Search Bar & Sign In (Desktop only) -->
@@ -65,7 +76,7 @@
             <a href="contests.html">Contests</a>
             <a href="competitions.html">Competitions</a>
             <a href="hackathons.html">Hackathons</a>
-            <a href="about.html">About</a>
+            <a href="about.html">About Us</a>
             <a href="contact.html">Contact us</a>
             <a href="contact.html">Donate</a>
         </nav>
@@ -76,7 +87,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- main section starting -->
 
@@ -93,8 +103,11 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h2 class="contest-title" id="heroTitle">Contests</h2>
-                    <h5 class="contest-subtitle" id="heroDescription">Explore challenges conducted worldwide.</h5>
-                    <a href="/greencape-details" class="hero-button">
+                    <h5 class="contest-subtitle" id="heroDescription">An immersive AI & VR hackathon pushing the
+                        boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An
+                        immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon
+                        pushing the boundaries of innovation.</h5>
+                    <a href="/green-cape-challenge-details" class="hero-button">
                         <span>Apply Now</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -111,41 +124,43 @@
                     </div>
                     <div class="slider-viewport">
                         <div class="slider-wrapper" id="sliderWrapper">
-                            <div id="mini-card" class="mini-card" data-bg="../assets/Images/AI&VR/herosectionimg.webp"
+                            <div id="mini-card" class="mini-card"
+                                data-bg="../assets/Images/save water/670b02bc-344a-44c6-8238-bd8d9d3f102d.webp"
                                 data-title="Codefest"
                                 data-description="An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.">
-                                <img src="../assets/Images/AI&VR/herosectionimg.webp" alt="Tech Contest">
+                                <img src="../assets/Images/save water/670b02bc-344a-44c6-8238-bd8d9d3f102d.webp"
+                                    alt="Tech Contest">
                                 <div class="mini-card-details">Codefest</div>
                             </div>
                             <div id="mini-card" class="mini-card"
-                                data-bg="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
+                                data-bg="../assets/Images/Miniature/105a9273-f629-4eb1-bd89-c15fadc0d964.jpeg"
                                 data-title="RETRO JAM"
                                 data-description="A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.">
-                                <img src="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
+                                <img src="../assets/Images/Miniature/105a9273-f629-4eb1-bd89-c15fadc0d964.jpeg"
                                     alt="Retro Gaming Contest">
                                 <div class="mini-card-details">RETRO JAM</div>
                             </div>
                             <div id="mini-card" class="mini-card"
-                                data-bg="../assets/Images/Droughts/freepik__expand__11770 (1).png"
+                                data-bg="../assets/Images/Mental Health/6a6ade1c-0883-4107-ba06-413b670745f7.webp"
                                 data-title="DESIGN DUEL"
                                 data-description="Compete in a fast-paced UI/UX challenge to design for impact.">
-                                <img src="../assets/Images/Droughts/freepik__expand__11770 (1).png"
+                                <img src="../assets/Images/Mental Health/6a6ade1c-0883-4107-ba06-413b670745f7.webp"
                                     alt="UI/UX Design Contest">
                                 <div class="mini-card-details">DESIGN DUEL</div>
                             </div>
                             <div id="mini-card" class="mini-card"
-                                data-bg="../assets/Images/Hackathons/freepik__expand__84176 (1).png"
+                                data-bg="../assets/Images/Floods/90b7edcf-f900-4671-bb5e-5e9aebe706f2.webp"
                                 data-title="INNO PITCH"
                                 data-description="Pitch your startup ideas to top VCs and tech mentors.">
-                                <img src="../assets/Images/Hackathons/freepik__expand__84176 (1).png"
+                                <img src="../assets/Images/Floods/90b7edcf-f900-4671-bb5e-5e9aebe706f2.webp"
                                     alt="Startup Pitch Contest">
                                 <div class="mini-card-details">INNO PITCH</div>
                             </div>
                             <div id="mini-card" class="mini-card"
-                                data-bg="../assets/Images/Plants/178b9bf9-b391-4cd1-af59-bb189efc23ec.webp"
+                                data-bg="../assets/Images/Plants/66093f75-2178-407f-bddd-2d97e2e79825.webp"
                                 data-title="MARKET MAVEN"
                                 data-description="Showcase your marketing brilliance through real-world strategy challenges.">
-                                <img src="../assets/Images/Plants/178b9bf9-b391-4cd1-af59-bb189efc23ec.webp"
+                                <img src="../assets/Images/Plants/66093f75-2178-407f-bddd-2d97e2e79825.webp"
                                     alt="Marketing Contest">
                                 <div class="mini-card-details">MARKET MAVEN</div>
                             </div>

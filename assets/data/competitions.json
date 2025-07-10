@@ -1,0 +1,782 @@
+[
+  {
+    "id": "comp_1",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3487_international_poster_competition-in-jazz-we-hope_thm.png",
+      "alt": "7th International Poster Competition 'We want jazz'"
+    },
+    "imageTag": "Poster Design",
+    "statusText": "Open",
+    "title": "7th International Poster Competition \"We want jazz\"",
+    "description": "Artists are invited to design a poster on the theme 'IN JAZZ WE HOPE'.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poster", "Art", "Jazz", "Design"],
+      "prize": {
+        "amount": 6000,
+        "currency": "PLN"
+      },
+      "startDate": null,
+      "endDate": "2025-09-05",
+      "endISO": "2025-09-05"
+    },
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScz_6ss9t-oG0U3VkyuJ9MCAA-owMfsWhC1RKeFhxWtX61bqQ/viewform"
+  },
+  {
+    "id": "comp_2",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3485_summer-short-story-award-2025_thm.png",
+      "alt": "2025 Summer Short Story Award for New Writers"
+    },
+    "imageTag": "Short Story",
+    "statusText": "Open",
+    "title": "2025 Summer Short Story Award for New Writers",
+    "description": "A competition for unpublished writers to submit fiction or creative nonfiction up to 6,000 words.",
+    "meta": {
+      "eligibility": "Unpublished Writers",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Fiction", "Creative Nonfiction", "Writing", "Literary"],
+      "prize": {
+        "amount": 3000,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-09-07",
+      "endISO": "2025-09-07"
+    },
+    "link": "https://mastersreview.com/"
+  },
+  {
+    "id": "comp_3",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3480_2026-rene-carcan-international-engraving-competition_thm.png",
+      "alt": "René Carcan International Engraving Competition – 2026 edition"
+    },
+    "imageTag": "Printmaking",
+    "statusText": "Open",
+    "title": "René Carcan International Engraving Competition – 2026 edition",
+    "description": "A contest for printmaking artists to submit four original prints created using traditional techniques.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Printmaking", "Art", "Traditional", "Creative"],
+      "prize": {
+        "amount": 5000,
+        "currency": "EUR"
+      },
+      "startDate": null,
+      "endDate": "2025-09-30",
+      "endISO": "2025-09-30"
+    },
+    "link": "https://renecarcan.org/en"
+  },
+  {
+    "id": "comp_4",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3483_44-international-illustration-contest_thm.png",
+      "alt": "44th International Illustration Contest"
+    },
+    "imageTag": "Illustration",
+    "statusText":"Closed",
+    "title": "44th International Illustration Contest",
+    "description": "A contest inviting illustrators to submit works themed around 'Flowers & Plants'.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Illustration", "Art", "Nature", "Creativity"],
+      "prize": {
+        "amount": 2000,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-07-16",
+      "endISO": "2025-07-16"
+    },
+    "link": "https://www.celsys.com/en/"
+  },
+  {
+    "id": "comp_5",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3481_2025-royal-society-publishing-photography-competition_thm.png",
+      "alt": "2025 Royal Society Publishing Photography Competition"
+    },
+    "imageTag": "Science Photography",
+    "statusText": "Open",
+    "title": "2025 Royal Society Publishing Photography Competition",
+    "description": "A competition for scientists to submit images illustrating a scientific phenomenon.",
+    "meta": {
+      "eligibility": "Graduate Scientists",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Science", "Research", "Visual"],
+      "prize": {
+        "amount": 1000,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-08-15",
+      "endISO": "2025-08-15"
+    },
+    "link": "https://royalsociety.org/journals/publishing-activities/photo-competition/"
+  },
+  {
+    "id": "comp_6",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3478_national-poetry-competition-2025_thm.png",
+      "alt": "The National Poetry Competition 2025"
+    },
+    "imageTag": "Poetry",
+    "statusText": "Open",
+    "title": "The National Poetry Competition 2025",
+    "description": "A poetry competition open to anyone aged 18 or over, accepting poems up to 40 lines on any subject.",
+    "meta": {
+      "eligibility": "Open to All over 18",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poetry", "Writing", "Creative", "Literature"],
+      "prize": {
+        "amount": 5000,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-10-31",
+      "endISO": "2025-10-31"
+    },
+    "link": "https://poetrysociety.org.uk/"
+  },
+  {
+    "id": "comp_7",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3486_lensculture-street-photography-awards-2025--contest_thm.png",
+      "alt": "LensCulture Street Photography Awards 2025"
+    },
+    "imageTag": "Street Photography",
+    "statusText": "Open",
+    "title": "LensCulture Street Photography Awards 2025",
+    "description": "A competition open to all types of street photography, accepting single photos or series.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Street", "Creative", "Visual"],
+      "prize": {
+        "amount": 3500,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-08-06",
+      "endISO": "2025-08-06"
+    },
+    "link": "https://www.lensculture.com/"
+  },
+  {
+    "id": "comp_8",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3484_212-photography-competition---2025_thm.png",
+      "alt": "2025 International 212 Photography Competition"
+    },
+    "imageTag": "Photography",
+    "statusText": "Open",
+    "title": "2025 International 212 Photography Competition",
+    "description": "Open to amateur and professional photographers, accepting up to 10 photos on any subject.",
+    "meta": {
+      "eligibility": "Amateur and Professional Photographers",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Creative", "Visual Arts"],
+      "prize": {
+        "amount": 5000,
+        "currency": "EUR"
+      },
+      "startDate": null,
+      "endDate": "2025-09-07",
+      "endISO": "2025-09-07"
+    },
+    "link": "https://www.212photographyistanbul.com/"
+  },
+  {
+    "id": "comp_9",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3482_2021-yale-drama-series_thm.png",
+      "alt": "The Yale Drama Series 2026"
+    },
+    "imageTag": "Playwriting",
+    "statusText": "Open",
+    "title": "The Yale Drama Series 2026",
+    "description": "An international competition for emerging playwrights to submit original, unpublished full-length plays in English.",
+    "meta": {
+      "eligibility": "Emerging Playwrights",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Playwriting", "Drama", "Theater", "Writing"],
+      "prize": {
+        "amount": 10000,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-08-15",
+      "endISO": "2025-08-15"
+    },
+    "link": "https://yalebooks.yale.edu/yale-drama-series-rules-and-submission-guidelines/"
+  },
+  {
+    "id": "comp_10",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3479_head-on-photo-awards-2025_thm.png",
+      "alt": "Head On Photo Awards 2025"
+    },
+    "imageTag": "Photography",
+    "statusText": "Open",
+    "title": "Head On Photo Awards 2025",
+    "description": "A photography contest with categories in Portrait, Landscape, and Exposure, open to professional and emerging photographers.",
+    "meta": {
+      "eligibility": "Professional and Emerging Photographers",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Portrait", "Landscape", "Exposure"],
+      "prize": {
+        "amount": 5000,
+        "currency": "AUD"
+      },
+      "startDate": null,
+      "endDate": "2025-07-27",
+      "endISO": "2025-07-27"
+    },
+    "link": "https://www.headon.com.au/our-story"
+  },
+  {
+    "id": "comp_11",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3466_the-moth-nature-writing-prize-2025_thm.png",
+      "alt": "The Moth Nature Writing Prize 2025"
+    },
+    "imageTag": "Nature Writing",
+    "statusText": "Open",
+    "title": "The Moth Nature Writing Prize 2025",
+    "description": "A contest for poetry and prose up to 4,000 words, open to anyone over 16.",
+    "meta": {
+      "eligibility": "Open to All over 16",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poetry", "Prose", "Writing", "Nature"],
+      "prize": {
+        "amount": 1000,
+        "currency": "EUR"
+      },
+      "startDate": null,
+      "endDate": "2025-09-30",
+      "endISO": "2025-09-30"
+    },
+    "link": "https://www.themothmagazine.com/"
+  },
+  {
+    "id": "comp_12",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3468_edinburgh-flash-fiction-award-2024_thm.png",
+      "alt": "2025 Edinburgh Award for Flash Fiction"
+    },
+    "imageTag": "Flash Fiction",
+    "statusText": "Open",
+    "title": "2025 Edinburgh Award for Flash Fiction",
+    "description": "A contest for writers to submit original flash fiction up to 250 words.",
+    "meta": {
+      "eligibility": "Writers over 16",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Flash Fiction", "Writing", "Short Story", "Creative"],
+      "prize": {
+        "amount": 2000,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-08-31",
+      "endISO": "2025-08-31"
+    },
+    "link": "https://www.scottishartsclub.com/"
+  },
+  {
+    "id": "comp_13",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3476_the-derwent-art-prize-2025_thm.png",
+      "alt": "The Derwent Art Prize 2026"
+    },
+    "imageTag": "Pencil Art",
+    "statusText": "Open",
+    "title": "The Derwent Art Prize 2026",
+    "description": "A competition for artists to submit up to 6 works created in pencil.",
+    "meta": {
+      "eligibility": "Open to All over 18",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Art", "Pencil", "Drawing", "Creative"],
+      "prize": {
+        "amount": 4000,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2026-01-13",
+      "endISO": "2026-01-13"
+    },
+    "link": "https://artopps.co.uk/opportunities/derwent-artprize"
+  },
+  {
+    "id": "comp_14",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3472_womens-short-story-competition-2025_thm.png",
+      "alt": "Mslexia Women's Short Story Competition 2025"
+    },
+    "imageTag": "Short Story",
+    "statusText": "Open",
+    "title": "Mslexia Women's Short Story Competition 2025",
+    "description": "A contest for women to submit unpublished short stories up to 3,000 words.",
+    "meta": {
+      "eligibility": "Women Writers",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Short Story", "Writing", "Fiction", "Women"],
+      "prize": {
+        "amount": 3000,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-09-22",
+      "endISO": "2025-09-22"
+    },
+    "link": "https://mslexia.co.uk/"
+  },
+  {
+    "id": "comp_15",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3477_kbr-photo-award-2025_thm.png",
+      "alt": "KBr Photo Award 2025"
+    },
+    "imageTag": "Photography",
+    "statusText": "Open",
+    "title": "KBr Photo Award 2025",
+    "description": "A contest for photographers to submit a project proposal with 10-15 images for a chance to develop their work.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Project", "Grant", "Creative"],
+      "prize": {
+        "amount": 25000,
+        "currency": "EUR"
+      },
+      "startDate": null,
+      "endDate": "2025-09-01",
+      "endISO": "2025-09-01"
+    },
+    "link": "https://kbr.fundacionmapfre.org/"
+  },
+  {
+    "id": "comp_16",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3470_international-comic-art-contest-2025_thm.png",
+      "alt": "14th Manga Kingdom Tottori International Comic Art Contest"
+    },
+    "imageTag": "Manga Art",
+    "statusText": "Open",
+    "title": "14th Manga Kingdom Tottori International Comic Art Contest",
+    "description": "A contest for illustrators to submit original manga based on the theme of 'Promise'.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Manga", "Illustration", "Art", "Promise"],
+      "prize": {
+        "amount": 500000,
+        "currency": "JPY"
+      },
+      "startDate": null,
+      "endDate": "2025-08-31",
+      "endISO": "2025-08-31"
+    },
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSeQ6zDfH_h1mDucfKVV3CWUJCdxQ_osPgZ-i-8x3qvnDQGAMw/viewform"
+  },
+  {
+    "id": "comp_17",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3474_sony-world-photography-awards-2026_thm.png",
+      "alt": "Sony World Photography Awards 2026"
+    },
+    "imageTag": "Photography",
+    "statusText": "Open",
+    "title": "Sony World Photography Awards 2026",
+    "description": "A major global competition showcasing the best in contemporary photography.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Creative", "Visual Arts"],
+      "prize": {
+        "amount": 0,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2026-01-01",
+      "endISO": "2026-01-01"
+    },
+    "link": "https://www.worldphoto.org/about-us"
+  },
+  {
+    "id": "comp_18",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3469_insect-photography-competition-2025_thm.png",
+      "alt": "Royal Entomological Society 2025 Insect Photography Competition"
+    },
+    "imageTag": "Insect Photography",
+    "statusText": "Open",
+    "title": "Royal Entomological Society 2025 Insect Photography Competition",
+    "description": "A contest for amateur photographers to submit images of insects in their natural environment.",
+    "meta": {
+      "eligibility": "Amateur Photographers",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Insects", "Nature", "Creative"],
+      "prize": {
+        "amount": 750,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-10-31",
+      "endISO": "2025-10-31"
+    },
+    "link": "https://www.royensoc.co.uk/"
+  },
+  {
+    "id": "comp_19",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3467_aoc_web_banner_thm.png",
+      "alt": "2025 International Illustration Competition 'Art on Climate'"
+    },
+    "imageTag": "Climate Art",
+    "statusText": "Open",
+    "title": "2025 International Illustration Competition \"Art on Climate\"",
+    "description": "A contest for illustrators and video creators to submit original artworks on the theme of climate change.",
+    "meta": {
+      "eligibility": "Open to All over 18",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Illustration", "Video", "Climate Change", "Art"],
+      "prize": {
+        "amount": 2000,
+        "currency": "EUR"
+      },
+      "startDate": null,
+      "endDate": "2025-07-31",
+      "endISO": "2025-07-31"
+    },
+    "link": "https://www.artonclimate.com/en"
+  },
+  {
+    "id": "comp_20",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3475_35th-annual-jeffrey-e.-smith-editors-prize_thm.png",
+      "alt": "35th Annual Jeffrey E. Smith Editors’ Prize"
+    },
+    "imageTag": "Writing",
+    "statusText": "Open",
+    "title": "35th Annual Jeffrey E. Smith Editors’ Prize",
+    "description": "A contest for writers to submit fiction, nonfiction, or poetry, with winners receiving publication and cash prizes.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Fiction", "Nonfiction", "Poetry", "Writing"],
+      "prize": {
+        "amount": 5000,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-10-01",
+      "endISO": "2025-10-01"
+    },
+    "link": "https://www.missourireview.com/"
+  },
+  {
+    "id": "comp_21",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3449_winchester-poetry-prize-2025_thm.png",
+      "alt": "Winchester Poetry Prize 2025"
+    },
+    "imageTag": "Poetry",
+    "statusText": "Open",
+    "title": "Winchester Poetry Prize 2025",
+    "description": "A poetry contest for anyone aged 16 or over, accepting poems on any subject.",
+    "meta": {
+      "eligibility": "Open to All over 16",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poetry", "Writing", "Creative", "Literature"],
+      "prize": {
+        "amount": 1000,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-07-31",
+      "endISO": "2025-07-31"
+    },
+    "link": "https://www.winchesterpoetryfestival.org/"
+  },
+  {
+    "id": "comp_22",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3461_international-poster-competition-2025_thm.png",
+      "alt": "2025 International Poster Competition"
+    },
+    "imageTag": "Poster Design",
+    "statusText": "Closed",
+    "title": "2025 International Poster Competition",
+    "description": "A contest for anyone to submit up to 8 posters created for any purpose.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poster", "Design", "Art", "Creative"],
+      "prize": {
+        "amount": 500,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-07-14",
+      "endISO": "2025-07-14"
+    },
+    "link": "https://intl.international/mission/"
+  },
+  {
+    "id": "comp_23",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3462_sean-o-faolain-international-short-story-competition-2024_thm.png",
+      "alt": "Seán Ó Faoláin International Short Story Competition 2025"
+    },
+    "imageTag": "Short Story",
+    "statusText": "Open",
+    "title": "Seán Ó Faoláin International Short Story Competition 2025",
+    "description": "A competition for unpublished short stories up to 3,000 words in any style or subject.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Short Story", "Writing", "Fiction", "Creative"],
+      "prize": {
+        "amount": 2000,
+        "currency": "EUR"
+      },
+      "startDate": null,
+      "endDate": "2025-07-31",
+      "endISO": "2025-07-31"
+    },
+    "link": "https://munsterlit.ie/about/"
+  },
+  {
+    "id": "comp_24",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3464_posterheroes-2025_thm.png",
+      "alt": "2025 Posterheroes Contest"
+    },
+    "imageTag": "Poster Design",
+    "statusText": "Open",
+    "title": "2025 Posterheroes Contest",
+    "description": "An international poster contest on social and environmental themes, with the theme 'Seeds of Kindness – A Call to Design Empathy'.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poster", "Design", "Empathy", "Social"],
+      "prize": {
+        "amount": 2500,
+        "currency": "EUR"
+      },
+      "startDate": null,
+      "endDate": "2025-08-22",
+      "endISO": "2025-08-22"
+    },
+    "link": "http://plugcreativity.org/en/home-en/"
+  },
+  {
+    "id": "comp_25",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3351_aesthetica-creative-writing-award-2025_thm.png",
+      "alt": "Aesthetica Creative Writing Award 2025"
+    },
+    "imageTag": "Writing",
+    "statusText": "Open",
+    "title": "Aesthetica Creative Writing Award 2025",
+    "description": "A contest for poets and authors to submit poetry or short fiction on any theme.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poetry", "Short Fiction", "Writing", "Creative"],
+      "prize": {
+        "amount": 2500,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-08-31",
+      "endISO": "2025-08-31"
+    },
+    "link": "https://aestheticamagazine.com/"
+  },
+  {
+    "id": "comp_26",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3459_tom-howard-margaret-reid-poetry-contest-2025_thm.png",
+      "alt": "Tom Howard/Margaret Reid Poetry Contest 2025"
+    },
+    "imageTag": "Poetry",
+    "statusText": "Open",
+    "title": "Tom Howard/Margaret Reid Poetry Contest 2025",
+    "description": "A contest for poems up to 250 lines in any style or genre.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poetry", "Writing", "Creative", "Literature"],
+      "prize": {
+        "amount": 3500,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-10-01",
+      "endISO": "2025-10-01"
+    },
+    "link": "https://winningwriters.com/"
+  },
+  {
+    "id": "comp_27",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3463_spie-idl-photo-contest-2025_thm.png",
+      "alt": "SPIE International Day of Light Photo Contest 2025"
+    },
+    "imageTag": "Photography",
+    "statusText": "Open",
+    "title": "SPIE International Day of Light Photo Contest 2025",
+    "description": "A contest for photographers to submit images on how light shapes our world.",
+    "meta": {
+      "eligibility": "Open to All over 18",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Light", "Creative", "Visual"],
+      "prize": {
+        "amount": 2500,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-09-16",
+      "endISO": "2025-09-16"
+    },
+    "link": "https://spie.org/"
+  },
+  {
+    "id": "comp_28",
+    "category": "Writing",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3435_rattle-poetry-prize-2025_thm.png",
+      "alt": "2025 Rattle Poetry Prize"
+    },
+    "imageTag": "Poetry",
+    "statusText": "Closed",
+    "title": "2025 Rattle Poetry Prize",
+    "description": "A poetry contest open to poets of any nationality, accepting up to four poems per entry.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poetry", "Writing", "Creative", "Literature"],
+      "prize": {
+        "amount": 15000,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-07-15",
+      "endISO": "2025-07-15"
+    },
+    "link": "https://www.rattle.com/"
+  },
+  {
+    "id": "comp_29",
+    "category": "Photography",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3448_photography_4humanity_2025_thm.png",
+      "alt": "Photography 4 Humanity 2025"
+    },
+    "imageTag": "Photography",
+    "statusText": "Open",
+    "title": "Photography 4 Humanity 2025",
+    "description": "A contest for photographers to submit images related to people impacted by or mitigating climate change.",
+    "meta": {
+      "eligibility": "Open to All over 18",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Photography", "Climate Change", "Humanity", "Creative"],
+      "prize": {
+        "amount": 5000,
+        "currency": "USD"
+      },
+      "startDate": null,
+      "endDate": "2025-08-05",
+      "endISO": "2025-08-05"
+    },
+    "link": "https://www.davidclarkcause.com/"
+  },
+  {
+    "id": "comp_30",
+    "category": "Art",
+    "image": {
+      "url": "https://intercompetition.com/components/com_djclassifieds/images/item/3/3416_2025-international-poster-competition_thm.png",
+      "alt": "2025 International Poster Competition"
+    },
+    "imageTag": "Poster Design",
+    "statusText": "Closed",
+    "title": "2025 International Poster Competition",
+    "description": "A contest for anyone to submit up to 8 posters created for any purpose.",
+    "meta": {
+      "eligibility": "Open to All",
+      "location": "Global",
+      "mode": "Online",
+      "tags": ["Poster", "Design", "Art", "Creative"],
+      "prize": {
+        "amount": 500,
+        "currency": "GBP"
+      },
+      "startDate": null,
+      "endDate": "2025-07-14",
+      "endISO": "2025-07-14"
+    },
+    "link": "https://intl.international/mission/"
+  }
+]
