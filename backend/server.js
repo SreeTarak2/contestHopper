@@ -9,7 +9,6 @@ const corsOptions = {
   allowedHeaders: ["Content-Type"],
 };
 
-
 const app = express();
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
