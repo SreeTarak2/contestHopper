@@ -5,7 +5,9 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-  origin:["https://contesthopper.pages.dev",]
+  origin:["https://contesthopper.pages.dev"],
+  methods: ["GET", "POST"],
+  credentials: false
 }));
 app.use(express.json());
 
