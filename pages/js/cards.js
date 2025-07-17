@@ -16,6 +16,8 @@ let activeIntervals = [];
 let currentTags = [];
 let allContestsData = [];
 
+const url = 'https://contesthopper.onrender.com';
+
 function getUniqueValues(data, key) {
   const allValues = data.flatMap((item) => item[key] || []);
   if (key === "meta.tags") {
@@ -499,7 +501,7 @@ statusFilters.forEach((button) => {
 
 async function getContets() {
   try {
-    const results = await fetch("http://127.0.0.1:3000/contests");
+    const results = await fetch(`${url}/contests`);
     const data = await results.json();
     allContestsData = data.results
     populateFilters(allContestsData);
