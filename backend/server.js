@@ -4,12 +4,15 @@ const cors = require("cors");
 require('dotenv').config();
 
 const corsOptions = {
-    origin:["https://contesthopper.pages.dev"],
-    credentials:false,
-}
+  origin: "https://contesthopper.pages.dev",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
+
 
 const app = express();
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 app.use(express.json());
 
 const PORT = 3000;
