@@ -1,7 +1,7 @@
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
-const url = "https://contesthopper.onrender.com";
+const baseUrl = "https://contesthopper.onrender.com";
 // Debounce function
 function debounce(fn, delay = 300) {
   let timeout;
@@ -19,7 +19,7 @@ async function searchContests(query) {
   }
 
   const response = await fetch(
-    `${url}/search?q=${encodeURIComponent(query)}`
+    `${baseUrl}/search?q=${encodeURIComponent(query)}`
   );
   if (!response.ok) {
     throw new Error("Network response was not ok");
