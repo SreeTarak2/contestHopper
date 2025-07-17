@@ -32,7 +32,8 @@
                 <li><a href="hackathons.html" class="nav-btn">Hackathons</a></li>
                 <li>
                     <a href="sustainability.html" class="sustainability-btn">
-                        Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo" class="leaf-icon">
+                        Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
+                            class="leaf-icon">
                     </a>
                 </li>
                 <li><a href="hackathons.html" class="nav-btn">Blog</a></li>
@@ -40,12 +41,16 @@
         </nav>
         <!-- Search Bar & Sign In (Desktop only) -->
         <div class="header-actions-desktop">
-            <div class="searchbar-container">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Search" class="searchbar">
-            </div>
-            <div class="signin-btn">
-                <a href="signin.html">Sign In</a>
+            <div class="searchbar-wrapper">
+                <div class="searchbar-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search" class="searchbar" id="searchInput">
+                </div>
+
+                <div class="search-results" id="searchResults"></div>
+                <div class="signin-btn">
+                    <a href="signin.html">Sign In</a>
+                </div>
             </div>
         </div>
         <!-- Hamburger Menu Trigger (Mobile only) -->
@@ -132,10 +137,10 @@
                                     alt="Retro Gaming Contest">
                                 <div class="mini-card-details">RETRO JAM</div>
                             </div>
-                            <div class="mini-card" data-bg="../assets/Images/Droughts/freepik__expand__11770 (1).png"
+                            <div class="mini-card" data-bg="../assets/Images/Droughts/freepik__expand__11770.png"
                                 data-title="DESIGN DUEL"
                                 data-description="Compete in a fast-paced UI/UX challenge to design for impact.">
-                                <img src="../assets/Images/Droughts/freepik__expand__11770 (1).png"
+                                <img src="../assets/Images/Droughts/freepik__expand__11770.png"
                                     alt="UI/UX Design Contest">
                                 <div class="mini-card-details">DESIGN DUEL</div>
                             </div>
@@ -146,11 +151,10 @@
                                     alt="Startup Pitch Contest">
                                 <div class="mini-card-details">INNO PITCH</div>
                             </div>
-                            <div class="mini-card"
-                                data-bg="../assets/Images/Plants/178b9bf9-b391-4cd1-af59-bb189efc23ec.webp"
+                            <div class="mini-card" data-bg="../assets/Images/Plants/freepik__expand__92815 (1).png"
                                 data-title="MARKET MAVEN"
                                 data-description="Showcase your marketing brilliance through real-world strategy challenges.">
-                                <img src="../assets/Images/Plants/178b9bf9-b391-4cd1-af59-bb189efc23ec.webp"
+                                <img src="../assets/Images/Plants/freepik__expand__92815 (1).png"
                                     alt="Marketing Contest">
                                 <div class="mini-card-details">MARKET MAVEN</div>
                             </div>
@@ -201,63 +205,65 @@
             </div>
         </section>
 
-
-        <!-- ============================================= -->
-        <!-- == Recommendation scroller design  == -->
-        <!-- ============================================= -->
-        <section class="recommendations-section reveal">
-            <div class="section-header">
-                <h2 class="section-title">Just For You</h2>
-                <p class="section-subtitle">Handpicked recommendations based on your interests and recent activity.</p>
+        <!-- ======================================================== -->
+        <!-- ==     CONTEST EXPLAINER (SCROLLYTELLING SECTION)   == -->
+        <!-- ======================================================== -->
+        <section class="contest-explainer-section">
+            <!-- Part 1: The initial full-width introductory text -->
+            <div class="explainer-intro">
+                <div class="intro-background"></div>
+                <div class="intro-content">
+                    <h1>What Are Contests?</h1>
+                    <p>Go beyond theory. Contests are your arena to prove your skills, tackle real-world problems, and
+                        forge connections with a global community of innovators. Scroll to discover how.</p>
+                </div>
             </div>
-            <div class="recommendation-scroller">
-                <div class="rec-card">
-                    <img src="../assets/Images/save water/097f228c-1697-4491-a93c-96e1ee3ae4ee.webp"
-                        alt="UI/UX Challenge" class="rec-card-bg">
-                    <div class="rec-card-content">
-                        <h4 class="rec-card-title">UI/UX Design Sprint</h4>
-                        <span class="rec-card-platform">Dribbble</span>
+
+            <!-- Part 2: The split-screen scrolling content -->
+            <div class="explainer-content-grid">
+                <div class="explainer-text-column">
+                    <div class="text-step" data-image="../assets/Images/AI&VR/herosectionimg.webp">
+                        <h3>Solve Real Challenges</h3>
+                        <p>Forget abstract puzzles. Our contests, sponsored by leading tech companies and innovative
+                            startups, present you with genuine problems they face today. Whether it's optimizing an
+                            algorithm, designing a sustainable system, or prototyping a new UI, you'll be working on
+                            challenges that matter.</p>
+                    </div>
+                    <div class="text-step"
+                        data-image="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp">
+                        <h3>Unleash Your Creativity</h3>
+                        <p>There is no single 'right' answer. We celebrate unique solutions and out-of-the-box thinking.
+                            This is your chance to experiment with new technologies, blend different disciplines, and
+                            showcase your unique creative signature. Stand out with originality, brilliant
+                            problem-solving, and true innovation.</p>
+                    </div>
+                    <div class="text-step" data-image="../assets/Images/Hackathons/freepik__expand__84176 (1).png">
+                        <h3>Earn Rewards & Recognition</h3>
+                        <p>Winning isn't just about the prize money—it's about career-defining recognition. Get your
+                            work in front of industry leaders, recruiters, and VCs. Top participants are often featured
+                            in our blog, gain access to exclusive job boards, and receive mentorship from tech veterans.
+                        </p>
+                    </div>
+                    <div class="text-step"
+                        data-image="../assets/Images/Floods/5537c5e4-b710-4ec9-bdc7-ad2940493e47.webp">
+                        <h3>Join a Global Community</h3>
+                        <p>You're not competing in a vacuum. You're joining a vibrant, worldwide community of
+                            developers, designers, and creators. Connect with peers, form teams for future hackathons,
+                            and learn from others who are just as passionate about building the future as you are.</p>
                     </div>
                 </div>
-                <!-- Add more recommendation cards here -->
-                <div class="rec-card">
-                    <img src="../assets/Images/Education/Takshshila University actual interior with student.webp "
-                        alt="Cybersecurity" class="rec-card-bg">
-                    <div class="rec-card-content">
-                        <h4 class="rec-card-title">CyberSec CTF</h4>
-                        <span class="rec-card-platform">Hack The Box</span>
-                    </div>
-                </div>
-                <div class="rec-card">
-                    <img src="../assets/Images/Floods/a21fd2a8-2a5d-4632-9154-81573dc16a31.webp" alt="AI Contest"
-                        class="rec-card-bg">
-                    <div class="rec-card-content">
-                        <h4 class="rec-card-title">AI Image Generation</h4>
-                        <span class="rec-card-platform">Kaggle</span>
-                    </div>
-                </div>
-                <div class="rec-card">
-                    <img src="../assets/Images/Miniature/105a9273-f629-4eb1-bd89-c15fadc0d964.jpeg" alt="Web Dev"
-                        class="rec-card-bg">
-                    <div class="rec-card-content">
-                        <h4 class="rec-card-title">Frontend Masters</h4>
-                        <span class="rec-card-platform">Codepen</span>
-                    </div>
-                </div>
-                <div class="rec-card">
-                    <img src="../assets/Images/Plants/178b9bf9-b391-4cd1-af59-bb189efc23ec.webp" alt="Startup Pitch"
-                        class="rec-card-bg">
-                    <div class="rec-card-content">
-                        <h4 class="rec-card-title">Startup Pitch Day</h4>
-                        <span class="rec-card-platform">Y Combinator</span>
+
+                <!-- Column for the image that will be "sticky" and change -->
+                <div class="explainer-image-column">
+                    <div class="sticky-image-wrapper">
+                        <img src="../assets/Images/AI&VR/herosectionimg.webp" alt="Contest theme image"
+                            id="stickyContestImage">
                     </div>
                 </div>
             </div>
         </section>
-
-
         <!-- ============================================= -->
-        <!-- == ALL CONTESTS SECTION (REVISED DESIGN)   == -->
+        <!-- ==         ALL CONTESTS SECTION            == -->
         <!-- ============================================= -->
         <section class="contests-section" id="all-contests">
             <div class="section-header">
@@ -265,7 +271,6 @@
                 <p class="section-subtitle">Browse our full catalog of live, upcoming, and past challenges.</p>
             </div>
 
-            <!-- Unified filter bar for better structure and accessibility -->
             <nav class="filters-container" aria-label="Contest Filters">
                 <div class="primary-filters">
                     <button class="filter-button active" data-status="all">All</button>
@@ -273,32 +278,95 @@
                     <button class="filter-button" data-status="upcoming">Upcoming</button>
                     <button class="filter-button" data-status="closed">Closed</button>
                 </div>
+                <div class="secondary-filter-controls">
+                    <div class="filter-group">
+                        <span class="filter-label">Sort by</span>
+                        <div class="segmented-control" id="sortControl">
+                            <button class="segmented-control__button active" data-sort="ending-soon">Ending
+                                Soon</button>
+                            <button class="segmented-control__button" data-sort="newest">Newest</button>
+                            <button class="segmented-control__button" data-sort="prize-high-low"
+                                data-alt-sort="prize-low-high">
+                                Prize
+                                <span class="sort-direction-icon"></span>
+                            </button>
+                            <button class="segmented-control__button" data-sort="popular">Popular</button>
+                        </div>
+                    </div>
+                </div>
             </nav>
 
+            <!-- Filter container -->
+            <!-- <div class="tag-filters-container">
+                
+            </div> -->
+
             <div class="container-layout">
-                <!-- Sidebar: Category Filters -->
                 <aside class="category-filter-container">
-                    <h3 class="category-filter-title"><span>Filter by Category</span></h3>
-                    <div class="category-filters">
-                        <a href="#" class="filter-item active" data-category="all">All Categories</a>
-                        <a href="#" class="filter-item" data-category="technology">Business Strategy & Finance</a>
-                        <a href="#" class="filter-item" data-category="literature">Leadership & Team Development</a>
-                        <a href="#" class="filter-item" data-category="sustainability">Marketing & Communications</a>
-                        <a href="#" class="filter-item" data-category="storage">Networking & Collaboration</a>
-                        <a href="#" class="filter-item" data-category="design">Design & Branding</a>
-                        <a href="#" class="filter-item" data-category="design">Exponential Thinking & Technologies</a>
-                        <a href="#" class="filter-item" data-category="design">Innovation & Ideation</a>
-                        <a href="#" class="filter-item" data-category="design">Personal Growth</a>
-                        <a href="#" class="filter-item" data-category="design">Prototyping</a>
-                        <a href="#" class="filter-item" data-category="design">Science</a>
-                        <a href="#" class="filter-item" data-category="design">Software Development & Coding</a>
-                        <a href="#" class="filter-item" data-category="design">Sustainability & Impact</a>
-                        <a href="#" class="filter-item" data-category="design">UI & UX</a>
+                    <div class="filter-group-wrapper">
+                        <h3 class="category-filter-title"><span>Categories</span></h3>
+                        <div class="category-filters">
+                            <!-- Example: <a href="#" class="filter-item active">All Categories</a> -->
+                        </div>
+                    </div>
+
+                    <!-- NEW: Experience Level Filter -->
+                    <div class="filter-group-wrapper">
+                        <h3 class="category-filter-title"><span>Experience Level</span></h3>
+                        <div class="checkbox-filters">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="level-beginner" value="beginner">
+                                <label for="level-beginner">Beginner</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="level-intermediate" value="intermediate">
+                                <label for="level-intermediate">Intermediate</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="level-advanced" value="advanced">
+                                <label for="level-advanced">Advanced</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Entry Fee Filter -->
+                    <div class="filter-group-wrapper">
+                        <h3 class="category-filter-title"><span>Entry Fee</span></h3>
+                        <div class="checkbox-filters">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fee-free" value="free">
+                                <label for="fee-free">Free to Enter</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fee-paid" value="paid">
+                                <label for="fee-paid">Paid Entry</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Location Filter -->
+                    <div class="filter-group-wrapper">
+                        <h3 class="category-filter-title"><span>Location</span></h3>
+                        <div class="checkbox-filters">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="online" value="online">
+                                <label for="online">online</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="offline" value="offline">
+                                <label for="offline">offline</label>
+                            </div>
+                        </div>
                     </div>
                 </aside>
 
-                <!-- The list of contest cards -->
                 <div class="contest-list-container">
+                    <div class="contest-cards-list-container">
+
+                    </div>
+                    <div class="load-more-container">
+                        <button id="loadMoreBtn" class="load-more-btn">Load More</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -381,6 +449,44 @@
     <script src="./js/hamburger.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/cards.js"></script>
+    <script src="./js/searchbar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sortContainer = document.getElementById('sortControl');
+            if (sortContainer) {
+                const buttons = sortContainer.querySelectorAll('.segmented-control__button');
+
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const isPrizeButton = this.dataset.sort.startsWith('prize');
+
+                        // If it's the prize button AND it's already active, just toggle it
+                        if (isPrizeButton && this.classList.contains('active')) {
+                            // Swap the data-sort value with its alternative
+                            const currentSort = this.dataset.sort;
+                            const altSort = this.dataset.altSort;
+                            this.dataset.sort = altSort;
+                            this.dataset.altSort = currentSort;
+                        } else {
+                            // Otherwise, deactivate all buttons and activate this one
+                            buttons.forEach(btn => {
+                                // Reset prize button to its default state if it's being deactivated
+                                if (btn.dataset.altSort && !btn.isEqualNode(this)) {
+                                    btn.dataset.sort = 'prize-high-low';
+                                }
+                                btn.classList.remove('active');
+                            });
+                            this.classList.add('active');
+                        }
+
+                        console.log('Current sort order is:', this.dataset.sort);
+                        // Now, call your function to re-render the contest list
+                        // filterAndDisplayContests();
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

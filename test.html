@@ -3,138 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Touch Events Slider</title>
+    <title>Document</title>
     <style>
-        /* Basic styles for the slider */
-        #sliderWrapper {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            height: 300px; /* Set a height for the slider */
-            background-color: lightgray;
-            transition: transform 0.5s ease;
+    .blueprint-section {
+        position: relative;
+        padding: 50px 0;
+        overflow: hidden;
+    }
+
+    .blueprint-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://images.unsplash.com/photo-1558655146-364adaf1fcc9?q=80&w=1964&auto=format&fit=crop') center/cover no-repeat;
+        z-index: -1;
+        background-attachment: fixed;
+    }
+
+    .blueprint-wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .blueprint-headline {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .blueprint-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .blueprint-content {
+        flex: 1 1 45%;
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0.85);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .blueprint-content:hover {
+        transform: translateY(-10px);
+    }
+
+    .point {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .point-icon {
+        font-size: 2rem;
+        color: #f39c12;
+        margin-right: 15px;
+    }
+
+    .point-text h4 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .point-text p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .blueprint-visual img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .cta-button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .blueprint-container {
+            flex-direction: column;
         }
-        .mini-card {
-            flex: 0 0 100%; /* Ensure each card takes full width */
-            height: 100%;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
+        .blueprint-content {
+            margin-bottom: 30px;
         }
-        .dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-        .dot.active {
-            background-color: #333;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
+    <!-- ======================================================== -->
+<!-- ==      FINAL "Contest Blueprint" SECTION           == -->
+<!-- ======================================================== -->
+<section class="blueprint-section">
+    <!-- Layer 1: The Parallax Background -->
+    <div class="blueprint-background" aria-hidden="true"></div>
+    
+    <!-- Layer 2: The Content Wrapper -->
+    <div class="blueprint-wrapper">
+        
+        <!-- The Immersive Headline (Phase 1) -->
+        <div class="blueprint-headline reveal">
+            <h2 class="section-title">The Contest Blueprint</h2>
+            <p class="section-subtitle">Understand the core of the challenge before you dive in.</p>
+        </div>
+        
+        <!-- The Two-Column Breakdown (Phase 2) -->
+        <div class="blueprint-container reveal">
+            <!-- Left Side: Content -->
+            <div class="blueprint-content">
+                <div class="point">
+                    <div class="point-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="point-text">
+                        <h4>Creativity is Key</h4>
+                        <p>Contests are built around a specific theme or prompt, designed to ignite your most original ideas and creative solutions.</p>
+                    </div>
+                </div>
+                <div class="point">
+                    <div class="point-icon"><i class="fa-solid fa-award"></i></div>
+                    <div class="point-text">
+                        <h4>Judged on Merit</h4>
+                        <p>Your work is evaluated by experts on quality, skill, and innovation. It's a true test of your craft.</p>
+                    </div>
+                </div>
+                <div class="point">
+                    <div class="point-icon"><i class="fa-solid fa-user"></i></div>
+                    <div class="point-text">
+                        <h4>A Showcase for You</h4>
+                        <p>This is your platform to highlight personal talent, build your portfolio, and gain recognition for your unique abilities.</p>
+                    </div>
+                </div>
+                
+                <!-- Call to Action Button -->
+                <div class="cta-section">
+                    <a href="#apply-now" class="cta-button">Join the Contest</a>
+                </div>
+            </div>
 
-    <div id="loadingOverlay">Loading...</div>
-    <div class="hero-section">
-        <div id="sliderWrapper">
-            <div class="mini-card">Card 1</div>
-            <div class="mini-card">Card 2</div>
-            <div class="mini-card">Card 3</div>
+            <!-- Right Side: Visual -->
+            <div class="blueprint-visual">
+                <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?q=80&w=1964&auto=format&fit=crop" alt="A modern digital art or design composition">
+            </div>
         </div>
     </div>
-    <div id="pagination-dots"></div>
-
-    <script>
-        window.addEventListener("load", () => {
-            const loadingOverlay = document.getElementById("loadingOverlay");
-            if (loadingOverlay) {
-                setTimeout(() => {
-                    loadingOverlay.classList.add("hidden");
-                    document.body.style.overflow = "auto";
-                }, 500);
-            }
-
-            const sliderWrapper = document.getElementById("sliderWrapper");
-            const dotsContainer = document.getElementById("pagination-dots");
-
-            if (!sliderWrapper) {
-                console.error("Slider wrapper is missing in the DOM.");
-                return;
-            }
-
-            const cards = Array.from(document.querySelectorAll(".mini-card"));
-            let currentIndex = 0;
-            let isTransitioning = false;
-            let touchStartX = 0;
-
-            function goToSlide(newIndex) {
-                if (isTransitioning) return;
-                isTransitioning = true;
-
-                currentIndex = (newIndex + cards.length) % cards.length;
-                const activeCard = cards[currentIndex];
-
-                cards.forEach((card) => card.classList.remove("active"));
-                activeCard.classList.add("active");
-
-                document.querySelectorAll(".dot").forEach((dot, i) => {
-                    dot.classList.toggle("active", i === currentIndex);
-                });
-
-                const cardWidth = cards[0].offsetWidth;
-                const gap = parseInt(getComputedStyle(sliderWrapper).gap || "0");
-                const offset = -currentIndex * (cardWidth + gap);
-                sliderWrapper.style.transform = `translateX(${offset}px)`;
-
-                setTimeout(() => {
-                    isTransitioning = false;
-                }, 500);
-            }
-
-            function initSlider() {
-                dotsContainer.innerHTML = "";
-                cards.forEach((_, i) => {
-                    const dot = document.createElement("span");
-                    dot.classList.add("dot");
-                    dot.addEventListener("click", () => {
-                        goToSlide(i);
-                    });
-                    dotsContainer.appendChild(dot);
-                });
-
-                goToSlide(0);
-            }
-
-            if ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-                sliderWrapper.addEventListener("touchstart", (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                    console.log("Touch start detected:", touchStartX);
-                    e.preventDefault(); // Prevents the default behavior, like scrolling
-                }, { passive: false });
-
-                sliderWrapper.addEventListener("touchend", (e) => {
-                    const touchEndX = e.changedTouches[0].screenX;
-                    const diff = touchStartX - touchEndX;
-
-                    console.log("Touch end detected:", touchEndX);
-                    console.log("Swipe diff:", diff);
-
-                    if (Math.abs(diff) > 50) {
-                        console.log("Swipe detected. Navigating slide.");
-                        goToSlide(diff > 0 ? currentIndex + 1 : currentIndex - 1);
-                    } else {
-                        console.log("Swipe too small, no slide change.");
-                    }
-                });
-            }
-
-            initSlider();
-        });
-    </script>
+</section>
 </body>
 </html>
