@@ -3,12 +3,13 @@ const { MongoClient } = require("mongodb");
 const cors = require("cors");
 require('dotenv').config();
 
+const corsOptions = {
+    origin:["https://contesthopper.pages.dev"],
+    credentials:false,
+}
+
 const app = express();
-app.use(cors({
-  origin:["https://contesthopper.pages.dev"],
-  methods: ["GET", "POST"],
-  credentials: false
-}));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const PORT = 3000;
