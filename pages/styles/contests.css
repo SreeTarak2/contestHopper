@@ -1725,6 +1725,9 @@ main {
 }
 
 .load-more-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 2rem 0;
 }
@@ -1842,9 +1845,6 @@ main {
   animation: none;
 }
 
-.contest-item:has(.closed) {
-  /* filter: grayscale(80%); */
-}
 
 @keyframes pulseGlow {
   0% {

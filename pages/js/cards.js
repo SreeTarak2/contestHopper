@@ -17,6 +17,7 @@ let currentTags = [];
 let allContestsData = [];
 
 const url = "https://contesthopper.onrender.com";
+// const url = "http://127.0.0.1:3000"
 
 function getUniqueValues(data, key) {
   const allValues = data.flatMap((item) => item[key] || []);
@@ -162,7 +163,7 @@ function renderFilteredContests() {
   activeIntervals.forEach(clearInterval);
   activeIntervals = [];
 
-  loadMoreBtn.style.display = "none";
+  if (loadMoreBtn) loadMoreBtn.style.display = "none";
 
   setTimeout(() => {
     const sortedData = sortContestsByStatusAndDays(allContestsData);
@@ -173,7 +174,7 @@ function renderFilteredContests() {
         .toLowerCase()
         .replace(/ & /g, "-")
         .replace(/ /g, "-");
-      const itemStatus = item.status || 'closed';
+      const itemStatus = item.status || "closed";
       const itemTags = (item.meta.tags || []).map((t) => t.toLowerCase());
 
       // Filtering logic
@@ -190,21 +191,8 @@ function renderFilteredContests() {
     });
 
     // // 2. Clear container and render cards or empty message
-    // cardsContainer.innerHTML = "";
-    // currentlyDisplayedCount = 0;
-    // if (!document.getElementById("loadMoreBtn")) {
-    //   const loadMoreDiv = document.createElement("div");
-    //   loadMoreDiv.className = "load-more-container";
-    //   loadMoreDiv.innerHTML = `
-    //   <button id="loadMoreBtn" class="load-more-btn">Load More</button>
-    // `;
-    //   cardsContainer.appendChild(loadMoreDiv);
-
-    //   const loadMoreBtn = document.getElementById("loadMoreBtn");
-    //   if (loadMoreBtn) {
-    //     loadMoreBtn.addEventListener("click", loadNextBatch);
-    //   }
-    // }
+    cardsContainer.innerHTML = "";
+    currentlyDisplayedCount = 0;
 
     if (allFilteredItems.length > 0) {
       loadNextBatch();
@@ -220,25 +208,24 @@ function loadNextBatch() {
   const fragment = document.createDocumentFragment();
   const nextBatchEnd = currentlyDisplayedCount + contestsPerLoad;
 
-  for (
-    let i = currentlyDisplayedCount;
-    i < nextBatchEnd && i < allFilteredItems.length;
-    i++
-  ) {
-    const item = allFilteredItems[i];
+  const itemsToLoad = allFilteredItems.slice(
+    currentlyDisplayedCount,
+    nextBatchEnd
+  );
+  itemsToLoad.forEach((item) => {
     const card = createContestCard(item);
     fragment.appendChild(card);
-  }
+  });
 
   cardsContainer.appendChild(fragment);
-  currentlyDisplayedCount = nextBatchEnd;
+  currentlyDisplayedCount += itemsToLoad.length;
 
-  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  // const loadMoreBtn = document.getElementById("loadMoreBtn");
   if (loadMoreBtn) {
     if (currentlyDisplayedCount >= allFilteredItems.length) {
       loadMoreBtn.style.display = "none";
     } else {
-      loadMoreBtn.style.display = "inline-block";
+      loadMoreBtn.style.display = "block";
     }
   }
 }
@@ -279,32 +266,6 @@ function calculateDaysLeft(endDateString) {
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays;
 }
-
-// function calculateStatus(endDateString) {
-//   if (!endDateString) return "closed";
-//   const currentDate = new Date();
-//   const endDate = new Date(endDateString);
-//   if (isNaN(endDate.getTime())) return "closed";
-
-//   const today = new Date(
-//     currentDate.getFullYear(),
-//     currentDate.getMonth(),
-//     currentDate.getDate()
-//   );
-//   const endDay = new Date(
-//     endDate.getFullYear(),
-//     endDate.getMonth(),
-//     endDate.getDate()
-//   );
-
-//   const diffTime = endDay.getTime() - today.getTime();
-
-//   if (diffTime < 0) return "closed";
-//   const diffDays = diffTime / (1000 * 60 * 60 * 24);
-//   if (diffDays > 30) return "upcoming";
-
-//   return "open";
-// }
 
 function startCountdown(element) {
   const endDateString = element.dataset.end;
@@ -347,9 +308,9 @@ function startCountdown(element) {
 
 function createContestCard(data) {
   const cardArticle = document.createElement("article");
-  cardArticle.id = data._id.$oid
+  cardArticle.id = data._id;
   cardArticle.classList.add("contest-item", "contest-item--detailed");
-  const statusFromDB = data.status || 'closed';
+  const statusFromDB = data.status || "closed";
   cardArticle.dataset.category = (data.category || "")
     .toLowerCase()
     .replace(/ & /g, "-")
@@ -499,19 +460,18 @@ statusFilters.forEach((button) => {
   });
 });
 
-
 function scrollToAndHighlight(contestId) {
   const targetCard = document.getElementById(contestId);
   if (targetCard) {
     targetCard.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
+      behavior: "smooth",
+      block: "center",
     });
 
-    targetCard.classList.add('highlight');
+    targetCard.classList.add("highlight");
     setTimeout(() => {
-      targetCard.classList.remove('highlight');
-    }, 2500); 
+      targetCard.classList.remove("highlight");
+    }, 2500);
   }
 }
 
@@ -519,24 +479,38 @@ async function handleHashNavigation() {
   const contestId = window.location.hash.substring(1);
   if (!contestId) return;
 
-  history.pushState("", document.title, window.location.pathname + window.location.search);
+  history.pushState(
+    "",
+    document.title,
+    window.location.pathname + window.location.search
+  );
 
   if (document.getElementById(contestId)) {
     scrollToAndHighlight(contestId);
     return;
   }
 
-  const targetItem = allContestsData.find(item => item._id.$oid === contestId);
+  const targetItem = allContestsData.find(
+    (item) => item._id === contestId
+  );
   if (!targetItem) {
     return;
   }
 
-  document.querySelectorAll('.filter-button.active, .filter-item.active, .tag-filter-button.active').forEach(el => el.classList.remove('active'));
-  document.querySelector('.filter-button[data-status="all"]').classList.add('active');
-  document.querySelector('.filter-item[data-category="all"]').classList.add('active');
+  document
+    .querySelectorAll(
+      ".filter-button.active, .filter-item.active, .tag-filter-button.active"
+    )
+    .forEach((el) => el.classList.remove("active"));
+  document
+    .querySelector('.filter-button[data-status="all"]')
+    .classList.add("active");
+  document
+    .querySelector('.filter-item[data-category="all"]')
+    .classList.add("active");
 
-  currentStatus = 'all';
-  currentCategory = 'all';
+  currentStatus = "all";
+  currentCategory = "all";
   currentTags = [];
 
   renderFilteredContests();
@@ -558,6 +532,9 @@ async function handleHashNavigation() {
   }, 300);
 }
 
+
+// main function
+
 async function initializePage() {
   try {
     const response = await fetch(`${url}/contests`);
@@ -571,11 +548,14 @@ async function initializePage() {
       handleHashNavigation();
     } else {
       if (loadMoreBtn) loadMoreBtn.style.display = "none";
-      cardsContainer.innerHTML = '<p class="no-results-message">No opportunities are available at this time.</p>';
+      cardsContainer.innerHTML =
+        '<p class="no-results-message">No opportunities are available at this time.</p>';
     }
   } catch (err) {
     console.error("Failed to fetch and initialize contests:", err);
-    if (cardsContainer) cardsContainer.innerHTML = '<p class="no-results-message">Could not load opportunities. Please try again later.</p>';
+    if (cardsContainer)
+      cardsContainer.innerHTML =
+        '<p class="no-results-message">Could not load opportunities. Please try again later.</p>';
   }
 }
 
@@ -583,6 +563,6 @@ if (loadMoreBtn) {
   loadMoreBtn.addEventListener("click", loadNextBatch);
 }
 
-window.addEventListener('hashchange', handleHashNavigation);
+window.addEventListener("hashchange", handleHashNavigation);
 
 initializePage();

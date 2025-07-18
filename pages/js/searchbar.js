@@ -2,6 +2,7 @@ const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
 const baseUrl = "https://contesthopper.onrender.com";
+// const baseUrl = "http://127.0.0.1:3000";
 // Debounce function
 function debounce(fn, delay = 300) {
   let timeout;
@@ -36,7 +37,7 @@ async function searchContests(query) {
           .map(
             (contest) => `
             <li class="result-item">
-            <a href="contests.html#${contest._id.$oid}" class="result-link">
+            <a href="contests.html#${contest._id}" class="result-link">
                 <img src="${contest.image.url}" alt="${contest.image.alt}" class="result-image">
                 <span class="result-title">${contest.title}</span>
             </a>
