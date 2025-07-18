@@ -65,6 +65,11 @@ body {
   animation: spin 1s linear infinite;
 }
 
+.cards--loader {
+  position: absolute;
+  left: 50%;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -180,7 +185,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transform-style: preserve-3d;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
-              inset 0 2px 2px rgba(255, 255, 255, 0.1);
+    inset 0 2px 2px rgba(255, 255, 255, 0.1);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -234,7 +239,7 @@ body {
 .sustainability-btn:hover {
   transform: translateY(-2px) scale(1.02) translateZ(-5px);
   box-shadow: 0 8px 25px rgba(26, 188, 156, 0.4),
-              inset 0 2px 2px rgba(255, 255, 255, 0.2);
+    inset 0 2px 2px rgba(255, 255, 255, 0.2);
 }
 
 .sustainability-btn:hover .leaf-icon {
@@ -246,8 +251,13 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1543,7 +1553,7 @@ main {
 .filter-group-wrapper {
   margin-bottom: 2rem;
   font-family: "quicksand", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .filter-group-wrapper .category-filter-title {
@@ -1771,6 +1781,10 @@ main {
   border-radius: 8px;
 }
 
+.contest-item:hover .contest-item__image-wrapper img {
+  transform: scale(1.05);
+}
+
 .image-tag {
   position: absolute;
   bottom: 1rem;
@@ -1975,6 +1989,13 @@ main {
 
 .contest-item--detailed .apply-button {
   margin-top: 1rem;
+}
+
+.contest-item.highlight {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 20px 5px var(--accent-glow);
+  border-color: var(--accent-glow);
+  transform: scale(1.02);
 }
 
 .apply-button.disabled {

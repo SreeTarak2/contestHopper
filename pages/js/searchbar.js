@@ -36,7 +36,7 @@ async function searchContests(query) {
           .map(
             (contest) => `
             <li class="result-item">
-            <a href="${contest.link}" class="result-link">
+            <a href="contests.html#${contest._id.$oid}" class="result-link">
                 <img src="${contest.image.url}" alt="${contest.image.alt}" class="result-image">
                 <span class="result-title">${contest.title}</span>
             </a>
@@ -58,7 +58,13 @@ async function searchContests(query) {
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".searchbar-wrapper")) {
     searchResults.style.display = "none";
+    searchInput.value = "";
   }
+});
+
+// close the results when user clicks one of the result
+searchResults.addEventListener("click", () => {
+  searchResults.style.display = "none";
 });
 
 // Input listener

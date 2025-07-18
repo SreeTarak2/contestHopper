@@ -16,7 +16,7 @@ let activeIntervals = [];
 let currentTags = [];
 let allContestsData = [];
 
-const url = 'https://contesthopper.onrender.com';
+const url = "https://contesthopper.onrender.com";
 
 function getUniqueValues(data, key) {
   const allValues = data.flatMap((item) => item[key] || []);
@@ -24,7 +24,7 @@ function getUniqueValues(data, key) {
     const allTags = data.flatMap((item) => item.meta.tags || []);
     return ["All", ...new Set(allTags)].sort();
   }
-  
+
   const uniqueValues = [
     ...new Set(
       allValues.map((v) =>
@@ -136,8 +136,8 @@ function addFilterEventListeners() {
 function sortContestsByStatusAndDays(dataArray) {
   const statusOrder = { open: 0, upcoming: 1, closed: 2 };
   return dataArray.slice().sort((a, b) => {
-    const statusA = calculateStatus(a.meta.endISO || "");
-    const statusB = calculateStatus(b.meta.endISO || "");
+    const statusA = a.status || "closed";
+    const statusB = b.status || "closed";
 
     const statusComparison = statusOrder[statusA] - statusOrder[statusB];
     if (statusComparison !== 0) {
@@ -148,12 +148,17 @@ function sortContestsByStatusAndDays(dataArray) {
       const timeB = new Date(b.meta.endISO || 0).getTime();
       return timeA - timeB;
     }
+    if (statusA === "closed") {
+      const timeA = new Date(a.meta.endISO || 0).getTime();
+      const timeB = new Date(b.meta.endISO || 0).getTime();
+      return timeB - timeA;
+    }
     return 0;
   });
 }
 
 function renderFilteredContests() {
-  cardsContainer.innerHTML = '<div class="loader"></div>';
+  cardsContainer.innerHTML = '<div class="loader cards--loader"></div>';
   activeIntervals.forEach(clearInterval);
   activeIntervals = [];
 
@@ -168,7 +173,7 @@ function renderFilteredContests() {
         .toLowerCase()
         .replace(/ & /g, "-")
         .replace(/ /g, "-");
-      const itemStatus = calculateStatus(item.meta.endISO || "");
+      const itemStatus = item.status || 'closed';
       const itemTags = (item.meta.tags || []).map((t) => t.toLowerCase());
 
       // Filtering logic
@@ -184,22 +189,22 @@ function renderFilteredContests() {
       return matchesCategory && matchesStatus && matchesTags;
     });
 
-    // 2. Clear container and render cards or empty message
-    cardsContainer.innerHTML = "";
-    currentlyDisplayedCount = 0;
-    if (!document.getElementById("loadMoreBtn")) {
-      const loadMoreDiv = document.createElement("div");
-      loadMoreDiv.className = "load-more-container";
-      loadMoreDiv.innerHTML = `
-      <button id="loadMoreBtn" class="load-more-btn">Load More</button>
-    `;
-      cardsContainer.appendChild(loadMoreDiv);
+    // // 2. Clear container and render cards or empty message
+    // cardsContainer.innerHTML = "";
+    // currentlyDisplayedCount = 0;
+    // if (!document.getElementById("loadMoreBtn")) {
+    //   const loadMoreDiv = document.createElement("div");
+    //   loadMoreDiv.className = "load-more-container";
+    //   loadMoreDiv.innerHTML = `
+    //   <button id="loadMoreBtn" class="load-more-btn">Load More</button>
+    // `;
+    //   cardsContainer.appendChild(loadMoreDiv);
 
-      const loadMoreBtn = document.getElementById("loadMoreBtn");
-      if (loadMoreBtn) {
-        loadMoreBtn.addEventListener("click", loadNextBatch);
-      }
-    }
+    //   const loadMoreBtn = document.getElementById("loadMoreBtn");
+    //   if (loadMoreBtn) {
+    //     loadMoreBtn.addEventListener("click", loadNextBatch);
+    //   }
+    // }
 
     if (allFilteredItems.length > 0) {
       loadNextBatch();
@@ -210,7 +215,7 @@ function renderFilteredContests() {
   }, 200);
 }
 
-// --- ADD THIS NEW FUNCTION ---
+// next 10 cards results
 function loadNextBatch() {
   const fragment = document.createDocumentFragment();
   const nextBatchEnd = currentlyDisplayedCount + contestsPerLoad;
@@ -275,31 +280,31 @@ function calculateDaysLeft(endDateString) {
   return diffDays;
 }
 
-function calculateStatus(endDateString) {
-  if (!endDateString) return "closed";
-  const currentDate = new Date();
-  const endDate = new Date(endDateString);
-  if (isNaN(endDate.getTime())) return "closed";
+// function calculateStatus(endDateString) {
+//   if (!endDateString) return "closed";
+//   const currentDate = new Date();
+//   const endDate = new Date(endDateString);
+//   if (isNaN(endDate.getTime())) return "closed";
 
-  const today = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth(),
-    currentDate.getDate()
-  );
-  const endDay = new Date(
-    endDate.getFullYear(),
-    endDate.getMonth(),
-    endDate.getDate()
-  );
+//   const today = new Date(
+//     currentDate.getFullYear(),
+//     currentDate.getMonth(),
+//     currentDate.getDate()
+//   );
+//   const endDay = new Date(
+//     endDate.getFullYear(),
+//     endDate.getMonth(),
+//     endDate.getDate()
+//   );
 
-  const diffTime = endDay.getTime() - today.getTime();
+//   const diffTime = endDay.getTime() - today.getTime();
 
-  if (diffTime < 0) return "closed";
-  const diffDays = diffTime / (1000 * 60 * 60 * 24);
-  if (diffDays > 30) return "upcoming";
+//   if (diffTime < 0) return "closed";
+//   const diffDays = diffTime / (1000 * 60 * 60 * 24);
+//   if (diffDays > 30) return "upcoming";
 
-  return "open";
-}
+//   return "open";
+// }
 
 function startCountdown(element) {
   const endDateString = element.dataset.end;
@@ -342,13 +347,14 @@ function startCountdown(element) {
 
 function createContestCard(data) {
   const cardArticle = document.createElement("article");
+  cardArticle.id = data._id.$oid
   cardArticle.classList.add("contest-item", "contest-item--detailed");
-  const calculatedStatus = calculateStatus(data.meta.endISO);
+  const statusFromDB = data.status || 'closed';
   cardArticle.dataset.category = (data.category || "")
     .toLowerCase()
     .replace(/ & /g, "-")
     .replace(/ /g, "-");
-  cardArticle.dataset.status = calculatedStatus;
+  cardArticle.dataset.status = statusFromDB;
   cardArticle.dataset.endiso = data.meta.endISO || "";
 
   const imageWrapper = document.createElement("div");
@@ -364,12 +370,12 @@ function createContestCard(data) {
   imageTag.textContent = data.imageTag;
 
   const statusTag = document.createElement("span");
-  statusTag.classList.add("status-tag", calculatedStatus);
+  statusTag.classList.add("status-tag", statusFromDB);
   const dot = document.createElement("span");
   dot.classList.add("contest-dot");
   statusTag.append(
     dot,
-    calculatedStatus.charAt(0).toUpperCase() + calculatedStatus.slice(1)
+    statusFromDB.charAt(0).toUpperCase() + statusFromDB.slice(1)
   );
 
   imageWrapper.append(img, imageTag, statusTag);
@@ -422,10 +428,13 @@ function createContestCard(data) {
   applyBtn.classList.add("apply-button");
   applyBtn.innerHTML = `<span>Apply Now</span> <i class="fa-solid fa-arrow-right"></i>`;
 
-  const isclosed = calculateStatus(data.meta.endISO) === "closed";
-  if (isclosed) {
-    applyBtn.removeAttribute("href");
+  if (statusFromDB === "closed") {
+    applyBtn.innerHTML = `<span>Contest Ended</span> <i class="fa-solid fa-times-circle"></i>`;
     applyBtn.classList.add("disabled");
+    applyBtn.style.pointerEvents = "none";
+  } else if (statusFromDB === "upcoming") {
+    applyBtn.innerHTML = `<span>Opens Soon</span> <i class="fa-solid fa-clock"></i>`;
+    // applyBtn.classList.add("disabled");
     applyBtn.style.pointerEvents = "none";
   }
 
@@ -490,32 +499,90 @@ statusFilters.forEach((button) => {
   });
 });
 
-// const data = fetch("http://127.0.0.1:3000/contests")
-//   .then((resp) => resp.json())
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((err) => {
-//     console.error(`Error: ${err}`);
-//   });
 
-async function getContets() {
-  try {
-    const results = await fetch(`${url}/contests`);
-    const data = await results.json();
-    allContestsData = data.results
-    populateFilters(allContestsData);
-    renderFilteredContests();
-    // console.log(data);
-  } catch (err) {
-    console.error("Detailed error:", err);
-    throw new Error("Error fetching contests ", err.message);
+function scrollToAndHighlight(contestId) {
+  const targetCard = document.getElementById(contestId);
+  if (targetCard) {
+    targetCard.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+    targetCard.classList.add('highlight');
+    setTimeout(() => {
+      targetCard.classList.remove('highlight');
+    }, 2500); 
   }
 }
 
+async function handleHashNavigation() {
+  const contestId = window.location.hash.substring(1);
+  if (!contestId) return;
 
-// data.forEach((item) => cardsContainer.appendChild(createContestCard(item)));
-// filterContests();
-loadMoreBtn.addEventListener("click", loadNextBatch);
+  history.pushState("", document.title, window.location.pathname + window.location.search);
 
-getContets();
+  if (document.getElementById(contestId)) {
+    scrollToAndHighlight(contestId);
+    return;
+  }
+
+  const targetItem = allContestsData.find(item => item._id.$oid === contestId);
+  if (!targetItem) {
+    return;
+  }
+
+  document.querySelectorAll('.filter-button.active, .filter-item.active, .tag-filter-button.active').forEach(el => el.classList.remove('active'));
+  document.querySelector('.filter-button[data-status="all"]').classList.add('active');
+  document.querySelector('.filter-item[data-category="all"]').classList.add('active');
+
+  currentStatus = 'all';
+  currentCategory = 'all';
+  currentTags = [];
+
+  renderFilteredContests();
+
+  setTimeout(() => {
+    const loadInterval = setInterval(() => {
+      const cardExists = document.getElementById(contestId);
+      const canLoadMore = currentlyDisplayedCount < allFilteredItems.length;
+
+      if (cardExists) {
+        clearInterval(loadInterval);
+        scrollToAndHighlight(contestId);
+      } else if (canLoadMore) {
+        loadNextBatch();
+      } else {
+        clearInterval(loadInterval);
+      }
+    }, 100);
+  }, 300);
+}
+
+async function initializePage() {
+  try {
+    const response = await fetch(`${url}/contests`);
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    const apiData = await response.json();
+    allContestsData = apiData.results || [];
+
+    if (allContestsData.length > 0) {
+      populateFilters(allContestsData);
+      renderFilteredContests();
+      handleHashNavigation();
+    } else {
+      if (loadMoreBtn) loadMoreBtn.style.display = "none";
+      cardsContainer.innerHTML = '<p class="no-results-message">No opportunities are available at this time.</p>';
+    }
+  } catch (err) {
+    console.error("Failed to fetch and initialize contests:", err);
+    if (cardsContainer) cardsContainer.innerHTML = '<p class="no-results-message">Could not load opportunities. Please try again later.</p>';
+  }
+}
+
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener("click", loadNextBatch);
+}
+
+window.addEventListener('hashchange', handleHashNavigation);
+
+initializePage();

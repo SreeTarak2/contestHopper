@@ -1,7 +1,7 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
-require('dotenv').config();
+require('dotenv').config(); 
 
 const corsOptions = {
   origin: "https://contesthopper.pages.dev",
