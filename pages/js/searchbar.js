@@ -1,8 +1,8 @@
 const searchInput = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 
-// const baseUrl = "https://contesthopper.onrender.com";
-const baseUrl = "http://127.0.0.1:3000";
+const baseUrl = "https://contesthopper.onrender.com";
+// const baseUrl = "http://127.0.0.1:3000";
 // Debounce function
 function debounce(fn, delay = 300) {
   let timeout;
