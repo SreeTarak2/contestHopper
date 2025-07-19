@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../assets/Final Logo/logoico.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/contests.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
 
 <body>
@@ -367,6 +368,45 @@
                     </div>
                 </div>
             </div>
+
+            <!-- share popup modal -->
+            <div id="share-modal-overlay">
+                <div class="share-modal-content">
+                    <div class="qr-code-section">
+                        <div id="qr-code-container"></div>
+                        <p>Scan to Share</p>
+                    </div>
+                    <div class="sharing-section">
+                        <button class="modal-close-btn">×</button>
+                        <h3>Share Contest</h3>
+                        <p id="modal-contest-title"></p>
+                        <div class="share-link-wrapper">
+                            <input type="text" id="modal-share-url" readonly>
+                            <button id="copy-link-btn">Copy</button>
+                        </div>
+                        <div class="share-grid">
+                            <a href="#" id="share-whatsapp" target="_blank" class="share-grid-item">
+                                <div class="icon-wrapper whatsapp--icon"><i class="fab fa-whatsapp"></i></div>
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="#" id="share-twitter" target="_blank" class="share-grid-item">
+                                <div class="icon-wrapper twitter--icon"><i class="fab fa-twitter"></i></div>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" id="share-facebook" target="_blank" class="share-grid-item">
+                                <div class="icon-wrapper fb--icon"><i class="fa-brands fa-facebook-f"></i></div>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" id="share-linkedin" target="_blank" class="share-grid-item">
+                                <div class="icon-wrapper linkedin--icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="toast-notification"></div>
+
         </section>
     </main>
 
@@ -448,6 +488,7 @@
     <script src="./js/slider.js"></script>
     <script src="./js/cards.js"></script>
     <script src="./js/searchbar.js"></script>
+    <script src="./js/share.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const sortContainer = document.getElementById('sortControl');

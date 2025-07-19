@@ -16,8 +16,8 @@ let activeIntervals = [];
 let currentTags = [];
 let allContestsData = [];
 
-const url = "https://contesthopper.onrender.com";
-// const url = "http://127.0.0.1:3000"
+// const url = "https://contesthopper.onrender.com";
+const url = "http://127.0.0.1:3000";
 
 function getUniqueValues(data, key) {
   const allValues = data.flatMap((item) => item[key] || []);
@@ -167,7 +167,6 @@ function renderFilteredContests() {
 
   setTimeout(() => {
     const sortedData = sortContestsByStatusAndDays(allContestsData);
-    // let filteredContests = [];
 
     allFilteredItems = sortedData.filter((item) => {
       const itemCategory = (item.category || "")
@@ -382,6 +381,9 @@ function createContestCard(data) {
     <span>⏳ Ends At: <strong class="platinum-shine">${formattedDate}</strong></span>
   `);
 
+  const actionWrapper = document.createElement("div");
+  actionWrapper.classList.add("actions-wrapper");
+
   const applyBtn = document.createElement("a");
   applyBtn.href = data.link;
   applyBtn.target = "_blank";
@@ -399,6 +401,29 @@ function createContestCard(data) {
     applyBtn.style.pointerEvents = "none";
   }
 
+  // icons div
+  const iconDiv = document.createElement("div");
+  iconDiv.classList.add("icons-wrapper");
+
+  // share icon
+  const shareIcon = document.createElement("i");
+  shareIcon.classList.add("fa-solid", "fa-share", "action-icon", "share-icon");
+  shareIcon.title = "Share";
+
+  // bookmark icon
+  const bookmarkIcon = document.createElement("i");
+  bookmarkIcon.classList.add(
+    "fa-solid",
+    "fa-bookmark",
+    "action-icon",
+    "bookmark-icon"
+  );
+  bookmarkIcon.title = "Bookmark";
+
+  iconDiv.append(shareIcon, bookmarkIcon);
+
+  actionWrapper.append(applyBtn, iconDiv);
+
   itemContent.append(
     itemTitle,
     itemDescription,
@@ -406,7 +431,7 @@ function createContestCard(data) {
     meta2,
     meta3,
     meta4,
-    applyBtn
+    actionWrapper
   );
 
   const daysLeftBox = document.createElement("div");
@@ -490,9 +515,7 @@ async function handleHashNavigation() {
     return;
   }
 
-  const targetItem = allContestsData.find(
-    (item) => item._id === contestId
-  );
+  const targetItem = allContestsData.find((item) => item._id === contestId);
   if (!targetItem) {
     return;
   }
@@ -531,7 +554,6 @@ async function handleHashNavigation() {
     }, 100);
   }, 300);
 }
-
 
 // main function
 

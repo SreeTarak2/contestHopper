@@ -1,7 +1,7 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
-require('dotenv').config(); 
+require("dotenv").config();
 
 const corsOptions = {
   origin: ["https://contesthopper.pages.dev", "http://127.0.0.1:5502"],
@@ -16,10 +16,11 @@ app.use(express.json());
 
 const PORT = 3000;
 
-const mongourl = process.env.MONGODB_URI || "mongodb://localhost:27017";
-// const mongourl = "mongodb://localhost:27017";
-const DB_NAME = process.env.DB_NAME|| "contestHopper";
-const COLLECTION_NAME =process.env.COLLECTION_NAME || "contests";
+// const mongourl = process.env.MONGODB_URI || "mongodb://localhost:27017";
+const mongourl = "mongodb://localhost:27017";
+const DB_NAME = process.env.DB_NAME || "contestHopper";
+const COLLECTION_NAME = process.env.COLLECTION_NAME || "contests";
+let db;
 
 MongoClient.connect(mongourl)
   .then((client) => {
@@ -36,11 +37,8 @@ app.get("/contests", async (req, res) => {
     return res.status(503).json({ error: "Database not ready." });
   }
   try {
-    const results = await db
-      .collection(COLLECTION_NAME)
-      .find({})
-      .toArray();
-    res.json({results});
+    const results = await db.collection(COLLECTION_NAME).find({}).toArray();
+    res.json({ results });
   } catch (err) {
     console.error(`Error: ${err}`);
     res.status(500).json({ error: "Server error" });
@@ -57,17 +55,22 @@ app.get("/search", async (req, res) => {
     return res.status(400).json({ error: "Missing search query" });
   }
   try {
-    const results = await db
-      .collection(COLLECTION_NAME)
-      .find({
-        $or: [
-          { title: { $regex: query, $options: "i" } },
-          { description: { $regex: query, $options: "i" } },
-          { "meta.tags": { $regex: query, $options: "i" } }
-        ],
-      })
-      .toArray();
-    res.json({ results });
+    const searchFilter = query
+      ? {
+          $or: [
+            { title: { $regex: query, $options: "i" } },
+            { description: { $regex: query, $options: "i" } },
+            { "meta.tags": { $regex: query, $options: "i" } },
+          ],
+        }
+      : {}; // Empty filter to return all
+
+    const [results, totalCount] = await Promise.all([
+      db.collection(COLLECTION_NAME).find(searchFilter).limit(10).toArray(),
+      db.collection(COLLECTION_NAME).countDocuments(searchFilter),
+    ]);
+
+    res.json({ results, totalCount });
   } catch (err) {
     console.err(`Error: ${err}`);
     res.status(500).json({ error: "Server error" });
