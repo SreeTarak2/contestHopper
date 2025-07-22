@@ -12,6 +12,7 @@ let currentlyDisplayedCount = 0;
 
 let currentCategory = "all";
 let currentStatus = "all";
+let currentExperienceLevel = null;
 let activeIntervals = [];
 let currentTags = [];
 let allContestsData = [];
@@ -134,11 +135,25 @@ function addFilterEventListeners() {
   });
 }
 
-function sortContestsByStatusAndDays(dataArray) {
+function sortContests(dataArray) {
   const statusOrder = { open: 0, upcoming: 1, closed: 2 };
+  const experienceOrder = {
+    beginner: 0,
+    intermediate: 1,
+    advanced: 2,
+    null: 3,
+  };
   return dataArray.slice().sort((a, b) => {
     const statusA = a.status || "closed";
     const statusB = b.status || "closed";
+    const experienceA = (a.meta.experienceLevel || "").toLowerCase();
+    const experienceB = (b.meta.experienceLevel || "").toLowerCase();
+
+    if (currentExperienceLevel && currentExperienceLevel !== "null") {
+      const experienceComparison =
+        experienceOrder[experienceA] - experienceOrder[experienceB];
+      if (experienceComparison !== 0) return experienceComparison;
+    }
 
     const statusComparison = statusOrder[statusA] - statusOrder[statusB];
     if (statusComparison !== 0) {
@@ -166,7 +181,7 @@ function renderFilteredContests() {
   if (loadMoreBtn) loadMoreBtn.style.display = "none";
 
   setTimeout(() => {
-    const sortedData = sortContestsByStatusAndDays(allContestsData);
+    const sortedData = sortContests(allContestsData);
 
     allFilteredItems = sortedData.filter((item) => {
       const itemCategory = (item.category || "")
@@ -175,7 +190,9 @@ function renderFilteredContests() {
         .replace(/ /g, "-");
       const itemStatus = item.status || "closed";
       const itemTags = (item.meta.tags || []).map((t) => t.toLowerCase());
-
+      const itemExperienceLevel = (
+        item.meta.experienceLevel || ""
+      ).toLowerCase();
       // Filtering logic
       const matchesCategory =
         currentCategory === "all" || itemCategory === currentCategory;
@@ -186,7 +203,15 @@ function renderFilteredContests() {
         currentTags.length === 0 ||
         currentTags.every((tag) => itemTags.includes(tag));
 
-      return matchesCategory && matchesStatus && matchesTags;
+      const matchesExperienceLevel =
+        currentExperienceLevel === null ||
+        itemExperienceLevel === currentExperienceLevel;
+      return (
+        matchesCategory &&
+        matchesStatus &&
+        matchesTags &&
+        matchesExperienceLevel
+      );
     });
 
     // // 2. Clear container and render cards or empty message
@@ -555,8 +580,42 @@ async function handleHashNavigation() {
   }, 300);
 }
 
-// main function
+// get filters function
+function getFilters() {
+  const levelFilters = document.querySelectorAll(
+    "#experience-level-filters input[type='radio']"
+  );
 
+  if (!levelFilters.length) {
+    console.warn("No experience level filters found");
+    return null;
+  }
+
+  const selectedFilter = Array.from(levelFilters).find(
+    (filter) => filter.checked
+  );
+  if (selectedFilter) {
+    console.log("Selected experience level:", selectedFilter.value);
+    return selectedFilter.value;
+  } else {
+    console.log("No experience level selected");
+    return null;
+  }
+}
+
+document.addEventListener("change", (event) => {
+  if (event.target.matches("#experience-level-filters input[type='radio']")) {
+    try {
+      currentExperienceLevel = getFilters();
+      console.log("Filter changed to:", currentExperienceLevel);
+      renderFilteredContests(); // Re-render contests with new filter
+    } catch (error) {
+      console.error("Error handling filter change:", error);
+    }
+  }
+});
+
+// main function
 async function initializePage() {
   try {
     const response = await fetch(`${url}/contests`);
@@ -567,6 +626,7 @@ async function initializePage() {
     if (allContestsData.length > 0) {
       populateFilters(allContestsData);
       renderFilteredContests();
+      currentExperienceLevel = getFilters();
       handleHashNavigation();
     } else {
       if (loadMoreBtn) loadMoreBtn.style.display = "none";

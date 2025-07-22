@@ -54,3 +54,4 @@ async function updateContestStatuses() {
 }
 
 updateContestStatuses();
+module.exports = { updateContestStatuses };

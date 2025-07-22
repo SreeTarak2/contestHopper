@@ -88,7 +88,6 @@
         </div>
     </div>
 
-    <!-- main section starting -->
     <main>
         <!-- ============================================= -->
         <!-- == Hero Section == -->
@@ -282,15 +281,15 @@
                     <div class="filter-group">
                         <span class="filter-label">Sort by</span>
                         <div class="segmented-control" id="sortControl">
-                            <button class="segmented-control__button active" data-sort="ending-soon">Ending
-                                Soon</button>
-                            <button class="segmented-control__button" data-sort="newest">Newest</button>
+                            <!-- <button class="segmented-control__button active" data-sort="ending-soon">Ending
+                                Soon</button> -->
+                            <!-- <button class="segmented-control__button" data-sort="newest">Newest</button> -->
                             <button class="segmented-control__button" data-sort="prize-high-low"
                                 data-alt-sort="prize-low-high">
                                 Prize
                                 <span class="sort-direction-icon"></span>
                             </button>
-                            <button class="segmented-control__button" data-sort="popular">Popular</button>
+                            <!-- <button class="segmented-control__button" data-sort="popular">Popular</button> -->
                         </div>
                     </div>
                 </div>
@@ -313,17 +312,17 @@
                     <!-- NEW: Experience Level Filter -->
                     <div class="filter-group-wrapper">
                         <h3 class="category-filter-title"><span>Experience Level</span></h3>
-                        <div class="checkbox-filters">
+                        <div class="checkbox-filters" id="experience-level-filters">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="level-beginner" value="beginner">
+                                <input type="radio" name="experience-level" id="level-beginner" value="beginner">
                                 <label for="level-beginner">Beginner</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="level-intermediate" value="intermediate">
+                                <input type="radio" name="experience-level" id="level-intermediate" value="intermediate">
                                 <label for="level-intermediate">Intermediate</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="level-advanced" value="advanced">
+                                <input type="radio" name="experience-level" id="level-advanced" value="advanced">
                                 <label for="level-advanced">Advanced</label>
                             </div>
                         </div>
@@ -489,6 +488,7 @@
     <script src="./js/cards.js"></script>
     <script src="./js/searchbar.js"></script>
     <script src="./js/share.js"></script>
+    <script src="./js/filters.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const sortContainer = document.getElementById('sortControl');

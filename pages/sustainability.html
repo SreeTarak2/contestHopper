@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability</title>
+    <link rel="shortcut icon" href="../assets/Final Logo/logoico.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/contests.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script> -->
+</head>
+
+<body>
+    <!-- <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div> -->
+    <header class="site-header">
+        <div class="header-logo">
+            <a href="../index.html">
+                Contest <span class="hopper-text">Hopper</span>
+            </a>
+            <img id="logo" src="../assets/Final Logo/logocopy.png" alt="logo">
+            <!-- <i class="logo-icon"></i> -->
+        </div>
+
+        <!-- Main Navigation (Desktop only) -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="./pages/contests.html" class="nav-btn">Contests</a></li>
+                <li><a href="./pages/competitions.html" class="nav-btn">Competitions</a></li>
+                <li><a href="./pages/hackathons.html" class="nav-btn">Hackathons</a></li>
+                <li>
+                    <a href="./pages/sustainability.html" class="sustainability-btn">
+                        Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
+                            class="leaf-icon">
+                    </a>
+                </li>
+                <li><a href="./pages/hackathons.html" class="nav-btn">Blog</a></li>
+            </ul>
+        </nav>
+        <!-- Search Bar & Sign In (Desktop only) -->
+        <div class="header-actions-desktop">
+            <div class="searchbar-wrapper">
+                <div class="searchbar-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search" class="searchbar" id="searchInput" autocomplete="off">
+                </div>
+
+                <div class="search-results" id="searchResults"></div>
+                <div class="signin-btn">
+                    <a href="signin.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+        <!-- Hamburger Menu Trigger (Mobile only) -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="mobile-nav-header">
+            <!-- <div class="mobile-logo">Contest Hopper</div> -->
+            <button class="close-nav" id="closeNav" aria-label="Close menu">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+
+        <div class="mobile-search-section">
+            <input type="text" placeholder="Search contests..." class="mobile-search-input">
+        </div>
+
+        <nav class="mobile-nav-links">
+            <a href="./pages/contests.html">Contests</a>
+            <a href="./pages/competitions.html">Competitions</a>
+            <a href="./pages/hackathons.html">Hackathons</a>
+            <a href="./pages/about.html">About</a>
+            <a href="./pages/contact.html">Contact us</a>
+            <a href="./pages/contact.html">Donate</a>
+        </nav>
+
+        <div class="mobile-signin">
+            <div class="signin-btn">
+                <a href="signin.html">Sign In</a>
+            </div>
+        </div>
+    </div>
+    <script src="./js/hamburger.js"></script>
+</body>
+</html>

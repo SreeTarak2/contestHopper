@@ -2,6 +2,7 @@ const express = require("express");
 const { MongoClient } = require("mongodb");
 const cors = require("cors");
 require("dotenv").config();
+const {updateContestStatuses} = require("./cron/statusUpdater");
 
 const corsOptions = {
   origin: ["https://contesthopper.pages.dev", "http://127.0.0.1:5502"],
@@ -63,7 +64,7 @@ app.get("/search", async (req, res) => {
             { "meta.tags": { $regex: query, $options: "i" } },
           ],
         }
-      : {}; // Empty filter to return all
+      : {};
 
     const [results, totalCount] = await Promise.all([
       db.collection(COLLECTION_NAME).find(searchFilter).limit(10).toArray(),
@@ -76,6 +77,17 @@ app.get("/search", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+
+app.post('/cron/update-contests', async (req, res) => {
+  try {
+    const result = await updateContestStatuses();
+    res.json({ message: 'Success', ...result });
+  } catch (err) {
+    res.status(500).json({ error: 'Update failed', details: err.message });
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at ${PORT}`);
