@@ -146,8 +146,8 @@ function sortContests(dataArray) {
   return dataArray.slice().sort((a, b) => {
     const statusA = a.status || "closed";
     const statusB = b.status || "closed";
-    const experienceA = (a.meta.experienceLevel || "").toLowerCase();
-    const experienceB = (b.meta.experienceLevel || "").toLowerCase();
+    const experienceA = (a.SkillLevel || "").toLowerCase();
+    const experienceB = (b.SkillLevel || "").toLowerCase();
 
     if (currentExperienceLevel && currentExperienceLevel !== "null") {
       const experienceComparison =
