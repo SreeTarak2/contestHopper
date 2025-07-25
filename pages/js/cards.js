@@ -160,13 +160,13 @@ function sortContests(dataArray) {
       return statusComparison;
     }
     if (statusA === "open" || statusA === "upcoming") {
-      const timeA = new Date(a.meta.endISO || 0).getTime();
-      const timeB = new Date(b.meta.endISO || 0).getTime();
+      const timeA = new Date(a.endISO || 0).getTime();
+      const timeB = new Date(b.endISO || 0).getTime();
       return timeA - timeB;
     }
     if (statusA === "closed") {
-      const timeA = new Date(a.meta.endISO || 0).getTime();
-      const timeB = new Date(b.meta.endISO || 0).getTime();
+      const timeA = new Date(a.endISO || 0).getTime();
+      const timeB = new Date(b.endISO || 0).getTime();
       return timeB - timeA;
     }
     return 0;
@@ -340,7 +340,7 @@ function createContestCard(data) {
     .replace(/ & /g, "-")
     .replace(/ /g, "-");
   cardArticle.dataset.status = statusFromDB;
-  cardArticle.dataset.endiso = data.meta.endISO || "";
+  cardArticle.dataset.endiso = data.endISO || "";
 
   const imageWrapper = document.createElement("div");
   imageWrapper.classList.add("contest-item__image-wrapper");
