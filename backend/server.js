@@ -5,7 +5,7 @@ require("dotenv").config();
 const {updateContestStatuses} = require("./cron/statusUpdater");
 
 const corsOptions = {
-  origin: ["https://contesthopper.pages.dev", "http://127.0.0.1:5502"],
+  origin: ["https://contesthopper.live","https://contesthopper.pages.dev", "http://127.0.0.1:5500"],
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
 };
@@ -17,8 +17,8 @@ app.use(express.json());
 
 const PORT = 3000;
 
-const mongourl = process.env.MONGODB_URI || "mongodb://localhost:27017";
-// const mongourl = "mongodb://localhost:27017";
+// const mongourl = process.env.MONGODB_URI || "mongodb://localhost:27017";
+const mongourl = "mongodb://localhost:27017";
 const DB_NAME = process.env.DB_NAME || "contestHopper";
 const COLLECTION_NAME = process.env.COLLECTION_NAME || "contests";
 let db;

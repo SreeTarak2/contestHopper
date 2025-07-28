@@ -4,12 +4,11 @@ const contestItems = document.querySelectorAll(".contest-item");
 const cardsContainer = document.querySelector(".contest-cards-list-container");
 const categoryFilterContainer = document.querySelector(".category-filters");
 const tagFilterContainer = document.querySelector(".tag-filters-container");
-
 const loadMoreBtn = document.getElementById("loadMoreBtn");
+
 let contestsPerLoad = 11;
 let allFilteredItems = [];
 let currentlyDisplayedCount = 0;
-
 let currentCategory = "all";
 let currentStatus = "all";
 let currentExperienceLevel = null;
@@ -17,8 +16,8 @@ let activeIntervals = [];
 let currentTags = [];
 let allContestsData = [];
 
-const url = "https://contesthopper.onrender.com";
-// const url = "http://127.0.0.1:3000";
+// const url = "https://contesthopper.onrender.com";
+const url = "http://127.0.0.1:3000";
 
 function getUniqueValues(data, key) {
   const allValues = data.flatMap((item) => item[key] || []);
@@ -37,7 +36,7 @@ function getUniqueValues(data, key) {
   return ["all", ...uniqueValues].sort();
 }
 
-// --- NEW: Function to populate filters dynamically ---
+// Function to populate filters dynamically ---
 function populateFilters(data) {
   categoryFilterContainer.innerHTML = "";
   const uniqueCategories = getUniqueValues(data, "category");
@@ -146,8 +145,8 @@ function sortContests(dataArray) {
   return dataArray.slice().sort((a, b) => {
     const statusA = a.status || "closed";
     const statusB = b.status || "closed";
-    const experienceA = (a.SkillLevel || "").toLowerCase();
-    const experienceB = (b.SkillLevel || "").toLowerCase();
+    const experienceA = (a.skilllevel || "").toLowerCase();
+    const experienceB = (b.skilllevel || "").toLowerCase();
 
     if (currentExperienceLevel && currentExperienceLevel !== "null") {
       const experienceComparison =
@@ -160,13 +159,13 @@ function sortContests(dataArray) {
       return statusComparison;
     }
     if (statusA === "open" || statusA === "upcoming") {
-      const timeA = new Date(a.endISO || 0).getTime();
-      const timeB = new Date(b.endISO || 0).getTime();
+      const timeA = new Date(a.meta.endiso || 0).getTime();
+      const timeB = new Date(b.meta.endiso || 0).getTime();
       return timeA - timeB;
     }
     if (statusA === "closed") {
-      const timeA = new Date(a.endISO || 0).getTime();
-      const timeB = new Date(b.endISO || 0).getTime();
+      const timeA = new Date(a.meta.endiso || 0).getTime();
+      const timeB = new Date(b.meta.endiso || 0).getTime();
       return timeB - timeA;
     }
     return 0;
@@ -178,7 +177,10 @@ function renderFilteredContests() {
   activeIntervals.forEach(clearInterval);
   activeIntervals = [];
 
-  if (loadMoreBtn) loadMoreBtn.style.display = "none";
+  if (loadMoreBtn) {
+    loadMoreBtn.parentElement.classList.add("inactive");
+    loadMoreBtn.style.display = "none";
+  }
 
   setTimeout(() => {
     const sortedData = sortContests(allContestsData);
@@ -190,27 +192,35 @@ function renderFilteredContests() {
         .replace(/ /g, "-");
       const itemStatus = item.status || "closed";
       const itemTags = (item.meta.tags || []).map((t) => t.toLowerCase());
-      const itemExperienceLevel = (
-        item.meta.experienceLevel || ""
-      ).toLowerCase();
+      const itemExperienceLevel = (item.skilllevel || "").toLowerCase();
+      const itemEntryFee = (item.entryfee || "").toLowerCase();
+      const itemLocation = (item.meta.mode || "").toLowerCase();
+
       // Filtering logic
       const matchesCategory =
         currentCategory === "all" || itemCategory === currentCategory;
       const matchesStatus =
         currentStatus === "all" || itemStatus === currentStatus;
-
       const matchesTags =
         currentTags.length === 0 ||
         currentTags.every((tag) => itemTags.includes(tag));
 
       const matchesExperienceLevel =
-        currentExperienceLevel === null ||
-        itemExperienceLevel === currentExperienceLevel;
+        filterState.experienceLevel === null ||
+        itemExperienceLevel === filterState.experienceLevel.toLowerCase();
+      const matchesEntryFee =
+        filterState.entryFee === null || itemEntryFee === filterState.entryFee;
+      const matchesLocation =
+        filterState.mode === null ||
+        itemLocation === filterState.mode;
+      console.log(matchesEntryFee);
       return (
         matchesCategory &&
         matchesStatus &&
         matchesTags &&
-        matchesExperienceLevel
+        matchesExperienceLevel &&
+        matchesEntryFee &&
+        matchesLocation
       );
     });
 
@@ -227,7 +237,7 @@ function renderFilteredContests() {
   }, 200);
 }
 
-// next 10 cards results
+// next 11 cards results
 function loadNextBatch() {
   const fragment = document.createDocumentFragment();
   const nextBatchEnd = currentlyDisplayedCount + contestsPerLoad;
@@ -247,8 +257,10 @@ function loadNextBatch() {
   // const loadMoreBtn = document.getElementById("loadMoreBtn");
   if (loadMoreBtn) {
     if (currentlyDisplayedCount >= allFilteredItems.length) {
+      loadMoreBtn.parentElement.classList.add("inactive");
       loadMoreBtn.style.display = "none";
     } else {
+      loadMoreBtn.parentElement.classList.remove("inactive");
       loadMoreBtn.style.display = "block";
     }
   }
@@ -340,7 +352,7 @@ function createContestCard(data) {
     .replace(/ & /g, "-")
     .replace(/ /g, "-");
   cardArticle.dataset.status = statusFromDB;
-  cardArticle.dataset.endiso = data.endISO || "";
+  cardArticle.dataset.endiso = data.meta.endiso || "";
 
   const imageWrapper = document.createElement("div");
   imageWrapper.classList.add("contest-item__image-wrapper");
@@ -352,7 +364,7 @@ function createContestCard(data) {
 
   const imageTag = document.createElement("span");
   imageTag.classList.add("image-tag");
-  imageTag.textContent = data.imageTag;
+  imageTag.textContent = data.image?.imagetag;
 
   const statusTag = document.createElement("span");
   statusTag.classList.add("status-tag", statusFromDB);
@@ -383,10 +395,10 @@ function createContestCard(data) {
     return div;
   };
 
-  const formattedDate = formatDateToLong(data.meta.endISO);
+  const formattedDate = formatDateToLong(data.meta.endiso);
   const prizeText = data.meta.prize?.amount
-    ? `${data.meta.prize.currency} ${data.meta.prize.amount}`
-    : data.meta.prize?.description || "Not Specified";
+    ? `${data.meta.prize.currency} ${data.meta.prize.amount.toLocaleString()}`
+    : data.meta?.otherbenefits || "Not Specified";
 
   const meta1 = createMeta(`
     <span><i class="fa-solid fa-users"></i> ${data.meta.eligibility}</span>
@@ -401,7 +413,7 @@ function createContestCard(data) {
   `);
   const meta4 = createMeta(`
     <span>📅 Starts At: <strong>${
-      formatDateToLong(data.meta.startDate) || "--"
+      formatDateToLong(data.meta.startdate) || "--"
     }</strong></span>
     <span>⏳ Ends At: <strong class="platinum-shine">${formattedDate}</strong></span>
   `);
@@ -466,9 +478,9 @@ function createContestCard(data) {
   label.classList.add("days-left-label");
 
   const count = document.createElement("div");
-  count.dataset.end = data.meta.endISO || "";
+  count.dataset.end = data.meta.endiso || "";
 
-  const daysLeft = calculateDaysLeft(data.meta.endISO);
+  const daysLeft = calculateDaysLeft(data.meta.endiso);
   count.textContent = daysLeft;
 
   if (typeof daysLeft === "number") {
@@ -581,39 +593,39 @@ async function handleHashNavigation() {
 }
 
 // get filters function
-function getFilters() {
-  const levelFilters = document.querySelectorAll(
-    "#experience-level-filters input[type='radio']"
-  );
+// function getFilters() {
+//   const levelFilters = document.querySelectorAll(
+//     "#experience-level-filters input[type='radio']"
+//   );
 
-  if (!levelFilters.length) {
-    console.warn("No experience level filters found");
-    return null;
-  }
+//   if (!levelFilters.length) {
+//     console.warn("No experience level filters found");
+//     return null;
+//   }
 
-  const selectedFilter = Array.from(levelFilters).find(
-    (filter) => filter.checked
-  );
-  if (selectedFilter) {
-    console.log("Selected experience level:", selectedFilter.value);
-    return selectedFilter.value;
-  } else {
-    console.log("No experience level selected");
-    return null;
-  }
-}
+//   const selectedFilter = Array.from(levelFilters).find(
+//     (filter) => filter.checked
+//   );
+//   if (selectedFilter) {
+//     console.log("Selected experience level:", selectedFilter.value);
+//     return selectedFilter.value;
+//   } else {
+//     console.log("No experience level selected");
+//     return null;
+//   }
+// }
 
-document.addEventListener("change", (event) => {
-  if (event.target.matches("#experience-level-filters input[type='radio']")) {
-    try {
-      currentExperienceLevel = getFilters();
-      console.log("Filter changed to:", currentExperienceLevel);
-      renderFilteredContests(); // Re-render contests with new filter
-    } catch (error) {
-      console.error("Error handling filter change:", error);
-    }
-  }
-});
+// document.addEventListener("change", (event) => {
+//   if (event.target.matches("#experience-level-filters input[type='radio']")) {
+//     try {
+//       currentExperienceLevel = getFilters();
+//       console.log("Filter changed to:", currentExperienceLevel);
+//       renderFilteredContests();
+//     } catch (error) {
+//       console.error("Error handling filter change:", error);
+//     }
+//   }
+// });
 
 // main function
 async function initializePage() {
@@ -622,14 +634,20 @@ async function initializePage() {
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     const apiData = await response.json();
     allContestsData = apiData.results || [];
-
+    // console.log("Fetched contests data:", allContestsData);
     if (allContestsData.length > 0) {
       populateFilters(allContestsData);
+      setupFilters((newFilterState) => {
+        filterState = newFilterState;
+        currentExperienceLevel = newFilterState.experienceLevel;
+        renderFilteredContests();
+      });
+
       renderFilteredContests();
-      currentExperienceLevel = getFilters();
+      // currentExperienceLevel = getFilters();
       handleHashNavigation();
     } else {
-      if (loadMoreBtn) loadMoreBtn.style.display = "none";
+      if (loadMoreBtn) loadMoreBtn.parentElement.classList.add("inactive");
       cardsContainer.innerHTML =
         '<p class="no-results-message">No opportunities are available at this time.</p>';
     }
@@ -638,6 +656,10 @@ async function initializePage() {
     if (cardsContainer)
       cardsContainer.innerHTML =
         '<p class="no-results-message">Could not load opportunities. Please try again later.</p>';
+    if (loadMoreBtn) {
+      loadMoreBtn.parentElement.classList.add("inactive");
+      loadMoreBtn.style.display = "none";
+    }
   }
 }
 

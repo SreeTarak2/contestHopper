@@ -1,42 +1,101 @@
-function getFilters() {
-    const levelFilters = document.querySelectorAll("#experience-level-filters input[type='radio']");
-    
-    if (!levelFilters.length) {
-        console.warn('No experience level filters found');
-        return null;
-    }
+let filterState = {
+  experienceLevel: null,
+  entryFee: null,
+  mode: null,
+};
 
-    const selectedFilter = Array.from(levelFilters).find(filter => filter.checked);
-    if (selectedFilter) {
-        console.log('Selected experience level:', selectedFilter.value);
-        return selectedFilter.value;
-    } else {
-        console.log('No experience level selected');
-        return null;
-    }
+function getExperienceLevelFilter() {
+  const levelFilters = document.querySelectorAll(
+    "#experience-level-filters input[type='radio']"
+  );
+  if (!levelFilters.length) {
+    console.warn("No experience level filters found");
+    return null;
+  }
+  const selectedFilter = Array.from(levelFilters).find(
+    (filter) => filter.checked
+  );
+  return selectedFilter ? selectedFilter.value : null;
 }
 
-// Initialize on page load
-document.addEventListener("DOMContentLoaded", () => {
-    try {
-        getFilters();
-    } catch (error) {
-        console.error('Error initializing filters:', error);
-    }
-});
+function getEntryFeeFilters() {
+  const feeFilters = document.querySelectorAll(
+    "#entry-fee-filters input[type='radio']"
+  );
+  if (!feeFilters.length) {
+    console.warn("No entry fee filters found");
+    return null;
+  }
+  const selectedFilter = Array.from(feeFilters).find(
+    (filter) => filter.checked
+  );
+  return selectedFilter ? selectedFilter.value : null;
+}
 
-// Update on filter change
-document.addEventListener("change", (event) => {
-    if (event.target.matches("#experience-level-filters input[type='radio']")) {
+function getModeFilters() {
+  const modeFilters = document.querySelectorAll(
+    "#mode-filters input[type='radio']"
+  );
+  if (!modeFilters.length) {
+    console.warn("No mode filters found");
+    return null;
+  }
+  const selectedFilter = Array.from(modeFilters).find(
+    (filter) => filter.checked
+  );
+  return selectedFilter ? selectedFilter.value : null;
+}
+
+function updateFilterState() {
+  filterState.experienceLevel = getExperienceLevelFilter();
+  filterState.entryFee = getEntryFeeFilters();
+  filterState.mode = getModeFilters();
+  return filterState;
+}
+
+function initializeFilters(onFilterChange) {
+  updateFilterState();
+
+  const allRadioButtons = document.querySelectorAll(
+    "#experience-level-filters input[type='radio'], #entry-fee-filters input[type='radio'], #mode-filters input[type='radio']"
+  );
+
+  allRadioButtons.forEach((radio) => {
+    // Track the last selected value for each group
+    let lastSelected = null;
+
+    radio.addEventListener("click", function (event) {
+      const groupName = this.name; // Radio buttons in the same group share the same 'name'
+      const currentValue = this.value;
+
+      // If the radio was already checked, uncheck it
+      if (this.checked && lastSelected === currentValue) {
+        this.checked = false;
+        lastSelected = null;
+      } else {
+        lastSelected = currentValue;
+      }
+
+      // Update filter state and call callback
+      const newFilterState = updateFilterState();
+      if (onFilterChange) {
         try {
-            const selectedValue = getFilters();
-            // Add logic here to handle filter change, e.g., update UI or fetch data
-            if (selectedValue) {
-                console.log('Filter changed to:', selectedValue);
-                // Example: trigger a function to update content based on selectedValue
-            }
+          onFilterChange(newFilterState);
         } catch (error) {
-            console.error('Error handling filter change:', error);
+          console.error("Error in onFilterChange callback:", error);
         }
-    }
-});
+      }
+    });
+
+    // Update lastSelected when a radio is changed via other means (e.g., keyboard)
+    radio.addEventListener("change", function () {
+      lastSelected = this.checked ? this.value : null;
+    });
+  });
+
+  return filterState;
+}
+
+function setupFilters(onFilterChange) {
+  return initializeFilters(onFilterChange);
+}

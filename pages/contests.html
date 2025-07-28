@@ -205,58 +205,96 @@
         </section>
 
         <!-- ======================================================== -->
-        <!-- ==     CONTEST EXPLAINER (SCROLLYTELLING SECTION)   == -->
+        <!-- ==     CONTEST EXPLAINER (V2 - INTERACTIVE ACCORDION)   == -->
         <!-- ======================================================== -->
-        <section class="contest-explainer-section">
-            <!-- Part 1: The initial full-width introductory text -->
-            <div class="explainer-intro">
-                <div class="intro-background"></div>
-                <div class="intro-content">
-                    <h1>What Are Contests?</h1>
-                    <p>Go beyond theory. Contests are your arena to prove your skills, tackle real-world problems, and
-                        forge connections with a global community of innovators. Scroll to discover how.</p>
-                </div>
+        <section class="explainer-v2-section">
+            <div class="section-header">
+                <h2 class="section-title">Why Compete on Contest Hopper?</h2>
+                <p class="section-subtitle">Go beyond theory. This is your arena to prove skills, tackle real-world
+                    problems, and forge connections with a global community of innovators.</p>
             </div>
 
-            <!-- Part 2: The split-screen scrolling content -->
-            <div class="explainer-content-grid">
-                <div class="explainer-text-column">
-                    <div class="text-step" data-image="../assets/Images/AI&VR/herosectionimg.webp">
-                        <h3>Solve Real Challenges</h3>
-                        <p>Forget abstract puzzles. Our contests, sponsored by leading tech companies and innovative
-                            startups, present you with genuine problems they face today. Whether it's optimizing an
-                            algorithm, designing a sustainable system, or prototyping a new UI, you'll be working on
-                            challenges that matter.</p>
+            <div class="explainer-v2-wrapper">
+                <!-- The Accordion Column -->
+                <!-- The Accordion Column -->
+                <div class="explainer-v2-accordion-wrapper">
+                    <div class="explainer-v2-accordion">
+                        <div class="explainer-v2-item active" data-image="../assets/Images/AI&VR/herosectionimg.webp"
+                            data-title="AI & VR Challenge">
+                            <div class="explainer-v2-header">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                <h3>Solve Real Challenges</h3>
+                                <div class="icon-toggle"></div>
+                            </div>
+                            <div class="explainer-v2-content">
+                                <p>Forget abstract puzzles. Our contests, sponsored by leading tech companies, present
+                                    you with genuine problems they face today. Work on challenges that matter.</p>
+                            </div>
+                        </div>
+
+                        <div class="explainer-v2-item"
+                            data-image="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
+                            data-title="Cyberpunk Retro Jam">
+                            <div class="explainer-v2-header">
+                                <i class="fa-solid fa-palette"></i>
+                                <h3>Unleash Your Creativity</h3>
+                                <div class="icon-toggle"></div>
+                            </div>
+                            <div class="explainer-v2-content">
+                                <p>We celebrate unique solutions and out-of-the-box thinking. Experiment with new tech,
+                                    blend disciplines, and showcase your creative signature to stand out.</p>
+                            </div>
+                        </div>
+
+                        <div class="explainer-v2-item"
+                            data-image="../assets/Images/Hackathons/freepik__expand__84176 (1).png"
+                            data-title="InnoPitch '25">
+                            <div class="explainer-v2-header">
+                                <i class="fa-solid fa-trophy"></i>
+                                <h3>Earn Rewards & Recognition</h3>
+                                <div class="icon-toggle"></div>
+                            </div>
+                            <div class="explainer-v2-content">
+                                <p>Winning isn't just about prize money—it's about career-defining recognition. Get your
+                                    work in front of industry leaders, recruiters, and VCs.</p>
+                            </div>
+                        </div>
+
+                        <div class="explainer-v2-item"
+                            data-image="../assets/Images/Floods/5537c5e4-b710-4ec9-bdc7-ad2940493e47.webp"
+                            data-title="Climate Hack">
+                            <div class="explainer-v2-header">
+                                <i class="fa-solid fa-users"></i>
+                                <h3>Join a Global Community</h3>
+                                <div class="icon-toggle"></div>
+                            </div>
+                            <div class="explainer-v2-content">
+                                <p>Connect with a vibrant, worldwide community of developers, designers, and creators
+                                    who are just as passionate about building the future as you are.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-step"
-                        data-image="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp">
-                        <h3>Unleash Your Creativity</h3>
-                        <p>There is no single 'right' answer. We celebrate unique solutions and out-of-the-box thinking.
-                            This is your chance to experiment with new technologies, blend different disciplines, and
-                            showcase your unique creative signature. Stand out with originality, brilliant
-                            problem-solving, and true innovation.</p>
-                    </div>
-                    <div class="text-step" data-image="../assets/Images/Hackathons/freepik__expand__84176 (1).png">
-                        <h3>Earn Rewards & Recognition</h3>
-                        <p>Winning isn't just about the prize money—it's about career-defining recognition. Get your
-                            work in front of industry leaders, recruiters, and VCs. Top participants are often featured
-                            in our blog, gain access to exclusive job boards, and receive mentorship from tech veterans.
-                        </p>
-                    </div>
-                    <div class="text-step"
-                        data-image="../assets/Images/Floods/5537c5e4-b710-4ec9-bdc7-ad2940493e47.webp">
-                        <h3>Join a Global Community</h3>
-                        <p>You're not competing in a vacuum. You're joining a vibrant, worldwide community of
-                            developers, designers, and creators. Connect with peers, form teams for future hackathons,
-                            and learn from others who are just as passionate about building the future as you are.</p>
+                    <!-- NEW: Call to Action Button -->
+                    <div class="explainer-cta-wrapper">
+                        <a href="#all-contests" class="explainer-cta-btn">
+                            <span>Explore All Opportunities</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Column for the image that will be "sticky" and change -->
-                <div class="explainer-image-column">
-                    <div class="sticky-image-wrapper">
-                        <img src="../assets/Images/AI&VR/herosectionimg.webp" alt="Contest theme image"
-                            id="stickyContestImage">
+                <!-- The Visualizer Column -->
+                <div class="explainer-v2-visual">
+                    <div class="sticky-visual-wrapper">
+                        <div class="preview-card">
+                            <img src="../assets/Images/AI&VR/herosectionimg.webp" alt="Contest Preview"
+                                id="explainerPreviewImage" class="preview-card-image">
+                            <div class="preview-card-overlay"></div>
+                            <div class="preview-card-content">
+                                <h4 id="explainerPreviewTitle">AI & VR Challenge</h4>
+                                <p>Sponsored by TechCorp</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -305,11 +343,11 @@
                     <div class="filter-group-wrapper">
                         <h3 class="category-filter-title"><span>Categories</span></h3>
                         <div class="category-filters">
-                            <!-- Example: <a href="#" class="filter-item active">All Categories</a> -->
+                            <!-- Dynamically data -->
                         </div>
                     </div>
 
-                    <!-- NEW: Experience Level Filter -->
+                    <!-- Experience Level Filter -->
                     <div class="filter-group-wrapper">
                         <h3 class="category-filter-title"><span>Experience Level</span></h3>
                         <div class="checkbox-filters" id="experience-level-filters">
@@ -318,7 +356,8 @@
                                 <label for="level-beginner">Beginner</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="radio" name="experience-level" id="level-intermediate" value="intermediate">
+                                <input type="radio" name="experience-level" id="level-intermediate"
+                                    value="intermediate">
                                 <label for="level-intermediate">Intermediate</label>
                             </div>
                             <div class="checkbox-item">
@@ -328,31 +367,31 @@
                         </div>
                     </div>
 
-                    <!-- NEW: Entry Fee Filter -->
+                    <!-- Entry Fee Filter -->
                     <div class="filter-group-wrapper">
                         <h3 class="category-filter-title"><span>Entry Fee</span></h3>
-                        <div class="checkbox-filters">
+                        <div class="checkbox-filters" id="entry-fee-filters">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="fee-free" value="free">
+                                <input type="radio" name="entry-fee" id="fee-free" value="free">
                                 <label for="fee-free">Free to Enter</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="fee-paid" value="paid">
+                                <input type="radio" name="entry-fee" id="fee-paid" value="paid">
                                 <label for="fee-paid">Paid Entry</label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- NEW: Location Filter -->
+                    <!-- Location Filter -->
                     <div class="filter-group-wrapper">
                         <h3 class="category-filter-title"><span>Location</span></h3>
-                        <div class="checkbox-filters">
+                        <div class="checkbox-filters" id="mode-filters">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="online" value="online">
+                                <input type="radio" name="mode" id="online" value="online">
                                 <label for="online">online</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="offline" value="offline">
+                                <input type="radio" name="mode" id="offline" value="offline">
                                 <label for="offline">offline</label>
                             </div>
                         </div>
@@ -472,6 +511,19 @@
         </div>
     </footer>
 
+    <div id="search-modal-overlay" class="modal-overlay">
+        <div id="search-modal-content" class="modal-content">
+            <div class="modal-header">
+                <h3 id="search-modal-title">Search Results</h3>
+                <button id="close-search-modal-btn" class="modal-close-btn">×</button>
+            </div>
+            <div id="search-modal-body" class="modal-body">
+                <!-- All search results will be dynamically inserted here -->
+                <p class="no-results-message">No matching opportunities found.</p>
+            </div>
+        </div>
+    </div>
+
     <a onclick="scrollToTop()" class="scroll-top-btn" aria-label="Scroll to top">
         <i class="fa-solid fa-arrow-up"></i>
         <div class="bubbles-container">
@@ -483,45 +535,85 @@
 
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
+        integrity="sha256-eUny2Hql6qBbqmuoQ60u6ueG2eCZVKQaGygqwCPquug=" crossorigin="anonymous"></script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/slider.js"></script>
+    <script src="./js/filters.js"></script>
     <script src="./js/cards.js"></script>
     <script src="./js/searchbar.js"></script>
     <script src="./js/share.js"></script>
-    <script src="./js/filters.js"></script>
+
+    <!-- <script>
+        const lenis = new Lenis();
+        lenis.on('scroll', (e) => {
+
+        })
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script> -->
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const sortContainer = document.getElementById('sortControl');
-            if (sortContainer) {
-                const buttons = sortContainer.querySelectorAll('.segmented-control__button');
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionItems = document.querySelectorAll('.explainer-v2-item');
+            const previewImage = document.getElementById('explainerPreviewImage');
+            const previewTitle = document.getElementById('explainerPreviewTitle');
+            const previewCard = document.querySelector('.preview-card');
 
-                buttons.forEach(button => {
-                    button.addEventListener('click', function () {
-                        const isPrizeButton = this.dataset.sort.startsWith('prize');
+            if (accordionItems.length > 0) {
+                accordionItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const wasActive = item.classList.contains('active');
 
-                        // If it's the prize button AND it's already active, just toggle it
-                        if (isPrizeButton && this.classList.contains('active')) {
-                            // Swap the data-sort value with its alternative
-                            const currentSort = this.dataset.sort;
-                            const altSort = this.dataset.altSort;
-                            this.dataset.sort = altSort;
-                            this.dataset.altSort = currentSort;
-                        } else {
-                            // Otherwise, deactivate all buttons and activate this one
-                            buttons.forEach(btn => {
-                                // Reset prize button to its default state if it's being deactivated
-                                if (btn.dataset.altSort && !btn.isEqualNode(this)) {
-                                    btn.dataset.sort = 'prize-high-low';
+                        // Close all items
+                        accordionItems.forEach(i => i.classList.remove('active'));
+
+                        // If the clicked item was not already active, open it
+                        if (!wasActive) {
+                            item.classList.add('active');
+
+                            // Update the preview card
+                            const newImageSrc = item.dataset.image;
+                            const newTitle = item.dataset.title;
+
+                            // Add a class to trigger the fade-out/scale animation
+                            previewImage.classList.add('is-changing');
+
+                            setTimeout(() => {
+                                previewImage.src = newImageSrc;
+                                previewTitle.textContent = newTitle;
+
+                                // After the image has loaded, remove the class to fade it back in
+                                previewImage.onload = () => {
+                                    previewImage.classList.remove('is-changing');
                                 }
-                                btn.classList.remove('active');
-                            });
-                            this.classList.add('active');
+                                // Fallback in case onload doesn't fire (e.g. cached image)
+                                setTimeout(() => previewImage.classList.remove('is-changing'), 100);
+                            }, 300); // This timeout should be half of the transition duration
                         }
-
-                        console.log('Current sort order is:', this.dataset.sort);
-                        // Now, call your function to re-render the contest list
-                        // filterAndDisplayContests();
                     });
+                });
+            }
+
+            // 3D Tilt Effect for the preview card
+            if (previewCard) {
+                previewCard.addEventListener('mousemove', (e) => {
+                    const rect = previewCard.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const { width, height } = rect;
+                    const rotateX = (y / height - 0.5) * -20; // Max rotation 10deg
+                    const rotateY = (x / width - 0.5) * 20;   // Max rotation 10deg
+
+                    previewCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                });
+
+                previewCard.addEventListener('mouseleave', () => {
+                    previewCard.style.transform = 'rotateX(0) rotateY(0) scale(1)';
                 });
             }
         });
