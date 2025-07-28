@@ -16,8 +16,8 @@ let activeIntervals = [];
 let currentTags = [];
 let allContestsData = [];
 
-// const url = "https://contesthopper.onrender.com";
-const url = "http://127.0.0.1:3000";
+const url = "https://contesthopper.onrender.com";
+// const url = "http://127.0.0.1:3000";
 
 function getUniqueValues(data, key) {
   const allValues = data.flatMap((item) => item[key] || []);

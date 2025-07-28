@@ -17,8 +17,8 @@ app.use(express.json());
 
 const PORT = 3000;
 
-// const mongourl = process.env.MONGODB_URI || "mongodb://localhost:27017";
-const mongourl = "mongodb://localhost:27017";
+const mongourl = process.env.MONGODB_URI || "mongodb://localhost:27017";
+// const mongourl = "mongodb://localhost:27017";
 const DB_NAME = process.env.DB_NAME || "contestHopper";
 const COLLECTION_NAME = process.env.COLLECTION_NAME || "contests";
 let db;

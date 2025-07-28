@@ -536,7 +536,8 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
-        integrity="sha256-eUny2Hql6qBbqmuoQ60u6ueG2eCZVKQaGygqwCPquug=" crossorigin="anonymous"></script>
+        integrity="sha256-eUny2Hql6qBbqmuoQ60u6ueG2eCZVKQaGygqwCPquug="crossorigin="anonymous">
+    </script>
     <script src="./js/hamburger.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/filters.js"></script>
@@ -571,28 +572,24 @@
                         // Close all items
                         accordionItems.forEach(i => i.classList.remove('active'));
 
-                        // If the clicked item was not already active, open it
                         if (!wasActive) {
                             item.classList.add('active');
 
-                            // Update the preview card
                             const newImageSrc = item.dataset.image;
                             const newTitle = item.dataset.title;
 
-                            // Add a class to trigger the fade-out/scale animation
                             previewImage.classList.add('is-changing');
 
                             setTimeout(() => {
                                 previewImage.src = newImageSrc;
                                 previewTitle.textContent = newTitle;
 
-                                // After the image has loaded, remove the class to fade it back in
                                 previewImage.onload = () => {
                                     previewImage.classList.remove('is-changing');
                                 }
-                                // Fallback in case onload doesn't fire (e.g. cached image)
+
                                 setTimeout(() => previewImage.classList.remove('is-changing'), 100);
-                            }, 300); // This timeout should be half of the transition duration
+                            }, 300); 
                         }
                     });
                 });
