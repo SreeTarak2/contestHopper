@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 const cron = require("node-cron");
 require("dotenv").config();
 
-const mongourl = "mongodb://localhost:27017";
+const mongourl = process.env.MONGODB_URI||"mongodb://localhost:27017";
 const DB_NAME = process.env.DB_NAME || "contestHopper";
 const COLLECTION_NAME = process.env.COLLECTION_NAME || "contests";
 
