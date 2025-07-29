@@ -5,6 +5,7 @@ const searchModalBody = document.getElementById("search-modal-body");
 const searchModalTitle = document.getElementById("search-modal-title");
 const closeSearchModalBtn = document.getElementById("close-search-modal-btn");
 
+
 const baseUrl = "https://contesthopper.onrender.com";
 // const baseUrl = "http://127.0.0.1:3000";
 

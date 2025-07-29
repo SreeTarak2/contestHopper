@@ -21,7 +21,6 @@
                 Contest <span class="hopper-text">Hopper</span>
             </a>
             <img id="logo" src="../assets/Final Logo/logocopy.png" alt="logo">
-            <!-- <i class="logo-icon"></i> -->
         </div>
 
         <!-- Main Navigation (Desktop only) -->
@@ -39,20 +38,17 @@
                 <li><a href="./pages/hackathons.html" class="nav-btn">Blog</a></li>
             </ul>
         </nav>
-        <!-- Search Bar & Sign In (Desktop only) -->
-        <div class="header-actions-desktop">
-            <div class="searchbar-wrapper">
-                <div class="searchbar-container">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search" class="searchbar" id="searchInput" autocomplete="off">
-                </div>
 
-                <div class="search-results" id="searchResults"></div>
-                <div class="signin-btn">
-                    <a href="signin.html">Sign In</a>
-                </div>
+        <!-- Search Bar (Desktop and Mobile) - Always Outside Hamburger Menu -->
+        <div class="searchbar-wrapper">
+            <div class="searchbar-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search" class="searchbar" id="searchInput" autocomplete="off">
             </div>
+
+            <div class="search-results" id="searchResults"></div>
         </div>
+
         <!-- Hamburger Menu Trigger (Mobile only) -->
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay"
             aria-expanded="false">
@@ -62,7 +58,6 @@
 
     <div class="mobile-nav-overlay" id="mobileNavOverlay" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="mobile-nav-header">
-            <!-- <div class="mobile-logo">Contest Hopper</div> -->
             <button class="close-nav" id="closeNav" aria-label="Close menu">
                 <i class="fa-solid fa-times"></i>
             </button>
@@ -94,7 +89,7 @@
         <section class="hero-section">
             <div class="hero-background" id="hero-background">
                 <!-- <img id="heroImage" alt="Hero background" /> -->
-                <img id="heroImage" src="../assets/Images/AI&VR/herosectionimg.webp" alt="Hero background" />
+                <img id="heroImage" src="../assets/Images/herosectionimg.webp" alt="Hero background" />
             </div>
             <div class="hero-content">
                 <div class="hero-text">
@@ -120,39 +115,35 @@
                     </div>
                     <div class="slider-viewport">
                         <div class="slider-wrapper" id="sliderWrapper">
-                            <div class="mini-card" data-bg="../assets/Images/AI&VR/herosectionimg.webp"
-                                data-title="Codefest"
+                            <div class="mini-card" data-bg="../assets/Images/herosectionimg.webp" data-title="Codefest"
                                 data-description="An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.">
-                                <img src="../assets/Images/AI&VR/herosectionimg.webp" alt="Tech Contest">
+                                <img src="../assets/Images/herosectionimg.webp" alt="Tech Contest">
                                 <div class="mini-card-details">Codefest</div>
                             </div>
                             <div class="mini-card"
-                                data-bg="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
+                                data-bg="../assets/Images/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
                                 data-title="RETRO JAM"
                                 data-description="A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.">
-                                <img src="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
+                                <img src="../assets/Images/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
                                     alt="Retro Gaming Contest">
                                 <div class="mini-card-details">RETRO JAM</div>
                             </div>
-                            <div class="mini-card" data-bg="../assets/Images/Droughts/freepik__expand__11770.png"
+                            <div class="mini-card" data-bg="../assets/Images/freepik__expand__11770.webp"
                                 data-title="DESIGN DUEL"
                                 data-description="Compete in a fast-paced UI/UX challenge to design for impact.">
-                                <img src="../assets/Images/Droughts/freepik__expand__11770.png"
-                                    alt="UI/UX Design Contest">
+                                <img src="../assets/Images/freepik__expand__11770.webp" alt="UI/UX Design Contest">
                                 <div class="mini-card-details">DESIGN DUEL</div>
                             </div>
-                            <div class="mini-card" data-bg="../assets/Images/Hackathons/freepik__expand__84176 (1).png"
+                            <div class="mini-card" data-bg="../assets/Images/freepik__expand__84176 (1).webp"
                                 data-title="INNO PITCH"
                                 data-description="Pitch your startup ideas to top VCs and tech mentors.">
-                                <img src="../assets/Images/Hackathons/freepik__expand__84176 (1).png"
-                                    alt="Startup Pitch Contest">
+                                <img src="../assets/Images/freepik__expand__84176 (1).webp" alt="Startup Pitch Contest">
                                 <div class="mini-card-details">INNO PITCH</div>
                             </div>
-                            <div class="mini-card" data-bg="../assets/Images/Plants/freepik__expand__92815 (1).png"
+                            <div class="mini-card" data-bg="../assets/Images/freepik__expand__92815 (1).webp"
                                 data-title="MARKET MAVEN"
                                 data-description="Showcase your marketing brilliance through real-world strategy challenges.">
-                                <img src="../assets/Images/Plants/freepik__expand__92815 (1).png"
-                                    alt="Marketing Contest">
+                                <img src="../assets/Images/freepik__expand__92815 (1).webp" alt="Marketing Contest">
                                 <div class="mini-card-details">MARKET MAVEN</div>
                             </div>
                         </div>
@@ -170,26 +161,24 @@
                     <div class="card">
                         <div class="mask-img"></div>
                         <div class="card-title-mask">Scarcity</div>
-                        <img src="../assets/Images/Miniature/105a9273-f629-4eb1-bd89-c15fadc0d964.jpeg"
-                            alt="Miniature contest">
+                        <img src="../assets/Images/105a9273-f629-4eb1-bd89-c15fadc0d964.webp" alt="Miniature contest">
                     </div>
                     <div class="card">
                         <div class="mask-img"></div>
                         <div class="card-title-mask">Floods</div>
-                        <img src="../assets/Images/Floods/5537c5e4-b710-4ec9-bdc7-ad2940493e47.webp"
+                        <img src="../assets/Images/5537c5e4-b710-4ec9-bdc7-ad2940493e47.webp"
                             alt="Flood themed contest">
                     </div>
 
                     <div class="card">
                         <div class="mask-img"></div>
                         <div class="card-title-mask">Drought</div>
-                        <img src="../assets/Images/Hackathons/ed4e31e9-b87d-48b4-82b8-9cacf2e3781a.webp"
-                            alt="Hackathon">
+                        <img src="../assets/Images/ed4e31e9-b87d-48b4-82b8-9cacf2e3781a.webp" alt="Hackathon">
                     </div>
                     <div class="card">
                         <div class="mask-img"></div>
                         <div class="card-title-mask">Innovation</div>
-                        <img src="../assets/Images/Pandemic/02857639-7b97-4975-bd39-6323ba084224.webp"
+                        <img src="../assets/Images/02857639-7b97-4975-bd39-6323ba084224.webp"
                             alt="Pandemic themed contest">
                     </div>
                 </div>
@@ -203,100 +192,107 @@
         </section>
 
         <!-- ======================================================== -->
-        <!-- ==     CONTEST EXPLAINER (V2 - INTERACTIVE ACCORDION)   == -->
+        <!-- ==             CONTEST EXPLAINER                      == -->
         <!-- ======================================================== -->
-        <section class="explainer-v2-section">
+        <section class="contest-explainer">
             <div class="section-header">
-                <h2 class="section-title">Why Compete on Contest Hopper?</h2>
-                <p class="section-subtitle">Go beyond theory. This is your arena to prove skills, tackle real-world
-                    problems, and forge connections with a global community of innovators.</p>
+                <h2 class="section-title">Why Participate in Contest Hopper?</h2>
+                <p class="section-subtitle">Step beyond theory. This is your stage to prove your skills, solve
+                    real-world problems, and build relationships with a global network of innovators.</p>
             </div>
 
-            <div class="explainer-v2-wrapper">
-                <!-- The Accordion Column -->
-                <!-- The Accordion Column -->
-                <div class="explainer-v2-accordion-wrapper">
-                    <div class="explainer-v2-accordion">
-                        <div class="explainer-v2-item active" data-image="../assets/Images/AI&VR/herosectionimg.webp"
-                            data-title="AI & VR Challenge">
-                            <div class="explainer-v2-header">
+            <div class="contest-explainer-wrapper">
+                <!-- Accordion Column -->
+                <div class="explainer-accordion">
+                    <div class="explainer-accordion-item">
+                        <!-- Accordion Item 1 -->
+                        <div class="explainer-item active"
+                            data-image="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974"
+                            data-title="Collaborative Hackathon">
+                            <div class="explainer-header">
                                 <i class="fa-solid fa-lightbulb"></i>
-                                <h3>Solve Real Challenges</h3>
-                                <div class="icon-toggle"></div>
+                                <h3>Solve Real-World Problems</h3>
+                                <div class="toggle-icon"></div>
                             </div>
-                            <div class="explainer-v2-content">
-                                <p>Forget abstract puzzles. Our contests, sponsored by leading tech companies, present
-                                    you with genuine problems they face today. Work on challenges that matter.</p>
-                            </div>
-                        </div>
-
-                        <div class="explainer-v2-item"
-                            data-image="../assets/Images/Cyberpunk/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
-                            data-title="Cyberpunk Retro Jam">
-                            <div class="explainer-v2-header">
-                                <i class="fa-solid fa-palette"></i>
-                                <h3>Unleash Your Creativity</h3>
-                                <div class="icon-toggle"></div>
-                            </div>
-                            <div class="explainer-v2-content">
-                                <p>We celebrate unique solutions and out-of-the-box thinking. Experiment with new tech,
-                                    blend disciplines, and showcase your creative signature to stand out.</p>
+                            <div class="explainer-content">
+                                <p>Work on real challenges set by industry leaders. Apply your skills to projects that
+                                    make a tangible impact and get noticed by top companies.</p>
                             </div>
                         </div>
 
-                        <div class="explainer-v2-item"
-                            data-image="../assets/Images/Hackathons/freepik__expand__84176 (1).png"
-                            data-title="InnoPitch '25">
-                            <div class="explainer-v2-header">
+                        <!-- Accordion Item 2 -->
+                        <div class="explainer-item"
+                            data-image="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070"
+                            data-title="Advanced Robotics Challenge">
+                            <div class="explainer-header">
+                                <i class="fa-solid fa-robot"></i>
+                                <h3>Showcase Your Technical Expertise</h3>
+                                <div class="toggle-icon"></div>
+                            </div>
+                            <div class="explainer-content">
+                                <p>Whether it's AI, blockchain, or robotics, our contests provide the perfect platform
+                                    to show your expertise and build a standout portfolio.</p>
+                            </div>
+                        </div>
+
+                        <!-- Accordion Item 3 -->
+                        <div class="explainer-item"
+                            data-image="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070"
+                            data-title="Global Pitch Competition">
+                            <div class="explainer-header">
                                 <i class="fa-solid fa-trophy"></i>
-                                <h3>Earn Rewards & Recognition</h3>
-                                <div class="icon-toggle"></div>
+                                <h3>Gain Career-Defining Recognition</h3>
+                                <div class="toggle-icon"></div>
                             </div>
-                            <div class="explainer-v2-content">
-                                <p>Winning isn't just about prize money—it's about career-defining recognition. Get your
-                                    work in front of industry leaders, recruiters, and VCs.</p>
+                            <div class="explainer-content">
+                                <p>Winning isn't just about the prizes. Gain credibility, attract recruiters, and earn
+                                    recognition that will propel your career forward.</p>
                             </div>
                         </div>
 
-                        <div class="explainer-v2-item"
-                            data-image="../assets/Images/Floods/5537c5e4-b710-4ec9-bdc7-ad2940493e47.webp"
-                            data-title="Climate Hack">
-                            <div class="explainer-v2-header">
+                        <!-- Accordion Item 4 -->
+                        <div class="explainer-item"
+                            data-image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070"
+                            data-title="Networking & Mentorship">
+                            <div class="explainer-header">
                                 <i class="fa-solid fa-users"></i>
-                                <h3>Join a Global Community</h3>
-                                <div class="icon-toggle"></div>
+                                <h3>Build Global Connections</h3>
+                                <div class="toggle-icon"></div>
                             </div>
-                            <div class="explainer-v2-content">
-                                <p>Connect with a vibrant, worldwide community of developers, designers, and creators
-                                    who are just as passionate about building the future as you are.</p>
+                            <div class="explainer-content">
+                                <p>Join a community of developers, designers, and innovators. Collaborate, find mentors,
+                                    and create lasting professional connections.</p>
                             </div>
                         </div>
                     </div>
-                    <!-- NEW: Call to Action Button -->
-                    <div class="explainer-cta-wrapper">
-                        <a href="#all-contests" class="explainer-cta-btn">
+
+                    <!-- Call to Action Button -->
+                    <div class="cta-button-container">
+                        <a href="#all-contests" class="cta-button">
                             <span>Explore All Opportunities</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- The Visualizer Column -->
-                <div class="explainer-v2-visual">
-                    <div class="sticky-visual-wrapper">
+                <!-- Visualizer Column -->
+                <div class="contest-explainer-visual">
+                    <div class="sticky-visual">
                         <div class="preview-card">
-                            <img src="../assets/Images/AI&VR/herosectionimg.webp" alt="Contest Preview"
-                                id="explainerPreviewImage" class="preview-card-image">
-                            <div class="preview-card-overlay"></div>
-                            <div class="preview-card-content">
-                                <h4 id="explainerPreviewTitle">AI & VR Challenge</h4>
-                                <p>Sponsored by TechCorp</p>
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974"
+                                alt="Contest Preview" id="explainerPreviewImage" class="preview-card-image">
+                            <div class="preview-overlay"></div>
+                            <div class="preview-card-info">
+                                <h4 id="explainerPreviewTitle">Collaborative Hackathon</h4>
+                                <p>Sponsored by Innovate Inc.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
         <!-- ============================================= -->
         <!-- ==         ALL CONTESTS SECTION            == -->
         <!-- ============================================= -->
@@ -386,16 +382,16 @@
                         <div class="checkbox-filters" id="mode-filters">
                             <div class="checkbox-item">
                                 <input type="radio" name="mode" id="online" value="online">
-                                <label for="online">online</label>
+                                <label for="online">Online</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="radio" name="mode" id="offline" value="offline">
-                                <label for="offline">offline</label>
+                                <label for="offline">Offline</label>
                             </div>
                         </div>
                     </div>
                 </aside>
-
+                <!-- cards container -->
                 <div class="contest-list-container">
                     <div class="contest-cards-list-container">
                     </div>
@@ -534,9 +530,10 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
-        integrity="sha256-eUny2Hql6qBbqmuoQ60u6ueG2eCZVKQaGygqwCPquug="crossorigin="anonymous">
-    </script>
+        integrity="sha256-eUny2Hql6qBbqmuoQ60u6ueG2eCZVKQaGygqwCPquug=" crossorigin="anonymous">
+        </script>
     <script src="./js/hamburger.js"></script>
+    <script src="./js/contest-explainer.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/filters.js"></script>
     <script src="./js/cards.js"></script>
@@ -554,65 +551,6 @@
         }
         requestAnimationFrame(raf);
     </script> -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const accordionItems = document.querySelectorAll('.explainer-v2-item');
-            const previewImage = document.getElementById('explainerPreviewImage');
-            const previewTitle = document.getElementById('explainerPreviewTitle');
-            const previewCard = document.querySelector('.preview-card');
-
-            if (accordionItems.length > 0) {
-                accordionItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                        const wasActive = item.classList.contains('active');
-
-                        // Close all items
-                        accordionItems.forEach(i => i.classList.remove('active'));
-
-                        if (!wasActive) {
-                            item.classList.add('active');
-
-                            const newImageSrc = item.dataset.image;
-                            const newTitle = item.dataset.title;
-
-                            previewImage.classList.add('is-changing');
-
-                            setTimeout(() => {
-                                previewImage.src = newImageSrc;
-                                previewTitle.textContent = newTitle;
-
-                                previewImage.onload = () => {
-                                    previewImage.classList.remove('is-changing');
-                                }
-
-                                setTimeout(() => previewImage.classList.remove('is-changing'), 100);
-                            }, 300); 
-                        }
-                    });
-                });
-            }
-
-            // 3D Tilt Effect for the preview card
-            if (previewCard) {
-                previewCard.addEventListener('mousemove', (e) => {
-                    const rect = previewCard.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    const { width, height } = rect;
-                    const rotateX = (y / height - 0.5) * -20; // Max rotation 10deg
-                    const rotateY = (x / width - 0.5) * 20;   // Max rotation 10deg
-
-                    previewCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-                });
-
-                previewCard.addEventListener('mouseleave', () => {
-                    previewCard.style.transform = 'rotateX(0) rotateY(0) scale(1)';
-                });
-            }
-        });
-    </script>
 </body>
 
 </html>
