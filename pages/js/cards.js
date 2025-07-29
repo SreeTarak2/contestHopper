@@ -213,7 +213,6 @@ function renderFilteredContests() {
       const matchesLocation =
         filterState.mode === null ||
         itemLocation === filterState.mode;
-      console.log(matchesEntryFee);
       return (
         matchesCategory &&
         matchesStatus &&
