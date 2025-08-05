@@ -27,15 +27,13 @@
         <nav class="main-nav">
             <ul>
                 <li><a href="./pages/contests.html" class="nav-btn">Contests</a></li>
-                <li><a href="./pages/competitions.html" class="nav-btn">Competitions</a></li>
-                <li><a href="./pages/hackathons.html" class="nav-btn">Hackathons</a></li>
                 <li>
                     <a href="./pages/sustainability.html" class="sustainability-btn">
                         Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
                             class="leaf-icon">
                     </a>
                 </li>
-                <li><a href="./pages/hackathons.html" class="nav-btn">Blog</a></li>
+                <li><a href="./pages/blog.html" class="nav-btn">Blog</a></li>
             </ul>
         </nav>
 
@@ -44,6 +42,10 @@
             <div class="searchbar-container">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search" class="searchbar" id="searchInput" autocomplete="off">
+            </div>
+
+            <div class="signin-btn">
+                <a href="signin.html">Sign In</a>
             </div>
 
             <div class="search-results" id="searchResults"></div>
@@ -88,17 +90,21 @@
 
         <section class="hero-section">
             <div class="hero-background" id="hero-background">
-                <!-- <img id="heroImage" alt="Hero background" /> -->
-                <img id="heroImage" src="../assets/Images/herosectionimg.webp" alt="Hero background" />
+                <!-- The initial background image is set from the first data item -->
+                <img id="heroImage" src="../assets/Images/2025globalphotography.webp"
+                    alt="Global Photography Awards Logo" />
             </div>
             <div class="hero-content">
                 <div class="hero-text">
-                    <h2 class="contest-title" id="heroTitle">Contests</h2>
-                    <h5 class="contest-subtitle" id="heroDescription">An immersive AI & VR hackathon pushing the
-                        boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An
-                        immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon
-                        pushing the boundaries of innovation.</h5>
-                    <a href="/green-cape-challenge-details" class="hero-button">
+                    <!-- The initial title and description are set from the first data item -->
+                    <h2 class="contest-title" id="heroTitle">2025 Global Photography Awards</h2>
+                    <h5 class="contest-subtitle" id="heroDescription">An international photography competition
+                        celebrating unique perspectives behind every photograph, open to professionals, amateurs, and
+                        students. Participants can showcase their talent globally and compete in multiple categories
+                        with the opportunity to gain worldwide recognition.</h5>
+                    <!-- The initial link is set from the first data item -->
+                    <a href="https://www.infodesigners.eu/photography-competitions/2025-global-photography-awards"
+                        class="hero-button" target="_blank" id="dynamicLink">
                         <span>Apply Now</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -115,36 +121,52 @@
                     </div>
                     <div class="slider-viewport">
                         <div class="slider-wrapper" id="sliderWrapper">
-                            <div class="mini-card" data-bg="../assets/Images/herosectionimg.webp" data-title="Codefest"
-                                data-description="An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.An immersive AI & VR hackathon pushing the boundaries of innovation.">
-                                <img src="../assets/Images/herosectionimg.webp" alt="Tech Contest">
-                                <div class="mini-card-details">Codefest</div>
+                            <div class="mini-card active" data-bg="../assets/Images/2025globalphotography.webp"
+                                data-title="2025 Global Photography Awards"
+                                data-description="An international photography competition celebrating unique perspectives behind every photograph, open to professionals, amateurs, and students. Participants can showcase their talent globally and compete in multiple categories with the opportunity to gain worldwide recognition."
+                                data-link="https://globalphotographyawards.com/">
+                                <img src="../assets/Images/2025globalphotography.webp"
+                                    alt="Global Photography Awards Logo">
+                                <div class="mini-card-details">Photography</div>
                             </div>
-                            <div class="mini-card"
-                                data-bg="../assets/Images/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
-                                data-title="RETRO JAM"
-                                data-description="A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.A thrilling retro gaming contest inspired by the cyberpunk era.">
-                                <img src="../assets/Images/Made_with_insMind-Made_with_insMind-6566e387-c23a-43b2-805f-b4de6d8b9658.webp"
-                                    alt="Retro Gaming Contest">
-                                <div class="mini-card-details">RETRO JAM</div>
+
+                            <!-- Card 2 -->
+                            <div class="mini-card" data-bg="../assets/Images/internationalarchi.webp"
+                                data-title="International Architectural Competition"
+                                data-description="An international competition to find an innovative and functional solution for renovating the City Market in Pazardzhik, Bulgaria, transforming it into the heart of a modern city. The top three projects will be awarded."
+                                data-link="https://competition.bg/pazardzhikmarket/en/the-competition/">
+                                <img src="../assets/Images/internationalarchi.webp"
+                                    alt="Architectural design of a modern city market">
+                                <div class="mini-card-details">Urban Design</div>
                             </div>
-                            <div class="mini-card" data-bg="../assets/Images/freepik__expand__11770.webp"
-                                data-title="DESIGN DUEL"
-                                data-description="Compete in a fast-paced UI/UX challenge to design for impact.">
-                                <img src="../assets/Images/freepik__expand__11770.webp" alt="UI/UX Design Contest">
-                                <div class="mini-card-details">DESIGN DUEL</div>
+
+                            <!-- Card 3 -->
+                            <div class="mini-card" data-bg="../assets/Images/2026wiriting.webp"
+                                data-title="The Yale Drama Series 2026"
+                                data-description="An international competition for emerging playwrights to win a $10,000 prize and have their winning play published by Yale University Press. The competition is judged by a preeminent playwright."
+                                data-link="https://yalebooks.yale.edu/yale-drama-series-rules-and-submission-guidelines/">
+                                <img src="../assets/Images/2026wiriting.webp"
+                                    alt="A person typing on a vintage typewriter">
+                                <div class="mini-card-details">Playwriting</div>
                             </div>
-                            <div class="mini-card" data-bg="../assets/Images/freepik__expand__84176 (1).webp"
-                                data-title="INNO PITCH"
-                                data-description="Pitch your startup ideas to top VCs and tech mentors.">
-                                <img src="../assets/Images/freepik__expand__84176 (1).webp" alt="Startup Pitch Contest">
-                                <div class="mini-card-details">INNO PITCH</div>
+
+                            <!-- Card 4 -->
+                            <div class="mini-card" data-bg="../assets/Images/16thworldlogodesign.webp"
+                                data-title="16th WOLDA Worldwide Logo Design Award"
+                                data-description="An international competition for logos and business stationery, honoring the world's best work in logo design. Winners are published, receive certificates, and gain media coverage."
+                                data-link="https://wolda.org/">
+                                <img src="../assets/Images/16thworldlogodesign.webp"
+                                    alt="A collection of colorful logo designs on a mood board">
+                                <div class="mini-card-details">Logo Design</div>
                             </div>
-                            <div class="mini-card" data-bg="../assets/Images/freepik__expand__92815 (1).webp"
-                                data-title="MARKET MAVEN"
-                                data-description="Showcase your marketing brilliance through real-world strategy challenges.">
-                                <img src="../assets/Images/freepik__expand__92815 (1).webp" alt="Marketing Contest">
-                                <div class="mini-card-details">MARKET MAVEN</div>
+
+                            <!-- Card 5 -->
+                            <div class="mini-card" data-bg="../assets/Images/imaginecup.webp"
+                                data-title="Microsoft Imagine Cup"
+                                data-description="A global technology competition for students to solve real-world problems using Microsoft Azure. The challenge encourages innovation, collaboration, and critical thinking. Benefits include cash prizes, mentorship, and global recognition."
+                                data-link="https://imaginecup.microsoft.com/">
+                                <img src="../assets/Images/imaginecup.webp" alt="Microsoft Imagine Cup Logo">
+                                <div class="mini-card-details">Innovation</div>
                             </div>
                         </div>
                     </div>
@@ -517,6 +539,7 @@
             </div>
         </div>
     </div>
+
 
     <a onclick="scrollToTop()" class="scroll-top-btn" aria-label="Scroll to top">
         <i class="fa-solid fa-arrow-up"></i>

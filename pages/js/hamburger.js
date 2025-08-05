@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (scrollTopBtn) {
     const scrollTargets = [
       "#all-contests",
-      ".recommendations-section",
+      ".section-header",
       ".hero-section",
     ];
 

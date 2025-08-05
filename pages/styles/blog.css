@@ -1,0 +1,467 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand:wght@300..700&family=Russo+One&family=Syncopate:wght@400;700&display=swap");
+
+/* ============================================= */
+/* ==        SITE-WIDE VARIABLES & DEFAULTS   == */
+/* ============================================= */
+:root {
+  --header-height: 70px;
+  --accent-glow: #00f0ff;
+  --primary-color: #00e0ff;
+  --color-primary-hover: #00a8cc;
+  --color-background: #0d0d0d;
+  --color-card-bg: #1a1a1a;
+  --color-text: #e0e0e0;
+  --color-text-dim: #a0a0a0;
+  --color-border: #2a2a2a;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+  --sustainability-highlight: #2ecc71;
+  --sustainability-shadow: rgba(46, 204, 113, 0.3);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden;
+  font-family: "Quicksand", sans-serif;
+}
+
+/* ============================================= */
+/* ==                 PRELOADER               == */
+/* ============================================= */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid var(--accent-glow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================= */
+/* ==            HEADER & NAVIGATION          == */
+/* ============================================= */
+
+.site-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: rgba(10, 10, 10, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  gap: 1.5rem;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+  font-family: "Russo One", sans-serif;
+  color: #fff;
+}
+
+.header-logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hopper-text {
+  color: var(--primary-color);
+}
+
+#logo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  filter: contrast(1) brightness(1);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--primary-color);
+}
+
+.nav-btn {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.sustainability-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 48px 10px 20px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #0a8a77, #015c61);
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.leaf-icon {
+  position: absolute;
+  right: 6px;
+  width: 33px;
+  height: 33px;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.sustainability-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px var(--sustainability-shadow);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.searchbar-wrapper {
+  position: relative;
+}
+
+.searchbar-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-width: 300px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.searchbar-container:hover {
+  box-shadow: 0 8px 24px rgba(0, 240, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.searchbar-container i {
+  color: #ccc;
+  position: absolute;
+  left: 16px;
+  pointer-events: none;
+}
+
+.searchbar {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  color: white;
+}
+
+.searchbar:focus {
+  outline: none;
+}
+.searchbar::placeholder {
+  color: #bbb;
+}
+
+/* ... (other existing search and nav styles are fine) ... */
+
+/* ============================================= */
+/* ==       MAIN CONTENT & BLOG STYLES        == */
+/* ============================================= */
+
+/* Add top padding to push content below the fixed header */
+.main-content {
+  padding: calc(var(--header-height) + 40px) 0;
+}
+
+/* A standard container to center content */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.blog-post {
+  background-color: var(--color-card-bg);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+.post-title {
+  font-size: 2.2rem;
+  font-family: "Russo One", sans-serif;
+  color: var(--color-text);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: calc(var(--border-radius) - 4px);
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.post-content p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--color-background);
+  background-color: var(--primary-color);
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed);
+}
+
+.read-more:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ============================================= */
+/* ==                 FOOTER                  == */
+/* ============================================= */
+.footer {
+  background-color: var(--color-background);
+  color: var(--color-text-dim);
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ============================================= */
+/* ==           RESPONSIVE STYLES             == */
+/* ============================================= */
+@media (max-width: 1024px) {
+  .main-nav,
+  .header-actions-desktop {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .site-header {
+    padding: 0 1.5rem;
+  }
+  .mobile-nav-links {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .mobile-signin {
+    width: 30%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 1.8rem;
+  }
+  .blog-post {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    height: 60px;
+    padding: 0 0.8rem;
+  }
+  .header-logo {
+    font-size: 1.2rem;
+  }
+  #logo {
+    height: 30px;
+  }
+  .searchbar-container {
+    min-width: 120px;
+  }
+  .search-results {
+    min-width: 380px;
+    left: -195px;
+  }
+  .mobile-nav-links a {
+    font-size: 1rem;
+  }
+}
+
+/* (Include the rest of your existing hamburger/mobile nav CSS here if it's not already covered) */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(15px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+}
+.mobile-nav-overlay.active {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+.mobile-nav-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.close-nav {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+.mobile-nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+.mobile-nav-links a:hover,
+.mobile-nav-links a:focus {
+  color: var(--primary-color);
+  background: rgba(0, 240, 255, 0.1);
+  transform: translateX(10px);
+}
+.mobile-signin {
+  margin-top: 1rem;
+}
+.mobile-signin .signin-btn {
+  width: 100%;
+}
+.mobile-signin .signin-btn a {
+  padding: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+}

@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
   const heroTitle = document.getElementById("heroTitle");
   const heroDescription = document.getElementById("heroDescription");
   const heroText = document.querySelector(".hero-text");
+  const heroApplyButton = document.querySelector("#dynamicLink");
   const slideLeftBtn = document.getElementById("slide-left");
   const slideRightBtn = document.getElementById("slide-right");
 
@@ -45,6 +46,7 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       heroImage.src = activeCard.dataset.bg || "";
       heroTitle.textContent = activeCard.dataset.title || "No Title";
+      heroApplyButton.href = activeCard.dataset.link || "#";
       heroDescription.textContent =
         activeCard.dataset.description || "No Description";
       heroImage.classList.remove("is-fading");
