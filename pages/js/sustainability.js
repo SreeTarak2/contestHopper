@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentVideo = videos[currentIndex];
         const nextVideo = videos[nextIndex];
 
-        // GSAP Timeline for smooth, overlapping animations
         const tl = gsap.timeline({
             onComplete: () => {
                 currentVideo.classList.remove("active");
@@ -28,15 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         tl.to(currentVideo, { opacity: 0, duration: 1.2, ease: "power2.inOut" })
-          .to(nextVideo, { opacity: 1, duration: 1.2, ease: "power2.inOut" }, "-=0.8"); // Overlap animation
+          .to(nextVideo, { opacity: 1, duration: 1.2, ease: "power2.inOut" }, "-=0.8");
         
         nextVideo.classList.add("active");
         nextVideo.play();
     };
 
-    // Event Listeners
     previewBox.addEventListener("click", changeVideo);
-    
+
     previewBox.addEventListener("mouseenter", () => {
         previewVideo.play();
     });
@@ -46,8 +44,17 @@ document.addEventListener("DOMContentLoaded", () => {
         previewVideo.currentTime = 0;
     });
 
-    // Initialize
     videos.forEach(vid => vid.pause());
     videos[currentIndex].play();
     updatePreview();
 });
+
+// window.addEventListener("load", () => {
+//     const loadingOverlay = document.getElementById("loadingOverlay");
+//     if (loadingOverlay) {
+//         setTimeout(() => {
+//             loadingOverlay.classList.add("hidden");
+//             document.body.style.overflow = "auto";
+//         }, 500);
+//     }
+// });

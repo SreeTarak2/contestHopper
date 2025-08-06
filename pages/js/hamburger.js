@@ -91,3 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
     updateBubbles();
   }
 });
+
+window.addEventListener("load", () => {
+    const loadingOverlay = document.getElementById("loadingOverlay");
+    if (loadingOverlay) {
+        setTimeout(() => {
+            loadingOverlay.classList.add("hidden");
+            document.body.style.overflow = "auto";
+        }, 500);
+    }
+});

@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
     <header class="site-header">
         <div class="header-logo">
             <a href="../index.html">
@@ -33,7 +36,6 @@
             </ul>
         </nav>
 
-        <!-- Search Bar (Desktop and Mobile) - Always Outside Hamburger Menu -->
         <div class="searchbar-wrapper">
             <div class="searchbar-container">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -70,14 +72,16 @@
             <a href="./about.html">About</a>
             <a href="./contact.html">Contact us</a>
             <a href="./donate.html">Donate</a>
+            <a href="./signin.html">Login</a>
         </nav>
 
-        <div class="mobile-signin">
+        <!-- <div class="mobile-signin">
             <div class="signin-btn">
                 <a href="signin.html">Sign In</a>
             </div>
-        </div>
+        </div> -->
     </div>
+
     <main>
         <section class="hero-section">
             <div class="hero-video-wrapper">
@@ -117,6 +121,8 @@
         <section class="sustainability-initiatives"></section>
     </main>
     <script src="./js/sustainability.js"></script>
+    <script src="./js/hamburger.js"></script>
+
 </body>
 
 </html>

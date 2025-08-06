@@ -26,18 +26,17 @@
         <!-- Main Navigation (Desktop only) -->
         <nav class="main-nav">
             <ul>
-                <li><a href="./pages/contests.html" class="nav-btn">Contests</a></li>
+                <li><a href="./contests.html" class="nav-btn">Contests</a></li>
                 <li>
-                    <a href="./pages/sustainability.html" class="sustainability-btn">
+                    <a href="./sustainability.html" class="sustainability-btn">
                         Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
                             class="leaf-icon">
                     </a>
                 </li>
-                <li><a href="./pages/blog.html" class="nav-btn">Blog</a></li>
+                <li><a href="./blog.html" class="nav-btn">Blog</a></li>
             </ul>
         </nav>
 
-        <!-- Search Bar (Desktop and Mobile) - Always Outside Hamburger Menu -->
         <div class="searchbar-wrapper">
             <div class="searchbar-container">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -74,13 +73,14 @@
             <a href="./about.html">About</a>
             <a href="./contact.html">Contact us</a>
             <a href="./donate.html">Donate</a>
+            <a href="./signin.html">Login</a>
         </nav>
 
-        <div class="mobile-signin">
+        <!-- <div class="mobile-signin">
             <div class="signin-btn">
                 <a href="signin.html">Sign In</a>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <main>
@@ -94,31 +94,42 @@
                 <img id="heroImage" src="../assets/Images/2025globalphotography.webp"
                     alt="Global Photography Awards Logo" />
             </div>
+
             <div class="hero-content">
                 <div class="hero-text">
-                    <!-- The initial title and description are set from the first data item -->
-                    <h2 class="contest-title" id="heroTitle">2025 Global Photography Awards</h2>
-                    <h5 class="contest-subtitle" id="heroDescription">An international photography competition
-                        celebrating unique perspectives behind every photograph, open to professionals, amateurs, and
-                        students. Participants can showcase their talent globally and compete in multiple categories
-                        with the opportunity to gain worldwide recognition.</h5>
-                    <!-- The initial link is set from the first data item -->
-                    <a href="https://www.infodesigners.eu/photography-competitions/2025-global-photography-awards"
-                        class="hero-button" target="_blank" id="dynamicLink">
-                        <span>Apply Now</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    <div class="hero-text-content">
+                        <!-- The initial title and description are set from the first data item -->
+                        <h2 class="contest-title" id="heroTitle">2025 Global Photography Awards</h2>
+                        <h5 class="contest-subtitle" id="heroDescription">An international photography competition
+                            celebrating unique perspectives behind every photograph, open to professionals, amateurs,
+                            and
+                            students. Participants can showcase their talent globally and compete in multiple categories
+                            with the opportunity to gain worldwide recognition.</h5>
+                    </div>
+
+                    <div class="hero-button-container">
+                        <!-- The initial link is set from the first data item -->
+                        <a href="https://www.infodesigners.eu/photography-competitions/2025-global-photography-awards"
+                            class="hero-button" target="_blank" id="dynamicLink">
+                            <span>Apply Now</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
+
                 <div class="hero-slider-container">
                     <div class="slider-controls">
-                        <button class="slider-btn" id="slide-left" aria-label="Slide Left"><i
-                                class="fa-solid fa-chevron-left"></i></button>
-                        <button class="slider-btn" id="slide-right" aria-label="Slide Right"><i
-                                class="fa-solid fa-chevron-right"></i></button>
+                        <button class="slider-btn" id="slide-left" aria-label="Slide Left">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-btn" id="slide-right" aria-label="Slide Right">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
                         <div class="pagination-dots" id="pagination-dots">
-                            <!-- dynamic adding  -->
+                            <!-- Dynamic dots will be added here -->
                         </div>
                     </div>
+
                     <div class="slider-viewport">
                         <div class="slider-wrapper" id="sliderWrapper">
                             <div class="mini-card active" data-bg="../assets/Images/2025globalphotography.webp"
@@ -173,7 +184,6 @@
                 </div>
             </div>
         </section>
-
         <!-- ============================================= -->
         <!-- == TOP TRENDING SECTION == -->
         <!-- ============================================= -->
