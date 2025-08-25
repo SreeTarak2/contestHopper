@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./pages/styles/contests.css">
+</head>
+
+<body>
+    <header class="site-header">
+
+        <!-- Hamburger Menu Trigger (Mobile only) -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="header-logo">
+            <a href="../index.html">
+                Contest <span class="hopper-text">Hopper</span>
+            </a>
+            <img id="logo" src="../assets/Final Logo/logocopy.png" alt="logo">
+        </div>
+
+        <!-- Main Navigation (Desktop only) -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="./contests.html" class="nav-btn">Contests</a></li>
+                <li>
+                    <a href="./sustainability.html" class="sustainability-btn">
+                        Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
+                            class="leaf-icon">
+                    </a>
+                </li>
+                <li><a href="./blog.html" class="nav-btn">Blog</a></li>
+                <!-- <li><a href="./blog.html" class="nav-btn">About</a></li>
+                <li><a href="./blog.html" class="nav-btn">Contact Us</a></li> -->
+            </ul>
+        </nav>
+
+        <div class="searchbar-wrapper">
+            <div class="searchbar-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search" class="searchbar" id="searchInput" autocomplete="off">
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+        
+        <div class="user-profile">
+            <img src="" alt="" srcset="">
+        </div>
+        <div class="signin-btn">
+            <a href="./login.html">Login</a>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="mobile-nav-header">
+            <button class="close-nav" id="closeNav" aria-label="Close menu">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="mobile-nav-links">
+            <a href="./contests.html">Contests</a>
+            <a href="./sustainability.html" class="sustainability-btn">
+                Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
+                    class="leaf-icon">
+            </a>
+            <a href="./blog.html">Blog</a>
+            <a href="./about.html">About</a>
+            <a href="./contact.html">Contact us</a>
+            <a href="./donate.html">Donate</a>
+            <a href="./login.html">Login</a>
+        </nav>
+
+        <!-- <div class="mobile-signin">
+            <div class="signin-btn">
+                <a href="signin.html">Sign In</a>
+            </div>
+        </div> -->
+    </div>
+</body>
+
+</html>

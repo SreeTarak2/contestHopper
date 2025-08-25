@@ -1,58 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Modern Blog</title>
+    <title>Contest Hopper | Blog </title>
+    <meta name="description"
+        content="Explore the Contest Hopper blog for inspiring stories, sustainability insights, and global competition updates.">
+    <link rel="icon" href="../assets/Final Logo/logocopy.png" type="image/png">
     <link rel="stylesheet" href="./styles/blog.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
-
-    <!-- <div class="loading-overlay" id="loadingOverlay">
-        <div class="loader"></div>
-    </div> -->
     <header class="site-header">
+        <!-- Hamburger Menu Trigger (Mobile only) -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="header-logo">
             <a href="../index.html">
-                Contest <span class="hopper-text">Hopper</span>
+                <img id="logo" src="../assets/Final Logo/headerlogo.webp" alt="logo">
             </a>
-            <img id="logo" src="../assets/Final Logo/logocopy.png" alt="logo">
         </div>
 
         <!-- Main Navigation (Desktop only) -->
         <nav class="main-nav">
             <ul>
-                <li><a href="./pages/contests.html" class="nav-btn">Contests</a></li>
-                <li><a href="./pages/competitions.html" class="nav-btn">Competitions</a></li>
-                <li><a href="./pages/hackathons.html" class="nav-btn">Hackathons</a></li>
+                <li><a href="./contests.html" class="nav-btn">Contests</a></li>
                 <li>
-                    <a href="./pages/sustainability.html" class="sustainability-btn">
+                    <a href="./sustainability.html" class="sustainability-btn">
                         Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
                             class="leaf-icon">
                     </a>
                 </li>
-                <li><a href="./pages/blog.html" class="nav-btn">Blog</a></li>
+                <li><a href="./blog.html" class="nav-btn">Blog</a></li>
+                <!-- <li><a href="./blog.html" class="nav-btn">About</a></li>
+                <li><a href="./blog.html" class="nav-btn">Contact Us</a></li> -->
             </ul>
         </nav>
 
-        <!-- Search Bar (Desktop and Mobile) - Always Outside Hamburger Menu -->
         <div class="searchbar-wrapper">
             <div class="searchbar-container">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" placeholder="Search" class="searchbar" id="searchInput" autocomplete="off">
             </div>
 
+            <div class="signin-btn">
+                <a href="./login.html">Login</a>
+            </div>
+
             <div class="search-results" id="searchResults"></div>
         </div>
 
-        <!-- Hamburger Menu Trigger (Mobile only) -->
-        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay"
-            aria-expanded="false">
-            <i class="fa-solid fa-bars"></i>
-        </button>
     </header>
 
     <div class="mobile-nav-overlay" id="mobileNavOverlay" role="dialog" aria-modal="true" aria-hidden="true">
@@ -68,57 +69,881 @@
                 Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
                     class="leaf-icon">
             </a>
+            <a href="./blog.html">Blog</a>
             <a href="./about.html">About</a>
             <a href="./contact.html">Contact us</a>
             <a href="./donate.html">Donate</a>
+            <a href="./login.html">Login</a>
         </nav>
 
-        <div class="mobile-signin">
+        <!-- <div class="mobile-signin">
             <div class="signin-btn">
                 <a href="signin.html">Sign In</a>
             </div>
-        </div>
+        </div> -->
     </div>
 
-    <main class="main-content">
-        <div class="container">
-            <article class="blog-post">
-                <h2 class="post-title">The Art of Minimalist Web Design</h2>
-                <p class="post-meta">Published on <time datetime="2025-07-15">July 15, 2025</time> by Admin</p>
-                <img src="../assets/Images/105a9273-f629-4eb1-bd89-c15fadc0d964.webp" alt="Abstract placeholder image" class="post-image">
-                <div class="post-content">
-                    <p>Minimalist web design is not just about removing unnecessary elements; it's a philosophy that
-                        prioritizes content and user experience. By embracing white space and clean typography, we can
-                        create websites that are both beautiful and easy to navigate.</p>
-                    <p>This approach leads to faster load times and better performance across all devices, which is
-                        crucial in today's mobile-first world. A minimalist design helps users focus on what's
-                        important: your message.</p>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-            </article>
 
-            <article class="blog-post">
-                <h2 class="post-title">Responsive Design in 2025</h2>
-                <p class="post-meta">Published on <time datetime="2025-07-10">July 10, 2025</time> by Admin</p>
-                <img src="../assets/Images/02857639-7b97-4975-bd39-6323ba084224.webp" alt="Abstract placeholder image" class="post-image">
-                <div class="post-content">
-                    <p>In 2025, responsive design is no longer a "nice-to-have" feature; it's a necessity. With a
-                        growing number of devices and screen sizes, ensuring your website looks great on all of them is
-                        essential for reaching a wider audience.</p>
-                    <p>Using flexible grids, media queries, and responsive images are the core principles of creating a
-                        truly responsive experience. These techniques allow your layout to adapt gracefully to any
-                        device, from a small smartphone to a large desktop monitor.</p>
-                    <a href="#" class="read-more">Read More</a>
+    <main class="main-content" role="main">
+        <!-- FEATURED POST SECTION -->
+        <section class="featured-post-section" aria-label="Featured blog post">
+            <div class="featured-posts-container">
+                <div class="featured-post" data-index="0">
+                    <a href="./blog-details.html" class="full-link" aria-label="Read more about Youth Leading the Way"
+                        target="_blank"></a>
+
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80"
+                            alt="A lush green forest canopy seen from above, symbolizing sustainability.">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Featured Article</span>
+                        <h2 class="featured-title">
+                            <a href="#">Youth Leading the Way in Global Sustainability Challenges</a>
+                        </h2>
+                        <p class="featured-excerpt">
+                            Explore inspiring stories from young changemakers driving innovative, tech-driven solutions
+                            in
+                            sustainability competitions worldwide. From carbon capture to circular economies, the next
+                            generation is building our future.
+                        </p>
+                        <div class="featured-meta">
+                            <span class="blog-author">By Contest Hopper</span>
+                            <span class="blog-date">June 10, 2025</span>
+                            <span class="read-time"><i class="fa-regular fa-clock" aria-hidden="true"></i> 6 min
+                                read</span>
+                        </div>
+                    </div>
                 </div>
-            </article>
-        </div>
+
+                <div class="featured-post" data-index="1">
+                    <a href="./blog-details.html" class="full-link"
+                        aria-label="Read more about Youth Leading the Way"></a>
+
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80"
+                            alt="A lush green forest canopy seen from above, symbolizing sustainability.">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Featured Article</span>
+                        <h2 class="featured-title">
+                            <a href="#">Youth Leading the Way in Global Sustainability Challenges</a>
+                        </h2>
+                        <p class="featured-excerpt">
+                            Explore inspiring stories from young changemakers driving innovative, tech-driven solutions
+                            in
+                            sustainability competitions worldwide. From carbon capture to circular economies, the next
+                            generation is building our future.
+                        </p>
+                        <div class="featured-meta">
+                            <span class="blog-author">By Contest Hopper</span>
+                            <span class="blog-date">June 10, 2025</span>
+                            <span class="read-time"><i class="fa-regular fa-clock" aria-hidden="true"></i> 6 min
+                                read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-post" data-index="2">
+                    <a href="./blog-details.html" class="full-link"
+                        aria-label="Read more about Youth Leading the Way"></a>
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80"
+                            alt="A lush green forest canopy seen from above, symbolizing sustainability.">
+                    </div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Featured Article</span>
+                        <h2 class="featured-title">
+                            <a href="#">Youth Leading the Way in Global Sustainability Challenges</a>
+                        </h2>
+                        <p class="featured-excerpt">
+                            Explore inspiring stories from young changemakers driving innovative, tech-driven solutions
+                            in
+                            sustainability competitions worldwide. From carbon capture to circular economies, the next
+                            generation is building our future.
+                        </p>
+                        <div class="featured-meta">
+                            <span class="blog-author">By Contest Hopper</span>
+                            <span class="blog-date">June 10, 2025</span>
+                            <span class="read-time"><i class="fa-regular fa-clock" aria-hidden="true"></i> 6 min
+                                read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="featured-post-overlay">
+            </div> -->
+            <div class="featured-pagination"></div>
+        </section>
+
+        <!-- 
+        //BOOKMARKED POSTS SECTION (Initially hidden)
+        <section class="bookmarked-posts-section" id="bookmarkedPostsSection" aria-labelledby="bookmarked-posts-heading"
+            hidden>
+            <header class="latest-posts-header">
+                <h2 id="bookmarked-posts-heading"><i class="fa-solid fa-bookmark"></i> Your Bookmarks</h2>
+            </header>
+            <div class="blogs-container" id="bookmarkedPostsContainer">
+
+            </div>
+        </section> -->
+
+        <!-- LATEST POSTS SECTION -->
+        <section class="latest-posts-section" aria-labelledby="latest-posts-heading">
+            <header class="latest-posts-header">
+                <h1 id="latest-posts-heading">Latest Posts</h1>
+                <p class="blog-intro">
+                    Dive into inspiring global challenges—from sustainable innovations to youth-powered coding contests.
+                </p>
+            </header>
+
+            <div class="filter-controls">
+                <div class="category-filter" role="group" aria-label="Filter blog categories">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="Sustainability" aria-pressed="false">Sustainability</button>
+                    <button class="filter-btn" data-filter="Climate-Action" aria-pressed="false">Climate Action</button>
+                    <button class="filter-btn" data-filter="Hackathons" aria-pressed="false">Hackathons</button>
+                    <button class="filter-btn" data-filter="Youth-Innovation" aria-pressed="false">Youth
+                        Innovation</button>
+                    <button class="filter-btn" data-filter="AI" aria-pressed="false">AI</button>
+                </div>
+                <div class="sort-control">
+                    <label for="sort-by">Sort by:</label>
+                    <select id="sort-by" name="sort-by" class="sort-dropdown">
+                        <option value="latest">Latest</option>
+                        <option value="oldest">Oldest</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="blogs-container" id="allPostsContainer">
+                <!-- This container is a template. JS will read from here, then clear it and render dynamically. -->
+                <article class="blog-card" data-id="earth-prize-2024" data-date="2025-06-10"
+                    data-category="Sustainability Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="./blog-details.html"><img
+                                src="https://images.unsplash.com/photo-1611078489936-e3c2cde44694?w=800&q=80"
+                                alt="Students with models of wind turbines." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag tag--sustainability">Sustainability</a><a href="#"
+                                class="tag">Youth Innovation</a></div>
+                        <h3 class="blog-title"><a href="./blog-details.html">The Earth Prize 2024: Young Innovators
+                                Combat Climate
+                                Risks</a></h3>
+                        <p class="blog-excerpt">Learn how teenage teams designed award-winning solutions, from
+                            flood-predicting AI
+                            systems to biodegradable diapers.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>June 10, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="./blog-details.html" class="read-more-btn"><i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="un-hackathon" data-date="2025-05-22"
+                    data-category="Hackathons Climate-Action">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80"
+                                alt="People working on laptops at a hackathon." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Hackathons</a><a href="#" class="tag">Climate
+                                Action</a>
+                        </div>
+                        <h3 class="blog-title"><a href="#">UN's 'Reboot The Earth' Hackathon Empowers Youth</a></h3>
+                        <p class="blog-excerpt">Discover how young coders innovated software to address local climate
+                            crises in
+                            cities from Kampala to Helsinki.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 22, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="circular-economy" data-date="2025-06-02"
+                    data-category="Sustainability">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1604598426162-c14392415143?w=800&q=80"
+                                alt="Recycling symbols and green leaves." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag tag--sustainability">Sustainability</a></div>
+                        <h3 class="blog-title"><a href="#">The Circular Economy: A Deep Dive Beyond Recycling</a></h3>
+                        <p class="blog-excerpt">It's more than just bins. Explore the business models and design
+                            principles powering
+                            a waste-free future.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=jane"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Jane Doe</span><span>June 02, 2025</span></div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="tech-comp-guide" data-date="2025-04-15"
+                    data-category="Global-Competition Hackathons">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+                                alt="A team brainstorming around a table." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Global Competition</a><a href="#"
+                                class="tag">Hackathons</a>
+                        </div>
+                        <h3 class="blog-title"><a href="#">The Ultimate Guide to Winning Your Next Tech Competition</a>
+                        </h3>
+                        <p class="blog-excerpt">From ideation to pitching, we break down key strategies that winning
+                            teams use to
+                            stand out in a crowded field.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>Apr 15, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ai-for-good" data-date="2025-03-20"
+                    data-category="Sustainability AI">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1620712943543-95fc69623ba4?w=800&q=80"
+                                alt="Abstract AI visualization." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag tag--sustainability">Sustainability</a><a href="#"
+                                class="tag">AI</a></div>
+                        <h3 class="blog-title"><a href="#">AI for Good: Predicting Wildfires and Saving Ecosystems</a>
+                        </h3>
+                        <p class="blog-excerpt">A look into the startups using machine learning to create early-warning
+                            systems for
+                            natural disasters.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=john"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By John Smith</span><span>Mar 20, 2025</span></div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card" data-id="ocean-cleanup" data-date="2025-05-05"
+                    data-category="Climate-Action Youth-Innovation">
+                    <div class="blog-image">
+                        <a href="#"><img src="https://images.unsplash.com/photo-1551261394-080b432c6393?w=800&q=80"
+                                alt="Boat on the ocean with a net for cleanup." loading="lazy"></a>
+                        <button class="bookmark-btn" aria-label="Bookmark this post"><i
+                                class="fa-regular fa-bookmark"></i></button>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-tags"><a href="#" class="tag">Climate Action</a><a href="#" class="tag">Youth
+                                Innovation</a></div>
+                        <h3 class="blog-title"><a href="#">Youth-Led Initiatives Are Cleaning Up Our Oceans</a></h3>
+                        <p class="blog-excerpt">Meet the high-school teams building low-cost drones and robots to tackle
+                            plastic
+                            pollution in rivers and seas.</p>
+                        <div class="card-footer">
+                            <div class="blog-meta">
+                                <div class="blog-meta-data"><img src="https://i.pravatar.cc/40?u=ch"
+                                        alt="Author avatar">
+                                    <div class="author-data"><span>By Contest Hopper</span><span>May 05, 2025</span>
+                                    </div>
+                                </div>
+                            </div><a href="#" class="read-more-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 My Blog. All rights reserved.</p>
+    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <div class="header-logo">
+                    <a href="../index.html" aria-label="Go to homepage">
+                        Contest <span class="hopper-text">Hopper</span>
+                    </a>
+                    <img id="logo" src="../assets/Final Logo/logocopy.png" alt="Contest Hopper logo">
+                </div>
+                <p>Your platform to discover and participate in global coding contests and challenges.</p>
+                <p class="footer-copy">© 2025 Contest Hopper. All rights reserved.</p>
+            </div>
+
+            <div class="footer-section" aria-label="Quick Links">
+                <h4 class="footer-subtitle">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="contests.html">Contests</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section" aria-label="Policy Links">
+                <h4 class="footer-subtitle">Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section" aria-label="Newsletter and Social Media">
+                <h4 class="footer-subtitle">Stay Connected</h4>
+                <p>Subscribe to our newsletter for the latest contests and updates.</p>
+                <form action="#" method="post" class="newsletter-form" aria-label="Newsletter Signup Form">
+                    <div class="border-wrapper">
+                        <label for="email" class="visually-hidden">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
+
+                <div class="social-icons" aria-label="Social Media Links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
+        <!-- <div class="theme-toggle-container">
+            <button id="theme-toggle" aria-label="Toggle light and dark mode">
+                <i class="fa-solid fa-sun"></i><i class="fa-solid fa-moon"></i>
+            </button>
+        </div> -->
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./js/blog.js" defer></script>
+    <script src="./js/hamburger.js"></script>
+    <!-- <script src="./js/registration.js"></script> -->
 
 </body>
 

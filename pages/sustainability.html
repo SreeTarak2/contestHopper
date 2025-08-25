@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustainability</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="./styles/sustainablility.css">
+
 </head>
 
 <body>
@@ -33,6 +33,8 @@
                     </a>
                 </li>
                 <li><a href="./blog.html" class="nav-btn">Blog</a></li>
+                <!-- <li><a href="./about.html" class="nav-btn">About</a></li>
+                <li><a href="./contactus.html" class="nav-btn">Contact Us</a></li> -->
             </ul>
         </nav>
 
@@ -43,13 +45,12 @@
             </div>
 
             <div class="signin-btn">
-                <a href="signin.html">Sign In</a>
+                <a href="./login.html">Sign In</a>
             </div>
 
             <div class="search-results" id="searchResults"></div>
         </div>
 
-        <!-- Hamburger Menu Trigger (Mobile only) -->
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNavOverlay"
             aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
@@ -69,59 +70,923 @@
                 Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
                     class="leaf-icon">
             </a>
+            <a href="./blog.html">Blog</a>
             <a href="./about.html">About</a>
             <a href="./contact.html">Contact us</a>
             <a href="./donate.html">Donate</a>
-            <a href="./signin.html">Login</a>
+            <a href="./login.html">Login</a>
         </nav>
-
-        <!-- <div class="mobile-signin">
-            <div class="signin-btn">
-                <a href="signin.html">Sign In</a>
-            </div>
-        </div> -->
     </div>
 
     <main>
+
         <section class="hero-section">
-            <div class="hero-video-wrapper">
-                <video class="active" data-index="0" autoplay muted loop playsinline
-                    poster="../assets/Images/2026wiriting.webp">
-                    <source src="../assets/videos/Sustainability_Landing_Page_Video_Created.mp4" type="video/mp4">
-                </video>
-                <video data-index="1" muted loop playsinline poster="../assets/Images/freepik__expand__11770.webp">
-                    <source src="../assets/videos/video2.mp4" type="video/mp4">
-                </video>
-                <video data-index="2" muted loop playsinline poster="../assets/Images/herosectionimg.webp">
-                    <source src="../assets/videos/your_third_video.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="hero-overlay"></div>
+            <div class="slider-container">
+                <!-- Slides -->
+                <div class="slides-wrapper">
+                    <div class="slide"><img
+                            src="https://images.unsplash.com/photo-1528642474498-1af0c17fd8c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
+                            alt="Lush green tea fields"></div>
+                    <div class="slide"><img
+                            src="https://images.unsplash.com/photo-1498855926403-2d886ae1f0b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
+                            alt="Wind turbines in a field"></div>
+                    <div class="slide"><img
+                            src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
+                            alt="Person holding a sapling"></div>
+                    <div class="slide"><img
+                            src="https://images.unsplash.com/photo-1473800447596-01729482b8eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
+                            alt="Solar panels against a blue sky"></div>
+                </div>
 
-            <div class="hero-content">
-                <h1 class="hero-title">Our Commitment to Sustainability</h1>
-                <p class="hero-subtitle">Building a greener, more responsible future, one initiative at a time.</p>
-                <a href="#our-initiatives" class="cta-button">Explore Our Initiatives</a>
-            </div>
+                <!-- Text Content -->
+                <div class="slider-content">
+                    <div class="content-item">
+                        <h1 class="hero-title">Our Commitment to Sustainability</h1>
+                        <p class="hero-subtitle">Building a greener, more responsible future, one initiative at a time.
+                        </p>
+                        <a href="#our-initiatives" class="hero-cta">Explore Our Initiatives</a>
+                    </div>
+                    <div class="content-item">
+                        <span class="slide-number">02</span>
+                        <h2 class="title">Renewable Energy</h2>
+                        <p class="description">Harnessing the power of wind to create clean, reliable, and sustainable
+                            energy.</p>
+                    </div>
+                    <div class="content-item">
+                        <span class="slide-number">03</span>
+                        <h2 class="title">Reforestation Efforts</h2>
+                        <p class="description">Every tree planted is a step towards restoring ecosystems and combating
+                            climate change.</p>
+                    </div>
+                    <div class="content-item">
+                        <span class="slide-number">04</span>
+                        <h2 class="title">Solar Innovation</h2>
+                        <p class="description">Investing in solar technology to power communities with the sun's energy.
+                        </p>
+                    </div>
+                </div>
 
-            <!-- The preview box is now a direct child of the hero section -->
-            <div class="video-preview" id="videoPreview">
-                <video muted loop playsinline></video>
-                <div class="preview-overlay"></div>
-                <div class="preview-label">Next Scene</div>
-                <div class="play-icon"><i class="fas fa-play"></i></div>
-            </div>
-
-            <div class="scroll-indicator">
-                <i class="fa-solid fa-arrow-down"></i>
+                <!-- Navigation -->
+                <div class="slider-nav">
+                    <div class="slide-progress-container">
+                        <div class="slide-progress-bar"></div>
+                    </div>
+                    <button class="nav-button prev-button">
+                        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <svg class="ring" width="60" height="60" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="29" />
+                        </svg>
+                    </button>
+                    <button class="nav-button next-button">
+                        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <svg class="ring" width="60" height="60" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="29" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section>
 
-        <section class="sustainability-intro"></section>
-        <section class="sustainability-initiatives"></section>
+        <!-- ============================================= -->
+        <!-- == 2. NEW INTRO SECTION (THE "WHY")        == -->
+        <!-- ============================================= -->
+        <section class="intro-section" id="intro-section">
+            <!-- Left Content -->
+            <div class="intro-content">
+                <div class="intro-text">
+                    <div class="section-badge">
+                        <i class="fas fa-leaf" style="margin-right: 0.5rem;"></i>
+                        Sustainability Leadership
+                    </div>
+
+                    <h2 class="section-title">The Sustainability Imperative</h2>
+
+                    <p class="section-subtitle">
+                        Sustainability has evolved from a niche concern to a global imperative that is reshaping
+                        markets,
+                        guiding policy, and defining modern corporate responsibility. It is a holistic approach that
+                        balances
+                        environmental health, social equity, and economic vitality to ensure a resilient and thriving
+                        future for all.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="80">0</span><span class="stat-suffix">%</span>
+                            <p class="stat-label">of global consumers are willing to pay more for sustainable products.
+                            </p>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="33.9">0</span><span class="stat-suffix">T</span>
+                            <p class="stat-label">Expected value of ESG-related institutional investments by 2026.</p>
+                        </div>
+                    </div>
+
+                    <div class="cta-container">
+                        <a href="#our-initiatives" class="cta-button">
+                            Explore Our Initiatives
+                            <i class="fas fa-arrow-right cta-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Area -->
+            <div class="intro-visual">
+                <div class="visual-container">
+                    <div class="showcase-wrapper">
+                        <img src="https://images.pexels.com/photos/2861857/pexels-photo-2861857.jpeg"
+                            alt="Solar panels over a green field representing sustainability" class="showcase-image">
+
+                        <div class="showcase-overlay">
+                            <div class="play-button">
+                                <div class="play-icon"></div>
+                            </div>
+                            <div class="showcase-text">Watch Our Impact Story</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating decorative elements -->
+                <div class="floating-elements">
+                    <div class="floating-element circle1"></div>
+                    <div class="floating-element circle2"></div>
+                    <div class="floating-element square"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================= -->
+        <!-- == 2. UN SUSTAINABLE DEVELOPMENT GOALS     == -->
+        <!-- ============================================= -->
+        <section class="sdg-section">
+            <div class="section-header">
+                <h2 class="section-title">The 17 Sustainable Development Goals</h2>
+                <p class="section-subtitle">Adopted by all United Nations Member States in 2015, the SDGs are an urgent
+                    call for action. They are the blueprint to achieve a better and more sustainable future for all.</p>
+            </div>
+
+            <div class="sdg-container">
+                <!-- Goal 1 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://plus.unsplash.com/premium_photo-1682097168134-aeb1d79cfa43?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Charity background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-01.jpg"
+                                alt="Goal 1: No Poverty icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #E5243B;">
+                            <h3>Goal 1: No Poverty</h3>
+                            <p>End poverty in all its forms everywhere, ensuring everyone has equal resources and
+                                opportunities.</p>
+                            <a href="https://sdgs.un.org/goals/goal1" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 2 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/9532033/pexels-photo-9532033.jpeg"
+                                alt="Agriculture background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-02.jpg"
+                                alt="Goal 2: Zero Hunger icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #DDA63A;">
+                            <h3>Goal 2: Zero Hunger</h3>
+                            <p>End hunger, achieve food security and improved nutrition, and promote sustainable
+                                agriculture.</p>
+                            <a href="https://sdgs.un.org/goals/goal2" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 3 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/33127835/pexels-photo-33127835.jpeg"
+                                alt="Healthcare background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-03.jpg"
+                                alt="Goal 3: Good Health and Well-Being icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #4C9F38;">
+                            <h3>Goal 3: Good Health and Well-Being</h3>
+                            <p>Ensure healthy lives and promote well-being for all at all ages, reducing mortality and
+                                fighting diseases.</p>
+                            <a href="https://sdgs.un.org/goals/goal3" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 4 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Education background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-04.jpg"
+                                alt="Goal 4: Quality Education icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #C5192D;">
+                            <h3>Goal 4: Quality Education</h3>
+                            <p>Ensure inclusive and equitable quality education and promote lifelong learning
+                                opportunities for all.</p>
+                            <a href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 5 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://plus.unsplash.com/premium_photo-1675272833937-c92b264491ac?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Gender Equality background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-05.jpg"
+                                alt="Goal 5: Gender Equality icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #FF3A21;">
+                            <h3>Goal 5: Gender Equality</h3>
+                            <p>Achieve gender equality and empower all women and girls, eliminating discrimination and
+                                violence.</p>
+                            <a href="https://sdgs.un.org/goals/goal5" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+                <!-- Goal 6 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/3030316/pexels-photo-3030316.jpeg"
+                                alt="Clean Water background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-06.jpg"
+                                alt="Goal 6: Clean Water icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #26BDE2;">
+                            <h3>Goal 6: Clean Water and Sanitaion</h3>
+                            <p>Ensure availability and sustainable management of water and sanitation for all.</p>
+                            <a href="https://sdgs.un.org/goals/goal6" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 7 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/2861857/pexels-photo-2861857.jpeg"
+                                alt="Clean Energy background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-07.jpg"
+                                alt="Goal 7: Clean Energy icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #FCC30B;">
+                            <h3>Goal 7: Affordable and Clean Energy</h3>
+                            <p>Ensure access to affordable, reliable, sustainable and modern energy for all.</p>
+                            <a href="https://sdgs.un.org/goals/goal7" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 8 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/5717724/pexels-photo-5717724.jpeg"
+                                alt="Decent Work background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-08.jpg"
+                                alt="Goal 8: Decent Work icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #A21942;">
+                            <h3>Goal 8: Decent Work and Economic Growth</h3>
+                            <p>Promote sustained, inclusive and sustainable economic growth, full and productive
+                                employment.</p>
+                            <a href="https://sdgs.un.org/goals/goal8" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 9 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/459728/pexels-photo-459728.jpeg"
+                                alt="Innovation background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-09.jpg"
+                                alt="Goal 9: Innovation icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #FD6925;">
+                            <h3>Goal 9: Industry,Innovation and Infrastructure</h3>
+                            <p>Build resilient infrastructure, promote inclusive and sustainable industrialization and
+                                foster innovation.</p>
+                            <a href="https://sdgs.un.org/goals/goal9" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 10 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/8899244/pexels-photo-8899244.jpeg"
+                                alt="Reduced Inequality background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-10.jpg"
+                                alt="Goal 10: Reduced Inequality icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #e01483;">
+                            <h3>Goal 10: Reduce Inequalities</h3>
+                            <p>Reduce inequality within and among countries by empowering and promoting social
+                                inclusion.</p>
+                            <a href="https://sdgs.un.org/goals/goal10" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 11 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/33231965/pexels-photo-33231965.jpeg"
+                                alt="Sustainable Cities background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-11.jpg"
+                                alt="Goal 11:Sustainable Cities and Communities" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #FD9D24;">
+                            <h3>Goal 11:Sustainable Cities and Communities</h3>
+                            <p>Make cities and human settlements inclusive, safe, resilient and sustainable.</p>
+                            <a href="https://sdgs.un.org/goals/goal11" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 12 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/1267324/pexels-photo-1267324.jpeg"
+                                alt="Responsible Consumption background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-12.jpg"
+                                alt="Goal 12: Responsible Consumption And Production icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #BF8B2E;">
+                            <h3>Goal 12: Responsible Consumption And Production</h3>
+                            <p>Ensure sustainable consumption and production patterns by reducing waste and promoting
+                                recycling.</p>
+                            <a href="https://sdgs.un.org/goals/goal12" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 13 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/20582186/pexels-photo-20582186.jpeg"
+                                alt="Climate Action background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-13.jpg"
+                                alt="Goal 13: Climate Action icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #3F7E44;">
+                            <h3>Goal 13: Climate Action</h3>
+                            <p>Take urgent action to combat climate change and its impacts through policy and
+                                adaptation.</p>
+                            <a href="https://sdgs.un.org/goals/goal13" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 14 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://plus.unsplash.com/premium_photo-1736421942363-087a0ebec563?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Life Below Water background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-14.jpg"
+                                alt="Goal 14: Oceans icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #0A97D9;">
+                            <h3>Goal 14: Life Below Water</h3>
+                            <p>Conserve and sustainably use the oceans, seas and marine resources for sustainable
+                                development.</p>
+                            <a href="https://sdgs.un.org/goals/goal14" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 15 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/33463062/pexels-photo-33463062.jpeg"
+                                alt="Life on Land background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-15.jpg"
+                                alt="Goal 15: Life on Land icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #56C02B;">
+                            <h3>Goal 15: Life on Land</h3>
+                            <p>Protect, restore and promote sustainable use of terrestrial ecosystems and halt
+                                biodiversity loss.</p>
+                            <a href="https://sdgs.un.org/goals/goal15" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 16 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner reverse">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/6077089/pexels-photo-6077089.jpeg"
+                                alt="Peace & Justice background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-16.jpg"
+                                alt="Goal 16: Peace & Justice icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #00689D;">
+                            <h3>Goal 16: Peace,Justice & Strong Institutions</h3>
+                            <p>Promote peaceful and inclusive societies for sustainable development and access to
+                                justice for all.</p>
+                            <a href="https://sdgs.un.org/goals/goal16" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Goal 17 -->
+                <article class="sdg-card">
+                    <div class="sdg-card-inner">
+                        <figure class="sdg-bg-image-container">
+                            <img class="sdg-bg-image"
+                                src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg"
+                                alt="Partnerships background image" />
+                        </figure>
+                        <div class="sdg-card-front">
+                            <img src="https://sdgs.un.org/sites/default/files/goals/E_SDG_Icons-17.jpg"
+                                alt="Goal 17: Partnerships icon" />
+                        </div>
+                        <div class="sdg-card-back" style="--sdg-color: #13496b;">
+                            <h3>Goal 17: Partnerships For the Goals</h3>
+                            <p>Strengthen the means of implementation and revitalize the global partnership for
+                                development.</p>
+                            <a href="https://sdgs.un.org/goals/goal17" target="_blank" rel="noopener noreferrer">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- == 3. UPGRADED IMPACT HUB SECTION          == -->
+        <!-- ============================================= -->
+        <section class="impact-hub-section" id="impact-hub">
+            <div class="impact-hub-content">
+                <div class="section-header">
+                    <h2 class="section-title">Catalyzing Global Change</h2>
+                    <p class="section-subtitle">Innovation is key to a sustainable future. Below are some of the world's
+                        most prestigious contests driving solutions in critical impact areas. Find your inspiration and
+                        join the movement.</p>
+                </div>
+
+                <div class="impact-grid">
+                    <!-- Card 1: The Earthshot Prize -->
+                    <article class="impact-card">
+                        <div class="impact-card__header">
+                            <img src="https://images.unsplash.com/photo-1576231682828-37e571bc172f?auto=format&fit=crop&w=800&q=80"
+                                alt="Lush jungle with a river, representing nature." class="impact-card__bg">
+                            <div class="impact-card__category">Biodiversity</div>
+                        </div>
+                        <div class="impact-card__body">
+                            <h3 class="impact-card__title">The Earthshot Prize</h3>
+                            <p class="impact-card__organizer">Launched by The Royal Foundation</p>
+                            <p class="impact-card__description">A global environmental prize to discover, accelerate,
+                                and scale ground-breaking solutions to repair our planet in five key areas.</p>
+                            <div class="impact-card__details">
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-trophy"></i>
+                                    <span><strong>Prize:</strong> £1 Million per winner</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <span><strong>Status:</strong> Annual Prize</span>
+                                </div>
+                            </div>
+                            <a href="https://earthshotprize.org/" target="_blank" rel="noopener noreferrer"
+                                class="impact-card__cta">Visit Prize Site <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: XPRIZE Carbon Removal -->
+                    <article class="impact-card">
+                        <div class="impact-card__header">
+                            <img src="https://images.unsplash.com/photo-1664667993954-436181053154?auto=format&fit=crop&w=800&q=80"
+                                alt="Direct air capture facility for carbon removal." class="impact-card__bg">
+                            <div class="impact-card__category">Climate & Energy</div>
+                        </div>
+                        <div class="impact-card__body">
+                            <h3 class="impact-card__title">XPRIZE Carbon Removal</h3>
+                            <p class="impact-card__organizer">Funded by the Musk Foundation</p>
+                            <p class="impact-card__description">The largest incentive prize in history, aimed at
+                                fostering solutions that can pull carbon dioxide directly from the atmosphere or oceans.
+                            </p>
+                            <div class="impact-card__details">
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-trophy"></i>
+                                    <span><strong>Prize Pool:</strong> $100 Million</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <span><strong>Status:</strong> Multi-Year Competition</span>
+                                </div>
+                            </div>
+                            <a href="https://www.xprize.org/prizes/carbonremoval" target="_blank"
+                                rel="noopener noreferrer" class="impact-card__cta">Visit Prize Site <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: The Hult Prize -->
+                    <article class="impact-card">
+                        <div class="impact-card__header">
+                            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80"
+                                alt="Textile factory with colorful threads, representing the fashion industry."
+                                class="impact-card__bg">
+                            <div class="impact-card__category">Circular Economy</div>
+                        </div>
+                        <div class="impact-card__body">
+                            <h3 class="impact-card__title">The Hult Prize</h3>
+                            <p class="impact-card__organizer">In partnership with the United Nations</p>
+                            <p class="impact-card__description">Challenges young people to solve pressing social issues
+                                through business. Past themes include fashion, food, and energy.</p>
+                            <div class="impact-card__details">
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-trophy"></i>
+                                    <span><strong>Seed Capital:</strong> $1 Million USD</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <span><strong>Status:</strong> Annual Challenge</span>
+                                </div>
+                            </div>
+                            <a href="https://www.hultprize.org/" target="_blank" rel="noopener noreferrer"
+                                class="impact-card__cta">Visit Prize Site <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: The FoodTech Challenge -->
+                    <article class="impact-card">
+                        <div class="impact-card__header">
+                            <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80"
+                                alt="A vertical farm with lush green plants growing under artificial light."
+                                class="impact-card__bg">
+                            <div class="impact-card__category">Sustainable Agriculture</div>
+                        </div>
+                        <div class="impact-card__body">
+                            <h3 class="impact-card__title">The FoodTech Challenge</h3>
+                            <p class="impact-card__organizer">By the UAE Ministry of Climate Change</p>
+                            <p class="impact-card__description">A global competition seeking the world's most innovative
+                                solutions to food security challenges using technology.</p>
+                            <div class="impact-card__details">
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-trophy"></i>
+                                    <span><strong>Prize Pool:</strong> Up to $2 Million</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <span><strong>Status:</strong> Applications Open Seasonally</span>
+                                </div>
+                            </div>
+                            <a href="https://foodtechchallenge.com/" target="_blank" rel="noopener noreferrer"
+                                class="impact-card__cta">Visit Prize Site <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="view-all-container">
+                    <a href="contests.html?filter=sustainability" class="cta-button">View All Sustainability
+                        Contests</a>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <!-- <h3 class="footer-title">Contest Hopper</h3> -->
+                <div class="header-logo">
+                    <a href="../index.html">
+                        Contest <span class="hopper-text">Hopper</span>
+                    </a>
+                    <img id="logo" src="../assets/Final Logo/logocopy.png" alt="logo">
+                </div>
+                <p>Your ultimate platform to discover and participate in global coding contests, competitions, and
+                    hackathons.</p>
+                <p class="footer-copy">© 2025 Contest Hopper. All rights reserved.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="contests.html">Contests</a></li>
+                    <li><a href="competitions.html">sustainablility</a></li>
+                    <li><a href="hackathons.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="Donate.html">Donate</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Stay Connected</h4>
+                <p>Subscribe to our newsletter for the latest contests and updates.</p>
+                <form action="#" method="post" class="newsletter-form">
+                    <div class="border-wrapper">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Subscribe</button>
+                        <!-- <span class="back-to-top-with-text" onclick="scrollToTop()">
+                            <i class="fa-solid fa-arrow-up"></i>
+                            top
+                        </span> -->
+                    </div>
+                </form>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load GSAP first, then ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+
+    <!-- Load your scripts -->
     <script src="./js/sustainability.js"></script>
     <script src="./js/hamburger.js"></script>
+    <script src="./js/news-section.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                console.error('GSAP or ScrollTrigger is not loaded.');
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            const introTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".intro-section",
+                    start: "top 60%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+            introTl.to(".intro-text", {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            });
+
+            introTl.from([".section-badge", ".section-title", ".section-subtitle"], {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: "power2.out",
+                stagger: 0.2
+            }, "-=0.8");
+
+            introTl.to(".stats-grid", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            }, "-=0.4");
+
+            introTl.from(".cta-container", {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                ease: "power3.out"
+            }, "-=0.3");
+
+            gsap.to(".visual-container", {
+                opacity: 1,
+                scale: 1,
+                rotateY: 0,
+                duration: 1.4,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".intro-visual",
+                    start: "top 70%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+            function animateCounter(element, target) {
+                const counter = { value: 0 };
+                gsap.to(counter, {
+                    value: target,
+                    duration: 2.5,
+                    ease: "power2.out",
+                    onUpdate: () => {
+                        if (target >= 1) {
+                            element.textContent = Math.round(counter.value);
+                        } else {
+                            element.textContent = counter.value.toFixed(1);
+                        }
+                    },
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            }
+
+            document.querySelectorAll('.stat-number').forEach(element => {
+                const target = parseFloat(element.dataset.target);
+                animateCounter(element, target);
+            });
+
+            const showcaseWrapper = document.querySelector('.showcase-wrapper');
+            if (showcaseWrapper) {
+                showcaseWrapper.addEventListener('click', function () {
+                    gsap.to(this, {
+                        scale: 0.96,
+                        duration: 0.1,
+                        yoyo: true,
+                        repeat: 1,
+                        ease: "power2.inOut"
+                    });
+                    console.log('Video/showcase clicked - implement video modal here');
+                });
+            }
+
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    gsap.to(this, {
+                        scale: 0.95,
+                        duration: 0.1,
+                        yoyo: true,
+                        repeat: 1,
+                        ease: "power2.inOut"
+                    });
+                    const target = document.querySelector('#our-initiatives') || document.querySelector('.sdg-section');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+
+            gsap.to(".floating-element", {
+                y: -40,
+                rotation: 5,
+                scrollTrigger: {
+                    trigger: ".intro-section",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.5
+                }
+            });
+
+            gsap.to(".intro-content", {
+                y: -20,
+                scrollTrigger: {
+                    trigger: ".intro-section",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+            gsap.to(".showcase-image", {
+                scale: 1.1,
+                scrollTrigger: {
+                    trigger: ".intro-section",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 2
+                }
+            });
+
+            const impactTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".impact-hub-section",
+                    start: "top 70%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+            impactTl.from(".impact-hub-section .section-header > *", {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: "power2.out",
+                stagger: 0.2
+            });
+
+            impactTl.to(".impact-card", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.2
+            }, "-=0.5");
+        });
+    </script>
 
 </body>
 

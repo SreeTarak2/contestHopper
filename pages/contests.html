@@ -34,6 +34,8 @@
                     </a>
                 </li>
                 <li><a href="./blog.html" class="nav-btn">Blog</a></li>
+                <!-- <li><a href="./blog.html" class="nav-btn">About</a></li>
+                <li><a href="./blog.html" class="nav-btn">Contact Us</a></li> -->
             </ul>
         </nav>
 
@@ -44,7 +46,7 @@
             </div>
 
             <div class="signin-btn">
-                <a href="signin.html">Sign In</a>
+                <a href="./login.html">Login</a>
             </div>
 
             <div class="search-results" id="searchResults"></div>
@@ -70,10 +72,11 @@
                 Sustainability <img src="../assets/Final Logo/sustainability.png" alt="sustainability logo"
                     class="leaf-icon">
             </a>
+            <a href="./blog.html">Blog</a>
             <a href="./about.html">About</a>
             <a href="./contact.html">Contact us</a>
             <a href="./donate.html">Donate</a>
-            <a href="./signin.html">Login</a>
+            <a href="./login.html">Login</a>
         </nav>
 
         <!-- <div class="mobile-signin">
@@ -345,18 +348,16 @@
                     <div class="filter-group">
                         <span class="filter-label">Sort by</span>
                         <div class="segmented-control" id="sortControl">
-                            <!-- <button class="segmented-control__button active" data-sort="ending-soon">Ending
-                                Soon</button> -->
-                            <!-- <button class="segmented-control__button" data-sort="newest">Newest</button> -->
                             <button class="segmented-control__button" data-sort="prize-high-low"
                                 data-alt-sort="prize-low-high">
                                 Prize
                                 <span class="sort-direction-icon"></span>
                             </button>
-                            <!-- <button class="segmented-control__button" data-sort="popular">Popular</button> -->
+                            <!-- You can add more sort buttons later -->
                         </div>
                     </div>
                 </div>
+
             </nav>
 
             <!-- Filter container -->
@@ -368,19 +369,17 @@
                 <aside class="category-filter-container">
                     <div class="filter-group-wrapper">
                         <h3 class="category-filter-title"><span>Categories</span></h3>
-                        <div class="category-filters">
-                            <!-- Dynamically data -->
-                        </div>
+                        <div class="category-filters"></div>
                     </div>
 
                     <!-- Experience Level Filter -->
                     <div class="filter-group-wrapper">
                         <h3 class="category-filter-title"><span>Experience Level</span></h3>
                         <div class="checkbox-filters" id="experience-level-filters">
-                            <div class="checkbox-item">
+                            <!-- <div class="checkbox-item">
                                 <input type="radio" name="experience-level" id="level-beginner" value="beginner">
                                 <label for="level-beginner">Beginner</label>
-                            </div>
+                            </div> -->
                             <div class="checkbox-item">
                                 <input type="radio" name="experience-level" id="level-intermediate"
                                     value="intermediate">
@@ -572,18 +571,8 @@
     <script src="./js/cards.js"></script>
     <script src="./js/searchbar.js"></script>
     <script src="./js/share.js"></script>
+    <script src="./js/registration.js"></script>
 
-    <!-- <script>
-        const lenis = new Lenis();
-        lenis.on('scroll', (e) => {
-
-        })
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-    </script> -->
 </body>
 
 </html>

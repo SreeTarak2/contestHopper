@@ -23,8 +23,9 @@ function getUniqueValues(data, key) {
   const allValues = data.flatMap((item) => item[key] || []);
   if (key === "meta.tags") {
     const allTags = data.flatMap((item) => item.meta.tags || []);
-    return ["All", ...new Set(allTags)].sort();
-  }
+    const uniqueTags = [...new Set(allTags)].sort()
+    return ["All", ...uniqueTags];
+    }
 
   const uniqueValues = [
     ...new Set(
@@ -33,7 +34,7 @@ function getUniqueValues(data, key) {
       )
     ),
   ];
-  return ["all", ...uniqueValues].sort();
+  return ["all", ...uniqueValues];
 }
 
 // Function to populate filters dynamically ---
@@ -408,7 +409,7 @@ function createContestCard(data) {
     `<span><i class="fa-solid fa-tag"></i> ${data.meta.tags.join(", ")}</span>`
   );
   const meta3 = createMeta(`
-    <span><i class="fa-solid fa-trophy"></i> Prize: <strong>${prizeText}</strong></span>
+    <span><i class="fa-solid fa-trophy"></i> Prizes Worth: <strong>${prizeText}</strong></span>
   `);
   const meta4 = createMeta(`
     <span>📅 Starts At: <strong>${
@@ -590,6 +591,8 @@ async function handleHashNavigation() {
     }, 100);
   }, 300);
 }
+
+
 
 // get filters function
 // function getFilters() {

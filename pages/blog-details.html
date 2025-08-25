@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Leading the Way in Global Sustainability Challenges | Contest Hopper</title>
+    <meta name="description"
+        content="An in-depth look at how young innovators are using technology to solve the world's most pressing sustainability issues, showcased in global competitions.">
+
+    <!-- ✅ Inherit all styles and fonts from the main site -->
+    <link rel="stylesheet" href="./styles/blog.css">
+    <!-- ✅ Add the new stylesheet for this specific page -->
+    <link rel="stylesheet" href="./styles/blog-details.css">
+
+    <link rel="icon" href="../assets/Final Logo/logocopy.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="reading-progress-bar" id="readingProgressBar"></div>
+
+    <header class="site-header" role="banner" aria-label="Main site header">
+        <!-- Left side: Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Open mobile navigation" aria-controls="mobileNavOverlay"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <!-- Logo -->
+        <div class="header-logo">
+            <a href="../index.html" aria-label="Go to homepage">
+                <img id="logo" src="../assets/Final Logo/logo.png" alt="Contest Hopper logo">
+            </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="main-nav" role="navigation" aria-label="Primary navigation">
+            <ul>
+                <li><a href="./contests.html" class="nav-btn">Contests</a></li>
+                <li>
+                    <a href="./sustainability.html" class="sustainability-btn">
+                        Sustainability
+                        <img src="../assets/Final Logo/sustainability.png" alt="Sustainability leaf icon"
+                            class="leaf-icon">
+                    </a>
+                </li>
+                <li><a href="./blog.html" class="nav-btn">Blog</a></li>
+                <li><a href="./blog.html" class="nav-btn">More</a></li>
+            </ul>
+        </nav>
+
+        <!-- Search -->
+        <div class="searchbar-wrapper">
+            <button class="search-icon" id="searchToggle" aria-label="Toggle searchbar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="searchbar-container" role="search" aria-label="Blog search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search..." class="searchbar" id="searchInput" autocomplete="off">
+            </div>
+            <div class="search-results" id="searchResults" aria-live="polite"></div>
+        </div>
+
+        <!-- User Profile Trigger -->
+        <div class="user-profile" id="userProfile">
+            <button class="profile-trigger" aria-label="View user profile">
+                <img src="https://avatar.iran.liara.run/username?username=praveen" alt="User avatar" class="avatar">
+            </button>
+
+            <!-- ENHANCED Profile Dropdown with More Details -->
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <img src="https://avatar.iran.liara.run/username?username=praveen" alt="User avatar"
+                        class="avatar-large">
+                    <span class="user-name">Praveen</span>
+                    <span class="email">praveen@gmail.com</span>
+                </div>
+
+                <!-- Main Actions / Navigation -->
+                <nav class="profile-nav">
+                    <a href="#" class="profile-nav-link" data-tooltip="View your dashboard">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="profile-nav-link" data-tooltip="Manage your settings">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Account Settings</span>
+                    </a>
+                </nav>
+
+                <hr class="profile-divider">
+
+                <!-- Quick Access Icons -->
+                <div class="profile-footer">
+                    <a href="#" class="icon-btn icon-btn-heart" aria-label="Favorites" data-tooltip="Favorites"><i
+                            class="fa-solid fa-heart"></i></a>
+                    <a href="#" class="icon-btn icon-btn-bookmark" aria-label="Bookmarks" data-tooltip="Bookmarks"><i
+                            class="fa-solid fa-bookmark"></i></a>
+                </div>
+
+                <hr class="profile-divider">
+
+                <!-- Logout Action -->
+                <div class="profile-logout-section">
+                    <a href="#" class="icon-btn icon-btn-logout" aria-label="Logout" data-tooltip="Logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================= -->
+    <!-- == MOBILE NAVIGATION OVERLAY                == -->
+    <!-- ============================================= -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <!-- Top header -->
+        <div class="mobile-nav-header">
+            <a href="../index.html" class="mobile-logo">
+                Contest <span class="hopper-text">Hopper</span>
+            </a>
+            <button class="close-nav" id="closeNav" aria-label="Close mobile navigation">
+                <i class="fa-solid fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="mobile-nav-links" aria-label="Mobile navigation links">
+            <a href="./contests.html"><i class="fa-solid fa-trophy"></i> Contests</a>
+            <a href="./sustainability.html" class="sustainability-btn"><i class="fa-solid fa-leaf"></i>
+                Sustainability</a>
+            <a href="./blog.html"><i class="fa-solid fa-pen"></i> Blog</a>
+        </nav>
+        <hr class="mobile-nav-divider">
+    </div>
+
+    <main class="main-content" role="main">
+        <div class="article-container">
+            <article class="blog-post-full">
+                <header class="article-header">
+                    <a href="#" class="article-category">Sustainability</a>
+                    <h1 class="article-title">Youth Leading the Way in Global Sustainability Challenges</h1>
+                    <div class="article-meta">
+                        <img src="https://i.pravatar.cc/40?u=contest-hopper" alt="Author avatar" class="author-avatar">
+                        <div class="author-info">
+                            <span class="author-name">By Contest Hopper</span>
+                            <!-- ✅ ENHANCED: Added estimated reading time -->
+                            <span class="publish-date">Published on June 10, 2025 • <i class="fa-solid fa-clock"
+                                    aria-hidden="true"></i> 6 min read</span>
+                        </div>
+                    </div>
+                </header>
+
+                <figure class="article-feature-image">
+                    <!-- ✅ ADDED: Performance - Lazy loading -->
+                    <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200&q=80"
+                        alt="A lush green forest canopy seen from above, symbolizing sustainability." loading="lazy">
+                    <figcaption>The next wave of innovation is being driven by a generation deeply committed to
+                        planetary health.</figcaption>
+                </figure>
+
+                <div class="article-body">
+                    <!-- ✅ ADDED: Advanced - Table of Contents -->
+                    <nav class="table-of-contents" aria-labelledby="toc-heading">
+                        <h2 id="toc-heading" class="toc-title">In This Article</h2>
+                        <ul id="toc-list">
+                            <!-- JS will populate this -->
+                        </ul>
+                    </nav>
+
+                    <p>The narrative around climate change is often one of doom and gloom, dominated by daunting
+                        statistics and political inertia. Yet, bubbling just beneath the surface is a powerful
+                        counter-current of optimism, innovation, and relentless drive, championed by the world's youth.
+                        Global competitions, once the domain of established corporations, are now vibrant arenas where
+                        teenage teams unveil groundbreaking solutions to our most complex sustainability challenges.</p>
+
+                    <h2>From AI-Powered Flood Prediction to Biodegradable Diapers</h2>
+                    <p>At the recent Earth Prize 2024, the winning entries were not just science fair projects; they
+                        were viable, scalable business models with the potential for real-world impact. A team from
+                        Vietnam developed an AI-driven system that analyzes satellite imagery and hydrological data to
+                        predict flash floods with stunning accuracy, giving vulnerable communities precious hours to
+                        prepare. Their work is a testament to how accessible technology can be democratized to save
+                        lives.</p>
+
+                    <blockquote>
+                        "We didn't want to just identify a problem. We wanted to build the solution. The technology is
+                        here; the challenge is applying it with creativity and empathy."
+                    </blockquote>
+
+                    <p>Meanwhile, another finalist team from Kenya tackled the pervasive issue of plastic waste from a
+                        different angle: disposable diapers. Their prototype, made from banana fiber and bamboo, is not
+                        only fully biodegradable but also more absorbent than many commercial alternatives. This kind of
+                        circular economy thinking is becoming a hallmark of youth-led innovation.</p>
+
+                    <!-- ✅ ADDED: Performance - Lazy loading -->
+                    <img class="image-inset"
+                        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+                        alt="Students collaborating on an environmental project with models of wind turbines."
+                        loading="lazy">
+
+                    <h3>Key Takeaways from the Competition Floor:</h3>
+                    <ul>
+                        <li><strong>Interdisciplinary Collaboration:</strong> The most successful teams blended skills
+                            in coding, biology, engineering, and design.</li>
+                        <li><strong>Hyper-Local Focus:</strong> Many projects aimed to solve specific problems within
+                            the innovators' own communities, leading to more practical and effective solutions.</li>
+                        <li><strong>A Bias for Action:</strong> This generation is less interested in debate and more
+                            focused on building, testing, and deploying their ideas.</li>
+                    </ul>
+
+                    <p>These competitions do more than just award prizes. They create a global network of young
+                        changemakers, providing them with mentorship, resources, and a platform to amplify their voices.
+                        As we look to the future, it's clear that the leadership we need may not come from boardrooms,
+                        but from the classrooms and coding clubs of today.</p>
+                </div>
+                <footer class="article-footer">
+                    <div class="social-share">
+                        <span>Share this article:</span>
+                        <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="article-tags">
+                        <a href="#" class="tag tag--sustainability">Sustainability</a>
+                        <a href="#" class="tag">Youth Innovation</a>
+                    </div>
+                </footer>
+
+            </article>
+
+            <nav class="post-navigation">
+                <a href="blog.html" class="back-to-blog"><i class="fa-solid fa-arrow-left"></i> Back to All Posts</a>
+                <a href="#" class="next-post">Next Article <i class="fa-solid fa-arrow-right"></i></a>
+            </nav>
+        </div>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <div class="header-logo">
+                    <a href="../index.html" aria-label="Go to homepage">
+                        Contest <span class="hopper-text">Hopper</span>
+                    </a>
+                    <img id="logo" src="../assets/Final Logo/logocopy.png" alt="Contest Hopper logo">
+                </div>
+                <p>Your platform to discover and participate in global coding contests and challenges.</p>
+                <p class="footer-copy">© 2025 Contest Hopper. All rights reserved.</p>
+            </div>
+
+            <div class="footer-section" aria-label="Quick Links">
+                <h4 class="footer-subtitle">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="contests.html">Contests</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section" aria-label="Policy Links">
+                <h4 class="footer-subtitle">Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section" aria-label="Newsletter and Social Media">
+                <h4 class="footer-subtitle">Stay Connected</h4>
+                <p>Subscribe to our newsletter for the latest contests and updates.</p>
+                <form action="#" method="post" class="newsletter-form" aria-label="Newsletter Signup Form">
+                    <div class="border-wrapper">
+                        <label for="email" class="visually-hidden">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
+
+                <div class="social-icons" aria-label="Social Media Links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- <script src="./js/blog.js" defer></script> -->
+    <script src="./js/hamburger.js"></script>
+    <script src="./js/blog-details.js"></script>
+    <script>
+        const profileTrigger = document.querySelector(".profile-trigger");
+        const profileDropdown = document.getElementById("profileDropdown");
+
+        profileTrigger.addEventListener("click", () => {
+            profileDropdown.classList.toggle("active");
+        });
+
+        // Toggle searchbar on mobile
+        const searchToggle = document.getElementById("searchToggle");
+        const searchbarContainer = document.querySelector(".searchbar-container");
+
+        searchToggle?.addEventListener("click", () => {
+            console.log("click");
+            searchbarContainer?.classList.toggle("active");
+        });
+
+
+    </script>
+</body>
+
+</html>

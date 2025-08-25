@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Contest Hopper</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Russo+One&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/blog.css">
+    <style>
+        /* ============================================= */
+        /* ==          ROOT & GLOBAL STYLES           == */
+        /* ============================================= */
+        :root {
+            --accent-color: #00f0ff;
+            --danger-color: #ef4444;
+            --card-bg-color: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --heading-color: #f1f5f9;
+            --text-color: #9ca3af;
+            --text-color-light: #e2e8f0;
+            --bg-color: #0b111e;
+            --bg-color-footer: #080d17;
+            --border-radius-card: 16px;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================= */
+        /* ==          HEADER / NAVBAR STYLES         == */
+        /* ============================================= */
+        /* (Includes full scalable navbar CSS) */
+        .site-header {
+            height: 70px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(10, 10, 10, 0.2); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); gap: 1rem;
+        }
+        .header-logo a { font-family: 'Russo One', sans-serif; text-decoration: none; color: white; font-size: 1.5rem; }
+        .hopper-text { color: var(--accent-color); }
+        .main-nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        .nav-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 50px; color: var(--text-color-light); text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.3s ease; }
+        .nav-btn:hover { color: white; border-color: var(--accent-color); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
+        .sustainability-btn { background: linear-gradient(135deg, #0a8a77, #015c61); color: white !important; padding-right: 45px; }
+        .sustainability-btn .leaf-icon { position: absolute; right: 8px; width: 28px; height: 28px; }
+        .nav-item-dropdown { position: relative; }
+        .dropdown-caret { font-size: 0.7rem; margin-left: 8px; transition: transform 0.3s ease; }
+        .nav-item-dropdown:hover .dropdown-caret { transform: rotate(180deg); }
+        .dropdown-menu { position: absolute; top: calc(100% + 10px); left: 50%; width: 180px; list-style: none; padding: 0.5rem; background: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: var(--border-radius-card); backdrop-filter: blur(16px); z-index: 1002; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(10px); transition: all 0.3s ease; }
+        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .dropdown-menu a { display: block; padding: 0.75rem 1rem; color: var(--text-color); text-decoration: none; border-radius: var(--border-radius); transition: all 0.2s ease; }
+        .dropdown-menu a:hover { background-color: rgba(0, 240, 255, 0.1); color: var(--heading-color); }
+        .hamburger { display: none; }
+        @media (max-width: 1024px) { .main-nav, .user-profile { display: none; } .hamburger { display: block; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; } }
+        /* Add other mobile nav overlay styles if needed */
+
+
+        /* ============================================= */
+        /* ==          PROFILE PAGE STYLES            == */
+        /* ============================================= */
+
+        .profile-page-main {
+            padding: 120px 2rem 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-container {
+            background: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+        
+        .page-header {
+            padding: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .tabs-nav {
+            display: flex; gap: 1rem; padding: 0 2.5rem; border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background: none; border: none; color: var(--text-color); font-family: 'Quicksand', sans-serif; font-size: 1rem; font-weight: 700; padding: 1rem 0.5rem; cursor: pointer; position: relative; transition: color 0.3s ease;
+        }
+        .tab-btn:hover { color: var(--heading-color); }
+        .tab-btn::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background-color: var(--accent-color); transform: scaleX(0); transition: transform 0.3s ease; }
+        .tab-btn.active { color: var(--accent-color); }
+        .tab-btn.active::after { transform: scaleX(1); }
+
+        .tabs-content { padding: 2.5rem; }
+        .tab-pane { display: none; }
+        .tab-pane.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .profile-grid { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; }
+        .profile-sidebar .avatar-wrapper { position: relative; width: 180px; height: 180px; margin: 0 auto 1.5rem auto; }
+        .profile-sidebar .avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--border-color); }
+        .change-avatar-btn { position: absolute; bottom: 5px; right: 5px; width: 45px; height: 45px; border-radius: 50%; background: var(--accent-color); color: #000; border: none; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .change-avatar-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(0, 240, 255, 0.5); }
+        .profile-sidebar .user-info { text-align: center; }
+        .profile-sidebar .user-info h2 { font-size: 1.8rem; color: var(--heading-color); }
+
+        .profile-details-form fieldset { border: none; margin-bottom: 2rem; }
+        .profile-details-form legend { font-size: 1.5rem; font-weight: 700; color: var(--heading-color); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); width: 100%; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-color-light); }
+        .form-group .label-icon { margin-right: 0.5rem; color: var(--accent-color); }
+        .form-control-static, .form-control { width: 100%; padding: 0.8rem 1rem; font-size: 1rem; border-radius: var(--border-radius); }
+        .form-control { background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-color-light); transition: all 0.3s ease; }
+        .form-control:focus { outline: none; border-color: var(--accent-color); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
+        .form-control-static { display: block; color: var(--text-color); }
+        .form-control { display: none; }
+        .profile-details-form.edit-mode .form-control-static { display: none; }
+        .profile-details-form.edit-mode .form-control { display: block; }
+
+        .form-actions { display: none; gap: 1rem; margin-top: 2rem; }
+        .profile-details-form.edit-mode .form-actions { display: flex; }
+        .profile-details-form.edit-mode #editProfileBtn { display: none; }
+        #editProfileBtn { display: inline-flex; }
+
+        .profile-action-btn { padding: 0.8rem 1.5rem; border-radius: var(--border-radius); font-weight: 700; cursor: pointer; transition: all 0.3s ease; border: 1px solid var(--accent-color); background: transparent; color: var(--accent-color); }
+        .profile-action-btn.primary { background: var(--accent-color); color: #000; }
+        .profile-action-btn:hover { transform: translateY(-2px); }
+        .profile-action-btn.primary:hover { box-shadow: 0 0 15px rgba(0, 240, 255, 0.5); }
+        .btn-danger { border-color: var(--danger-color); color: var(--danger-color); }
+        .btn-danger:hover { background-color: var(--danger-color); color: var(--heading-color); box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+
+        /* Custom Toggle Switch */
+        .notification-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .toggle-switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(255,255,255,0.1); transition: .4s; border-radius: 28px; }
+        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent-color); }
+        input:checked + .slider:before { transform: translateX(22px); }
+
+        /* Bookmarks Tab */
+        .bookmarks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .bookmark-card { background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: var(--border-radius-card); overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .bookmark-card:hover { transform: translateY(-5px); border-color: var(--accent-color); box-shadow: 0 8px 30px rgba(0, 240, 255, 0.1); }
+        .card-image { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-category { display: inline-block; background-color: rgba(0, 240, 255, 0.1); color: var(--accent-color); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.75rem; align-self: flex-start; }
+        .card-title { font-size: 1.2rem; color: var(--heading-color); text-decoration: none; }
+        .card-title:hover { text-decoration: underline; }
+        .card-actions { margin-top: auto; padding-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
+        .view-btn { color: var(--accent-color); text-decoration: none; font-weight: 700; }
+        .remove-bookmark-btn { background: none; border: none; cursor: pointer; color: var(--text-color); font-size: 1.2rem; transition: color 0.3s; }
+        .remove-bookmark-btn:hover { color: var(--danger-color); }
+        .empty-state { grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; border: 2px dashed var(--border-color); border-radius: var(--border-radius-card); }
+
+        /* ============================================= */
+        /* ==              MODAL STYLES               == */
+        /* ============================================= */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-container { background: var(--card-bg-color); border: 1px solid var(--border-color); border-radius: var(--border-radius-card); width: 90%; max-width: 500px; box-shadow: 0 15px 50px rgba(0,0,0,0.5); transform: scale(0.95); transition: transform 0.3s ease; }
+        .modal-overlay.active .modal-container { transform: scale(1); }
+        .modal-header { padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
+        .modal-header h2 { font-size: 1.5rem; color: var(--heading-color); }
+        .modal-close-btn { background: none; border: none; color: var(--text-color); font-size: 1.5rem; cursor: pointer; }
+        .modal-body { padding: 1.5rem; }
+        .modal-body p { margin-bottom: 1rem; }
+        .modal-footer { padding: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; border-top: 1px solid var(--border-color); background: rgba(0,0,0,0.2); }
+
+        /* ============================================= */
+        /* ==              FOOTER STYLES              == */
+        /* ============================================= */
+        .site-footer-main { background-color: var(--bg-color-footer); color: var(--text-color); padding: 4rem 2rem 2rem; border-top: 1px solid var(--border-color); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .footer-about .footer-logo { font-family: 'Russo One', sans-serif; font-size: 1.8rem; color: white; text-decoration: none; margin-bottom: 1rem; display: block; }
+        .footer-links h4 { color: var(--heading-color); font-size: 1.1rem; margin-bottom: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 0.5rem; }
+        .footer-links a { color: var(--text-color); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--accent-color); }
+        .footer-socials { display: flex; gap: 1rem; margin-top: 1rem; }
+        .footer-socials a { color: var(--text-color); font-size: 1.5rem; transition: color 0.3s, transform 0.3s; }
+        .footer-socials a:hover { color: var(--accent-color); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) { .profile-grid { grid-template-columns: 1fr; } .profile-sidebar { border-bottom: 1px solid var(--border-color); padding-bottom: 2rem; } }
+        @media (max-width: 768px) { .page-header h1 { font-size: 2rem; } .tabs-nav { padding: 0 1.5rem; } .tabs-content { padding: 1.5rem; } .footer-grid { text-align: center; } .footer-socials { justify-content: center; } }
+        @media (max-width: 480px) { .profile-page-main { padding: 90px 1rem 2rem 1rem; } }
+    </style>
+</head>
+
+<body>
+    <header class="site-header" role="banner" aria-label="Main site header">
+        <div class="header-logo">
+            <a href="../index.html" aria-label="Go to homepage">
+                Contest <span class="hopper-text">Hopper</span>
+            </a>
+            <img id="logo" src="../assets/Final Logo/logocopy.png" alt="Contest Hopper logo">
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="main-nav" role="navigation" aria-label="Primary navigation">
+            <ul>
+                <li><a href="./contests.html" class="nav-btn">Contests</a></li>
+                <li>
+                    <a href="./sustainability.html" class="sustainability-btn">
+                        Sustainability <img src="../assets/Final Logo/sustainability.png" alt="Sustainability leaf icon"
+                            class="leaf-icon">
+                    </a>
+                </li>
+                <li><a href="./blog.html" class="nav-btn">Blog</a></li>
+            </ul>
+        </nav>
+
+        <div class="searchbar-wrapper">
+            <div class="searchbar-container" role="search" aria-label="Blog search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search the blog..." class="searchbar" id="searchInput"
+                    autocomplete="off">
+            </div>
+
+            <!-- ✅ UPDATED & ENHANCED: User Profile Dropdown -->
+            <div class="user-profile">
+                <button id="profile-trigger" class="profile-trigger" aria-haspopup="true" aria-expanded="false"
+                    aria-label="Open user menu">
+                    <img src="https://i.pravatar.cc/40?u=current_user" alt="User avatar">
+                </button>
+                <div id="profile-dropdown" class="profile-dropdown" role="menu">
+                    <div class="dropdown-header">
+                        <img src="https://i.pravatar.cc/40?u=current_user" alt="User avatar" class="dropdown-avatar">
+                        <div>
+                            <span class="user-name">Alex Ryder</span>
+                            <span class="user-email">alex.ryder@example.com</span>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu-list">
+                        <li>
+                            <a href="./profile.html" role="menuitem">
+                                <i class="fa-solid fa-user-circle"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" role="menuitem">
+                                <i class="fa-solid fa-bookmark"></i>
+                                <span>My Bookmarks</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" role="menuitem">
+                                <i class="fa-solid fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- ✅ MOVED & ENHANCED: Logout button is now footer of dropdown -->
+                    <div class="dropdown-footer">
+                        <a href="#" role="menuitem">
+                            <i class="fa-solid fa-sign-out-alt"></i>
+                            <span>Sign Out</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="search-results" id="searchResults" aria-live="polite"></div>
+        </div>
+        <!-- Hamburger Menu Trigger (Mobile only) -->
+        <button class="hamburger" id="hamburger" aria-label="Open mobile navigation" aria-controls="mobileNavOverlay"
+            aria-expanded="false">
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+    </header>
+
+    <!-- ✅ ADDED: Mobile Navigation Overlay with User Profile Section -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav-header">
+            <button class="close-nav" id="closeNav" aria-label="Close mobile navigation">
+                <i class="fa-solid fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- Main Mobile Links -->
+        <div class="mobile-nav-links">
+            <a href="./contests.html">Contests</a>
+            <a href="./sustainability.html" class="sustainability-btn">
+                Sustainability
+                <img src="../assets/Final Logo/sustainability.png" alt="Sustainability leaf icon" class="leaf-icon">
+            </a>
+            <a href="./blog.html">Blog</a>
+        </div>
+
+        <!-- Divider -->
+        <hr class="mobile-nav-divider">
+
+        <!-- Mobile User Profile Section -->
+        <div class="mobile-user-profile">
+            <div class="mobile-user-info">
+                <img src="https://i.pravatar.cc/40?u=current_user" alt="User avatar">
+                <div class="mobile-user-details">
+                    <span class="user-name">Alex Ryder</span>
+                    <span class="user-email">alex.ryder@example.com</span>
+                </div>
+            </div>
+            <div class="mobile-user-links">
+                <a href="./profile.html"><i class="fa-solid fa-user-circle"></i> My Profile</a>
+                <a href="#"><i class="fa-solid fa-bookmark"></i> My Bookmarks</a>
+                <a href="#"><i class="fa-solid fa-cog"></i> Settings</a>
+            </div>
+            <div class="mobile-signout">
+                <a href="#" class="mobile-signout-btn">
+                    <i class="fa-solid fa-sign-out-alt"></i>
+                    Sign Out
+                </a>
+            </div>
+        </div>
+    </div>
+    <main class="profile-page-main">
+        <div class="profile-container">
+            <header class="page-header">
+                <h1>Account Settings</h1>
+            </header>
+
+            <nav class="tabs-nav">
+                <button class="tab-btn active" data-tab="profileTab">Profile</button>
+                <button class="tab-btn" data-tab="bookmarksTab">My Bookmarks</button>
+            </nav>
+
+            <div class="tabs-content">
+
+                <!-- Profile Settings Pane -->
+                <div id="profileTab" class="tab-pane active">
+                    <div class="profile-grid">
+                        <aside class="profile-sidebar">
+                            <div class="avatar-wrapper">
+                                <img src="https://i.pravatar.cc/180?u=current_user" alt="User Avatar" class="avatar">
+                                <button class="change-avatar-btn" aria-label="Change Avatar"><i class="fa-solid fa-camera"></i></button>
+                            </div>
+                            <div class="user-info">
+                                <h2>Alex Ryder</h2>
+                                <p>alex.ryder@example.com</p>
+                            </div>
+                        </aside>
+
+                        <section id="profileFormContainer" class="profile-details-form">
+                            <fieldset>
+                                <legend>Public Information</legend>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <span class="form-control-static">alexryder</span>
+                                    <input type="text" id="username" class="form-control" value="alexryder">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">About Me</label>
+                                    <span class="form-control-static">A passionate designer and developer exploring the world of creative contests. Big fan of sustainable tech.</span>
+                                    <textarea id="bio" class="form-control" rows="4">A passionate designer and developer exploring the world of creative contests. Big fan of sustainable tech.</textarea>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Social & Professional Links</legend>
+                                <div class="form-group">
+                                    <label for="website"><i class="fa-solid fa-globe label-icon"></i>Personal Website</label>
+                                    <span class="form-control-static">https://alexryder.dev</span>
+                                    <input type="url" id="website" class="form-control" value="https://alexryder.dev" placeholder="https://your-website.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="github"><i class="fa-brands fa-github label-icon"></i>GitHub</label>
+                                    <span class="form-control-static">github.com/alexryder</span>
+                                    <input type="text" id="github" class="form-control" value="github.com/alexryder" placeholder="github.com/username">
+                                </div>
+                            </fieldset>
+                            
+                            <button id="editProfileBtn" class="profile-action-btn primary">Edit Profile</button>
+                            <div class="form-actions">
+                                <button id="saveChangesBtn" class="profile-action-btn primary">Save Changes</button>
+                                <button id="cancelBtn" class="profile-action-btn">Cancel</button>
+                            </div>
+                            
+                            <fieldset style="margin-top: 2rem;">
+                                <legend>Notification Preferences</legend>
+                                <div class="notification-item">
+                                    <span>New contests in your categories</span>
+                                    <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                                </div>
+                                <div class="notification-item">
+                                    <span>Contest deadline reminders</span>
+                                    <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                                </div>
+                                <div class="notification-item">
+                                    <span>Weekly newsletter</span>
+                                    <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                                </div>
+                            </fieldset>
+
+                             <fieldset>
+                                <legend>Security & Account</legend>
+                                <div class="form-group">
+                                    <button id="changePasswordBtn" class="profile-action-btn">Change Password</button>
+                                </div>
+                                <div class="form-group">
+                                    <button id="deleteAccountBtn" class="profile-action-btn btn-danger">Delete Account</button>
+                                </div>
+                            </fieldset>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Bookmarks Pane -->
+                <div id="bookmarksTab" class="tab-pane">
+                    <!-- Bookmarks grid from previous step -->
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer-main">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">Contest<span class="hopper-text">Hopper</span></a>
+                <p>The ultimate hub for creative and technical competitions. Discover, participate, and win.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Contests</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+             <div class="footer-links">
+                <h4>Connect</h4>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Contest Hopper. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="passwordModal" class="modal-overlay">
+        <div class="modal-container">
+            <header class="modal-header">
+                <h2>Change Password</h2>
+                <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </header>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" class="form-control" style="display:block;">
+                </div>
+                 <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" class="form-control" style="display:block;">
+                </div>
+                 <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" style="display:block;">
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button class="profile-action-btn modal-close-btn">Cancel</button>
+                <button class="profile-action-btn primary">Update Password</button>
+            </footer>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal-container">
+             <header class="modal-header">
+                <h2>Delete Account</h2>
+                <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </header>
+            <div class="modal-body">
+                <p>Are you sure you want to delete your account? This action is permanent and cannot be undone. All your data, submissions, and bookmarks will be lost forever.</p>
+                <div class="form-group">
+                    <label for="deleteConfirm">Type "DELETE" to confirm</label>
+                    <input type="text" id="deleteConfirm" class="form-control" style="display:block;" placeholder="DELETE">
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button class="profile-action-btn modal-close-btn">Cancel</button>
+                <button class="profile-action-btn btn-danger">Yes, Delete My Account</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tabs Functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(button.dataset.tab).classList.add('active');
+                });
+            });
+
+            // Profile Edit-Mode Toggle
+            const formContainer = document.getElementById('profileFormContainer');
+            const editBtn = document.getElementById('editProfileBtn');
+            const saveBtn = document.getElementById('saveChangesBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            if(editBtn) editBtn.addEventListener('click', () => formContainer.classList.add('edit-mode'));
+            if(saveBtn) saveBtn.addEventListener('click', () => formContainer.classList.remove('edit-mode'));
+            if(cancelBtn) cancelBtn.addEventListener('click', () => formContainer.classList.remove('edit-mode'));
+            
+            // Modal Functionality
+            const passwordModal = document.getElementById('passwordModal');
+            const deleteModal = document.getElementById('deleteModal');
+            const changePasswordBtn = document.getElementById('changePasswordBtn');
+            const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+            const allModals = document.querySelectorAll('.modal-overlay');
+
+            const openModal = (modal) => modal.classList.add('active');
+            const closeModal = (modal) => modal.classList.remove('active');
+
+            if(changePasswordBtn) changePasswordBtn.addEventListener('click', () => openModal(passwordModal));
+            if(deleteAccountBtn) deleteAccountBtn.addEventListener('click', () => openModal(deleteModal));
+
+            allModals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close-btn')) {
+                        closeModal(modal);
+                    }
+                });
+                // Prevent clicks inside modal from closing it
+                modal.querySelector('.modal-container').addEventListener('click', e => e.stopPropagation());
+            });
+        });
+    </script>
+
+</body>
+</html>
