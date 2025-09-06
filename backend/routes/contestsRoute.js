@@ -8,7 +8,7 @@ const logger = require("../utils/logger");
 const COLLECTION_NAME = process.env.COLLECTION_NAME || "contests";
 
 // ✅ GET all contests
-router.get("/contests", async (req, res) => {
+router.get("/", async (req, res) => {
   const db = await getDB();
   if (!db) {
     logger.error("Database not ready while fetching contests.");
