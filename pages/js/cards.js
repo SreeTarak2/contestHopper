@@ -632,7 +632,7 @@ async function handleHashNavigation() {
 // main function
 async function initializePage() {
   try {
-    const response = await fetch(`${url}/contests`);
+    const response = await fetch(`${url}/api/contests`);
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
     const apiData = await response.json();
     allContestsData = apiData.results || [];
