@@ -26,6 +26,7 @@ const app = express();
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 app.use(express.json());
+app.set("trust proxy", 1);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/contests", apiLimiter, contestRoutes);
