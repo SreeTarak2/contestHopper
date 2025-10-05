@@ -26,6 +26,40 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Get contests according to limit
+router.get("/limited", async (req, res) => {
+  const db = await getDB();
+  if (!db) {
+    logger.error("Database not ready while fetching limited contests.");
+    return res.status(503).json({ error: "Database not ready." });
+  }
+  const limit = parseInt(req.query.limit) || 10;
+  const page = parseInt(req.query.page) || 1;
+  const skip = (page - 1) * limit;
+  try {
+    const [results, totalCount] = await Promise.all([
+      db.collection(COLLECTION_NAME)
+        .find({})
+        .skip(skip)
+        .limit(limit)
+        .toArray(),
+      db.collection(COLLECTION_NAME).countDocuments(),
+    ]);
+
+    res.json({
+      results,
+      totalCount,
+      totalPages: Math.ceil(totalCount / limit),
+      currentPage: page,
+    });
+  } catch (err) {
+    logger.error(`Error occurred while fetching limited contests: ${err.stack}`);
+    res
+      .status(500)
+      .json({ error: "Failed to fetch contests", details: err.message });
+  }
+});
+
 // ✅ Search contests
 router.get("/search", async (req, res) => {
   const db = await getDB();
